@@ -7,9 +7,9 @@ modId = "combat_styles_content"
 version = "${version}"
 displayName = "Combat Styles Content"
 logoFile = "assets/combat_styles_content/icon.png"
-authors = "Pixel Dream Studios"
+authors = "KevzCz, Pixel Dream Studios"
 description = '''
-Rings, necklaces, style books, weapons and the styles that fill out Combat Styles.
+Content made for Combat Styles
 '''
 
 [[dependencies.combat_styles_content]]

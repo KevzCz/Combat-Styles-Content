@@ -3,8 +3,9 @@
   "id": "combat_styles_content",
   "version": "${version}",
   "name": "Combat Styles Content",
-  "description": "Rings, necklaces, style books, weapons and the styles that fill out Combat Styles.",
+  "description": "Content made for Combat Styles",
   "authors": [
+    "KevzCz",
     "Pixel Dream Studios"
   ],
   "contact": {},

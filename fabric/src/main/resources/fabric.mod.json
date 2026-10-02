@@ -30,7 +30,8 @@
     "architectury": ">=13.0.8",
     "fabric-api": "*",
     "combat_styles": "*",
-    "bettercombat": "*"
+    "bettercombat": "*",
+    "geckolib": ">=4.9.0"
   },
   "suggests": {
     "trinkets": "*"

@@ -1,0 +1,24 @@
+{
+  "id": "combat_styles_content:serpents_coil",
+  "rarity": "uncommon",
+  "effects": {
+    "serpents_bite": {
+      "trigger": {
+        "every_nth_swing": 3
+      },
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:cascading"
+        ],
+        "tune_affixes": {
+          "combat_styles_content:cascading": {
+            "damage_multiplier": 1.25
+          }
+        },
+        "augment": {
+          "range_multiplier": 1.08
+        }
+      }
+    }
+  }
+}

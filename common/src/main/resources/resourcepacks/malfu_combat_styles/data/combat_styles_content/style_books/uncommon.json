@@ -1,0 +1,22 @@
+{
+  "rarity": "uncommon",
+  "roll_weight": 10,
+  "min_attacks": 1,
+  "max_attacks": 3,
+  "affix_chance": 0.3,
+  "max_affixes": 1,
+  "random_weight": 50,
+  "roll": {
+    "damage_multiplier": { "min": 0.95, "max": 1.1 },
+    "range_multiplier": { "min": 0.98, "max": 1.06 }
+  },
+  "pool": [
+    { "entry": { "custom_style_id": "combat_styles_content:sword_er_sword_updown_lr" }, "weight": 8 },
+    { "entry": { "custom_style_id": "combat_styles_content:sword_er_sword_updown_rl" }, "weight": 8 },
+    { "entry": { "custom_style_id": "combat_styles_content:sword_er_sword_vert_lr" }, "weight": 8 },
+    { "entry": { "custom_style_id": "combat_styles_content:katana_katana_slash_lr" }, "weight": 8 },
+    { "entry": { "custom_style_id": "combat_styles_content:katana_katana_slash_rl" }, "weight": 8 },
+    { "entry": { "custom_style_id": "combat_styles_content:rapier_axe_rl" }, "weight": 6 },
+    { "entry": { "custom_style_id": "combat_styles_content:dagger_dagger_lr_stab" }, "weight": 6 }
+  ]
+}

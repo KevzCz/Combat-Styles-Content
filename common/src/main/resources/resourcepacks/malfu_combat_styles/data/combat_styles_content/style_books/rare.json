@@ -1,0 +1,25 @@
+{
+  "rarity": "rare",
+  "roll_weight": 10,
+  "min_attacks": 2,
+  "max_attacks": 3,
+  "affix_chance": 0.5,
+  "max_affixes": 1,
+  "random_weight": 25,
+  "roll": {
+    "damage_multiplier": { "min": 1.0, "max": 1.15 },
+    "range_multiplier": { "min": 0.98, "max": 1.08 },
+    "cooldown_scale": { "min": 0.9, "max": 1.0 }
+  },
+  "pool": [
+    { "entry": { "custom_style_id": "combat_styles_content:claymore_claymore_lrl" }, "weight": 7 },
+    { "entry": { "custom_style_id": "combat_styles_content:claymore_claymore_rlr" }, "weight": 7 },
+    { "entry": { "custom_style_id": "combat_styles_content:claymore_claymore_hori_lr" }, "weight": 7 },
+    { "entry": { "custom_style_id": "combat_styles_content:claymore_claymore_hori_rl" }, "weight": 7 },
+    { "entry": { "custom_style_id": "combat_styles_content:greathammer_greataxe_lr" }, "weight": 6 },
+    { "entry": { "custom_style_id": "combat_styles_content:greataxe_greataxe_lr" }, "weight": 6 },
+    { "entry": { "custom_style_id": "combat_styles_content:scythe_axe_updown_lr" }, "weight": 6 },
+    { "entry": { "custom_style_id": "combat_styles_content:halberd_halberd_lr" }, "weight": 6 },
+    { "entry": { "custom_style_id": "combat_styles_content:glaive_glaive_lr" }, "weight": 6 }
+  ]
+}

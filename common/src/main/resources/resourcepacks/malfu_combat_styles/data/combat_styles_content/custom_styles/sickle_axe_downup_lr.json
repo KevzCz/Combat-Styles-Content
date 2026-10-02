@@ -1,0 +1,16 @@
+{
+  "id": "combat_styles_content:sickle_axe_downup_lr",
+  "group": "arcane",
+  "style": {
+    "style": "malfu_combat_animation:axe_downup_lr",
+    "affixes": [
+      "combat_styles_content:momentum"
+    ],
+    "attack": {
+      "damage_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.sickle_axe_downup_lr"
+  },
+  "category": "sickle",
+  "rarity": "common"
+}

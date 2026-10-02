@@ -1,0 +1,33 @@
+{
+  "id": "combat_styles_content:stalking",
+  "weight": 9,
+  "rarity": "uncommon",
+  "cost_modifier": 1.25,
+  "trail": {
+    "color": "#7A8A6A",
+    "glows": false
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.3
+    },
+    "mechanics": {
+      "condition": {
+        "behind_target": true
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:smoke",
+        "count": 5,
+        "spread": 0.25
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.phantom.flap",
+      "volume": 0.25,
+      "pitch": 1.3
+    }
+  }
+}

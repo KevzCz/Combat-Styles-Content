@@ -1,0 +1,40 @@
+{
+  "id": "combat_styles_content:unmaking_grasp",
+  "weight": 1,
+  "rarity": "legendary",
+  "cost_modifier": 2.2,
+  "trail": {
+    "color": "#4A4A52",
+    "glows": false
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "ratio": 0.35
+    },
+    "mechanics": {
+      "control": {
+        "disarm": {
+          "durability_damage": 40,
+          "slowness_seconds": 4,
+          "chance": 0.6
+        }
+      },
+      "cooldown": {
+        "ticks": 100
+      }
+    },
+    "sound": {
+      "id": "minecraft:entity.item.break",
+      "volume": 0.5,
+      "pitch": 0.8
+    },
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 12,
+        "spread": 0.4
+      }
+    ]
+  }
+}

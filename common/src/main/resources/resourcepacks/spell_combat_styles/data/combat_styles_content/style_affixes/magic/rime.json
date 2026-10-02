@@ -1,0 +1,37 @@
+{
+  "id": "combat_styles_content:rime",
+  "weight": 14,
+  "rarity": "common",
+  "cost_modifier": 1.15,
+  "trail": {
+    "color": "#A8DCF0",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "school": "frost",
+      "ratio": 0.15,
+      "scaling": {
+        "source": "spell_power:frost",
+        "per_point": 0.02,
+        "cap": 0.6
+      }
+    },
+    "effects": [
+      {
+        "effect": "minecraft:slowness",
+        "duration": 30,
+        "amplifier": 0,
+        "chance": 1
+      }
+    ],
+    "particles": [
+      {
+        "type": "minecraft:snowflake",
+        "count": 6,
+        "spread": 0.3
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "combat_styles_content:twin_lance",
+  "weight": 0,
+  "rarity": "rare",
+  "cost_modifier": 1.5,
+  "trail": {
+    "color": "#6E97E8",
+    "glows": true
+  },
+  "on_hit": {
+    "mechanics": {
+      "order": {
+        "ability": "combat_styles_content:twin_lance",
+        "damage_ratio": 0.35
+      },
+      "condition": {
+        "slot": {
+          "slot": 0
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:end_rod",
+        "count": 6,
+        "spread": 0.3
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.illusioner_cast_spell",
+      "volume": 0.35,
+      "pitch": 1.6
+    }
+  }
+}

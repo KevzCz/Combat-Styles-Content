@@ -1,0 +1,23 @@
+{
+  "id": "combat_styles_content:stillwater_ring",
+  "rarity": "epic",
+  "effects": {
+    "stillwater_calm": {
+      "trigger": {
+        "idle_ticks": 30
+      },
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:iaijutsu"
+        ],
+        "tune_affixes": {
+          "combat_styles_content:iaijutsu": {
+            "cooldown": 20,
+            "damage_multiplier": 1.2
+          }
+        }
+      },
+      "cooldown": 100
+    }
+  }
+}

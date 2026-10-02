@@ -1,0 +1,18 @@
+{
+  "chance": 0.07,
+  "mode": "slot",
+  "slots": [
+    -1
+  ],
+  "styles": [
+    {
+      "custom_style_id": "combat_styles_content:executioners_turn"
+    }
+  ],
+  "affixes": [
+    "combat_styles_content:crescendo"
+  ],
+  "affix_chance": 0.5,
+  "max_affixes": 1,
+  "name": "Finisher's Mark"
+}

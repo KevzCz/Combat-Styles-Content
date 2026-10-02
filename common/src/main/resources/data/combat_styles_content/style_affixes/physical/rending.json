@@ -1,0 +1,34 @@
+{
+  "id": "combat_styles_content:rending",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.55,
+  "trail": {
+    "color": "#D8A85A",
+    "glows": true
+  },
+  "applies_to": {
+    "hitbox": [
+      "HORIZONTAL_PLANE",
+      "VERTICAL_PLANE"
+    ]
+  },
+  "on_swing": {
+    "slash_wave": {
+      "range": 14,
+      "radius": 1,
+      "ratio": 0.55,
+      "speed": 1.1,
+      "follows_swing": true,
+      "inherit": true,
+      "pierces": true,
+      "scale": 1,
+      "delay_ticks": 3
+    },
+    "sound": {
+      "id": "minecraft:entity.player.attack.sweep",
+      "volume": 0.6,
+      "pitch": 1
+    }
+  }
+}

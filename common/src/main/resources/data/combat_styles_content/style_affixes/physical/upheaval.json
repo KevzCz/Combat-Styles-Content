@@ -1,0 +1,43 @@
+{
+  "id": "combat_styles_content:upheaval",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.65,
+  "trail": {
+    "color": "#9A7B4F",
+    "glows": false
+  },
+  "applies_to": {
+    "hitbox": [
+      "HORIZONTAL_PLANE"
+    ]
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "ratio": 0.3
+    },
+    "mechanics": {
+      "control": {
+        "vault": {
+          "radius": 3.5,
+          "strength": 0.6,
+          "upward": true,
+          "chance": 1
+        }
+      }
+    },
+    "sound": {
+      "id": "minecraft:entity.generic.explode",
+      "volume": 0.35,
+      "pitch": 1.6
+    },
+    "particles": [
+      {
+        "type": "minecraft:cloud",
+        "count": 12,
+        "spread": 0.6
+      }
+    ]
+  }
+}

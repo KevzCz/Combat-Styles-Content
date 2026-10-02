@@ -1,0 +1,15 @@
+{
+  "id": "combat_styles_content:uncrossing_flurry",
+  "group": "veteran",
+  "style": {
+    "style": "bettercombat:dual_handed_slash_uncross",
+    "affixes": [
+      "combat_styles_content:momentum"
+    ],
+    "attack": {
+      "damage_multiplier": 1.08
+    },
+    "name_key": "style.combat_styles_content.uncrossing_flurry"
+  },
+  "rarity": "uncommon"
+}

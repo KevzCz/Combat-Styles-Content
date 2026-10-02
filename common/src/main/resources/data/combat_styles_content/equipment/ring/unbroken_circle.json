@@ -1,0 +1,27 @@
+{
+  "id": "combat_styles_content:unbroken_circle",
+  "rarity": "rare",
+  "effects": {
+    "unbroken_guard": {
+      "trigger": {
+        "slots": {
+          "from": 0,
+          "to": -1
+        }
+      },
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:momentum"
+        ],
+        "augment": {
+          "upswing": 0.46
+        },
+        "tune_affixes": {
+          "combat_styles_content:momentum": {
+            "damage_multiplier": 1.6
+          }
+        }
+      }
+    }
+  }
+}

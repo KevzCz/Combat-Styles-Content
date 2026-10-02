@@ -1,0 +1,48 @@
+{
+  "id": "combat_styles_content:hauntcall",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.75,
+  "trail": {
+    "color": "#5AC8D8",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "ratio": 0.12
+    },
+    "mechanics": {
+      "spawn": {
+        "summons": [
+          {
+            "entity": "combat_styles_content:wraith",
+            "count": 1,
+            "lifespan": 120,
+            "radius": 1.8,
+            "inherit_target": true,
+            "damage_spec": {
+              "of_hit": 0.3,
+              "scaling": [
+                {
+                  "source": "spell_power:soul",
+                  "per_point": 0.05,
+                  "mode": "multiplier"
+                }
+              ],
+              "scaling_mode": "strongest"
+            }
+          }
+        ]
+      },
+      "cooldown": {
+        "ticks": 90
+      }
+    },
+    "sound": {
+      "id": "minecraft:entity.vex.ambient",
+      "volume": 0.4,
+      "pitch": 1.2
+    }
+  }
+}

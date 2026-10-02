@@ -1,0 +1,34 @@
+{
+  "id": "combat_styles_content:bloodprice",
+  "weight": 4,
+  "rarity": "rare",
+  "cost_modifier": 1.45,
+  "trail": {
+    "color": "#8B1A2B",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.55
+    },
+    "mechanics": {
+      "cost": {
+        "health": 2,
+        "cancel_if_short": true
+      }
+    },
+    "sound": {
+      "id": "minecraft:entity.player.hurt",
+      "volume": 0.3,
+      "pitch": 0.7
+    },
+    "particles": [
+      {
+        "type": "minecraft:damage_indicator",
+        "count": 6,
+        "spread": 0.3
+      }
+    ]
+  }
+}

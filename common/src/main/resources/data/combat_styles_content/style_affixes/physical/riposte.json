@@ -1,0 +1,37 @@
+{
+  "id": "combat_styles_content:riposte",
+  "weight": 1,
+  "rarity": "legendary",
+  "cost_modifier": 2.2,
+  "trail": {
+    "color": "#E8E85A",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 1.2
+    },
+    "mechanics": {
+      "cooldown": {
+        "ticks": 60
+      },
+      "condition": {
+        "damaged_within": 10,
+        "refund_slot": true
+      }
+    },
+    "sound": {
+      "id": "minecraft:block.anvil_land",
+      "volume": 0.4,
+      "pitch": 1.8
+    },
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 10,
+        "spread": 0.4
+      }
+    ]
+  }
+}

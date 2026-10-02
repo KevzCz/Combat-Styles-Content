@@ -1,0 +1,38 @@
+{
+  "id": "combat_styles_content:soulbrand",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.5,
+  "trail": {
+    "color": "#B48AE8",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "school": "soul",
+      "ratio": 0.25,
+      "scaling": {
+        "source": "spell_power:soul",
+        "per_point": 0.025,
+        "cap": 0.75
+      }
+    },
+    "mechanics": {
+      "sustain": {
+        "heal": {
+          "ratio": 0.1,
+          "chance": 1,
+          "overheal": true
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:soul",
+        "count": 5,
+        "spread": 0.3
+      }
+    ]
+  }
+}

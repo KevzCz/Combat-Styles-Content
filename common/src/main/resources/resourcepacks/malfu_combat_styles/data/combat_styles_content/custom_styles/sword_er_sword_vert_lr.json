@@ -1,0 +1,18 @@
+{
+  "id": "combat_styles_content:sword_er_sword_vert_lr",
+  "group": "foundation",
+  "style": {
+    "style": "malfu_combat_animation:er_sword_vert_lr",
+    "affixes": [
+      "combat_styles_content:crescendo"
+    ],
+    "attack": {
+      "damage_multiplier": 1.4,
+      "range_multiplier": 1.25,
+      "upswing": 0.62
+    },
+    "name_key": "style.combat_styles_content.sword_er_sword_vert_lr"
+  },
+  "category": "sword",
+  "rarity": "epic"
+}

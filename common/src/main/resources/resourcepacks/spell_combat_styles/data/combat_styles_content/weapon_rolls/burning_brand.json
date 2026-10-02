@@ -1,0 +1,10 @@
+{
+  "chance": 0.06,
+  "mode": "affix",
+  "affixes": [
+    "combat_styles_content:kindling",
+    "combat_styles_content:smoldering"
+  ],
+  "affix_chance": 0.5,
+  "max_affixes": 1
+}

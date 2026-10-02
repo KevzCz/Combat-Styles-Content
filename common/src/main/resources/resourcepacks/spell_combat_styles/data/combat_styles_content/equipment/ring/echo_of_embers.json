@@ -1,0 +1,29 @@
+{
+  "id": "combat_styles_content:echo_of_embers",
+  "rarity": "rare",
+  "effects": {
+    "ember_flare": {
+      "trigger": {
+        "slot_index": 2
+      },
+      "effect": {
+        "on_swing": {
+          "particles": [
+            {
+              "type": "minecraft:flame",
+              "count": 6,
+              "spread": 0.3
+            }
+          ]
+        },
+        "tune_affixes": {
+          "combat_styles_content:kindling": {
+            "damage_multiplier": 1.15
+          }
+        },
+        "reset_combo": true
+      },
+      "cooldown": 70
+    }
+  }
+}

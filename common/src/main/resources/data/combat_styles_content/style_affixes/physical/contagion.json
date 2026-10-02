@@ -1,0 +1,46 @@
+{
+  "id": "combat_styles_content:contagion",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.7,
+  "trail": {
+    "color": "#6AB84A",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "ratio": 0.2
+    },
+    "effects": [
+      {
+        "effect": "minecraft:poison",
+        "duration": 80,
+        "amplifier": 0,
+        "chance": 0.8
+      }
+    ],
+    "mechanics": {
+      "offense": {
+        "chain": {
+          "max_targets": 3,
+          "range": 6,
+          "falloff": 0.7,
+          "ratio": 0.5
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:witch",
+        "count": 10,
+        "spread": 0.4
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.witch.throw",
+      "volume": 0.3,
+      "pitch": 1.1
+    }
+  }
+}

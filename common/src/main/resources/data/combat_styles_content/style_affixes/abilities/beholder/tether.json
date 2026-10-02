@@ -1,0 +1,35 @@
+{
+  "id": "combat_styles_content:tether",
+  "weight": 0,
+  "rarity": "rare",
+  "cost_modifier": 1.6,
+  "trail": {
+    "color": "#63B074",
+    "glows": true
+  },
+  "on_hit": {
+    "mechanics": {
+      "order": {
+        "ability": "combat_styles_content:tether",
+        "damage_ratio": 0.5
+      },
+      "condition": {
+        "slot": {
+          "slot": 3
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:soul",
+        "count": 6,
+        "spread": 0.3
+      }
+    ],
+    "sound": {
+      "id": "minecraft:block.sculk_shrieker.shriek",
+      "volume": 0.3,
+      "pitch": 1.5
+    }
+  }
+}

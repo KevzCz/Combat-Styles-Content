@@ -1,0 +1,22 @@
+{
+  "id": "combat_styles_content:cracked_signet",
+  "rarity": "common",
+  "effects": {
+    "cracked_edge": {
+      "trigger": {
+        "slots": [
+          1
+        ]
+      },
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:sweeping"
+        ],
+        "augment": {
+          "range_multiplier": 1.08,
+          "upswing": 0.6
+        }
+      }
+    }
+  }
+}

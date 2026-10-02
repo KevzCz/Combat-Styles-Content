@@ -1,0 +1,39 @@
+{
+  "id": "combat_styles_content:encircling",
+  "weight": 9,
+  "rarity": "uncommon",
+  "cost_modifier": 1.35,
+  "trail": {
+    "color": "#A8B8C8",
+    "glows": true
+  },
+  "applies_to": {
+    "hitbox": [
+      "HORIZONTAL_PLANE",
+      "VERTICAL_PLANE"
+    ]
+  },
+  "on_hit": {
+    "mechanics": {
+      "offense": {
+        "cleave": {
+          "radius": 3,
+          "ratio": 0.4,
+          "max_targets": 5
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:sweep_attack",
+        "count": 3,
+        "spread": 0.5
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.player.attack.sweep",
+      "volume": 0.3,
+      "pitch": 0.85
+    }
+  }
+}

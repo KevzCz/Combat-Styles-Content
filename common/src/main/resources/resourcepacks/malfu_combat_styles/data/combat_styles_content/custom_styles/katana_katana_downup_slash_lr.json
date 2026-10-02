@@ -1,0 +1,13 @@
+{
+  "id": "combat_styles_content:katana_katana_downup_slash_lr",
+  "group": "technique",
+  "style": {
+    "style": "malfu_combat_animation:katana_downup_slash_lr",
+    "attack": {
+      "damage_multiplier": 1
+    },
+    "name_key": "style.combat_styles_content.katana_katana_downup_slash_lr"
+  },
+  "category": "katana",
+  "rarity": "common"
+}

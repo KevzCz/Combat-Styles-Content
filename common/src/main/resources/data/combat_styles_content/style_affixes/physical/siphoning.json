@@ -1,0 +1,27 @@
+{
+  "id": "combat_styles_content:siphoning",
+  "weight": 8,
+  "rarity": "uncommon",
+  "cost_modifier": 1.3,
+  "trail": {
+    "color": "#7A2E4A",
+    "glows": false
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "ratio": 0.12
+    },
+    "lifesteal": {
+      "ratio": 0.08,
+      "chance": 1
+    },
+    "particles": [
+      {
+        "type": "minecraft:damage_indicator",
+        "count": 4,
+        "spread": 0.25
+      }
+    ]
+  }
+}

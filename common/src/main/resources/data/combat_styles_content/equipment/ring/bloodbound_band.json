@@ -1,0 +1,24 @@
+{
+  "id": "combat_styles_content:bloodbound_band",
+  "rarity": "epic",
+  "effects": {
+    "blood_toll": {
+      "trigger": {
+        "slot_band": "closing"
+      },
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:lifebinding"
+        ],
+        "tune_affixes": {
+          "combat_styles_content:bloodpact": {
+            "cost_modifier": 0.75
+          },
+          "combat_styles_content:lifebinding": {
+            "damage_multiplier": 1.3
+          }
+        }
+      }
+    }
+  }
+}

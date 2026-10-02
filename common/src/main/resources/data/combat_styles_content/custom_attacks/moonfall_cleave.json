@@ -1,0 +1,15 @@
+{
+  "id": "combat_styles_content:moonfall_cleave",
+  "category": "claymore",
+  "rarity": "epic",
+  "name_key": "style.combat_styles_content.moonfall_cleave",
+  "attack": {
+    "animation": "bettercombat:two_handed_slam_heavy",
+    "hitbox": "vertical_plane",
+    "angle": 140,
+    "upswing": 0.65,
+    "damage_multiplier": 1.4,
+    "range_multiplier": 1.2,
+    "swing_sound": "minecraft:entity.player.attack.sweep"
+  }
+}

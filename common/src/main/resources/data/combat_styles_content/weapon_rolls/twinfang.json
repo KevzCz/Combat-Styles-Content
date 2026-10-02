@@ -1,0 +1,22 @@
+{
+  "categories": [
+    "twinblade",
+    "sai",
+    "dagger"
+  ],
+  "chance": 0.05,
+  "mode": "replace",
+  "min_slots": 2,
+  "max_slots": 3,
+  "styles": [
+    {
+      "custom_style_id": "combat_styles_content:crossing_flurry"
+    },
+    {
+      "custom_style_id": "combat_styles_content:uncrossing_flurry"
+    }
+  ],
+  "affix_chance": 0.35,
+  "max_affixes": 1,
+  "name": "Twinfang"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "combat_styles_content:occular_ring",
+  "rarity": "epic",
+  "effects": {
+    "occular_watch": {
+      "effect": {
+        "summon_profile": {
+          "entity": "combat_styles_content:great_eye",
+          "max_active": 1,
+          "damage_multiplier": 0.6,
+          "lifespan": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "combat_styles_content:band_of_embers",
+  "rarity": "uncommon",
+  "effects": {
+    "ember_trail": {
+      "trigger": {
+        "slot_band": "middle"
+      },
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:kindling"
+        ],
+        "tune_affixes": {
+          "combat_styles_content:kindling": {
+            "rarity": "rare",
+            "trail": {
+              "color": "#FF4500",
+              "glows": true
+            },
+            "on_hit": {
+              "damage": {
+                "mode": "additive",
+                "school": "fire",
+                "ratio": 0.3,
+                "scaling": {
+                  "source": "spell_power:fire",
+                  "per_point": 0.03,
+                  "cap": 0.9
+                }
+              },
+              "ignite": {
+                "seconds": 3,
+                "chance": 1
+              },
+              "particles": [
+                {
+                  "type": "minecraft:flame",
+                  "count": 10,
+                  "spread": 0.4
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

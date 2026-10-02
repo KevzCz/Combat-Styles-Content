@@ -1,0 +1,50 @@
+{
+  "id": "combat_styles_content:sundering_arc",
+  "weight": 1,
+  "rarity": "legendary",
+  "cost_modifier": 2.3,
+  "trail": {
+    "color": "#E8C05A",
+    "glows": true
+  },
+  "applies_to": {
+    "hitbox": [
+      "HORIZONTAL_PLANE",
+      "VERTICAL_PLANE"
+    ]
+  },
+  "on_hit": {
+    "mechanics": {
+      "cooldown": {
+        "ticks": 50
+      }
+    },
+    "slash_wave": {
+      "range": 14,
+      "radius": 1.6,
+      "ratio": 0.65,
+      "speed": 0.9,
+      "follows_swing": true,
+      "inherit": true,
+      "pierces": true,
+      "scale": 1.5,
+      "frames": 10,
+      "colour": {
+        "color": "#E8C05A",
+        "glows": true
+      },
+      "speed_curve": {
+        "start": 0.25,
+        "trough": 0.06,
+        "end": 1,
+        "stall_ticks": 3,
+        "recover_ticks": 5
+      }
+    },
+    "sound": {
+      "id": "minecraft:item.trident.riptide_3",
+      "volume": 0.4,
+      "pitch": 1.1
+    }
+  }
+}

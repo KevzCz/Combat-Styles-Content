@@ -1,0 +1,17 @@
+{
+  "id": "combat_styles_content:scythe_battlestaff_rl",
+  "group": "arcane",
+  "style": {
+    "style": "malfu_combat_animation:battlestaff_rl",
+    "affixes": [
+      "combat_styles_content:sweeping"
+    ],
+    "attack": {
+      "damage_multiplier": 1.2,
+      "range_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.scythe_battlestaff_rl"
+  },
+  "category": "scythe",
+  "rarity": "rare"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "combat_styles_content:attunement",
+  "weight": 1,
+  "rarity": "legendary",
+  "cost_modifier": 2.3,
+  "trail": {
+    "color": "#F0E8D8",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "school": "arcane",
+      "ratio": 0.15,
+      "scaling": {
+        "source": [
+          "spell_power:fire",
+          "spell_power:frost",
+          "spell_power:lightning",
+          "spell_power:arcane",
+          "spell_power:soul",
+          "spell_power:healing"
+        ],
+        "per_point": 0.05,
+        "cap": 1.5,
+        "strongest": true
+      }
+    },
+    "mechanics": {
+      "control": {
+        "attributes": [
+          {
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 1,
+            "operation": "add_value",
+            "duration": 80,
+            "max_stacks": 4
+          }
+        ]
+      }
+    },
+    "sound": {
+      "id": "minecraft:block.beacon.activate",
+      "volume": 0.4,
+      "pitch": 1.6
+    },
+    "particles": [
+      {
+        "type": "minecraft:end_rod",
+        "count": 8,
+        "spread": 0.4
+      }
+    ]
+  }
+}

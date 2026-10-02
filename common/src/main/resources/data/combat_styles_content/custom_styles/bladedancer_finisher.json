@@ -1,0 +1,15 @@
+{
+  "id": "combat_styles_content:bladedancer_finisher",
+  "group": "bladedancer",
+  "style": {
+    "style": "bettercombat:one_handed_slash_horizontal_right",
+    "attack": {
+      "damage_multiplier": 1.35,
+      "upswing": 0.46,
+      "range_multiplier": 1.15
+    },
+    "name_key": "style.combat_styles_content.bladedancer_finisher"
+  },
+  "category": "sword",
+  "rarity": "epic"
+}

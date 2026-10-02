@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "combat_styles_content:azure_stone_ring",
+    "combat_styles_content:band_of_embers",
+    "combat_styles_content:frostbound_loop",
+    "combat_styles_content:infernal_seal",
+    "combat_styles_content:tarnished_loop"
+  ]
+}

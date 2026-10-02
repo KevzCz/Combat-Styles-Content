@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "combat_styles_content:style_book_rare",
+    "combat_styles_content:echo_of_embers",
+    "combat_styles_content:executioners_seal",
+    "combat_styles_content:rootbound_ring",
+    "combat_styles_content:unbroken_circle",
+    "combat_styles_content:windstone_necklace"
+  ]
+}

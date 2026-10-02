@@ -1,0 +1,46 @@
+{
+  "id": "combat_styles_content:collapse",
+  "weight": 0,
+  "rarity": "legendary",
+  "cost_modifier": 2,
+  "trail": {
+    "color": "#D96B6B",
+    "glows": true
+  },
+  "on_hit": {
+    "mechanics": {
+      "order": {
+        "ability": "combat_styles_content:collapse",
+        "damage_ratio": 0.8,
+        "tuning": {
+          "shape": {
+            "radius": 5
+          },
+          "damage": {
+            "applies_stacks": 2
+          }
+        }
+      },
+      "condition": {
+        "slot": {
+          "slot": 5
+        }
+      },
+      "cooldown": {
+        "ticks": 100
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:sculk_soul",
+        "count": 12,
+        "spread": 0.5
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.warden_sonic_charge",
+      "volume": 0.5,
+      "pitch": 1.1
+    }
+  }
+}

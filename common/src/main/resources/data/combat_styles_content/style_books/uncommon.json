@@ -1,0 +1,22 @@
+{
+  "rarity": "uncommon",
+  "roll_weight": 10,
+  "min_attacks": 1,
+  "max_attacks": 3,
+  "affix_chance": 0.3,
+  "max_affixes": 1,
+  "random_weight": 50,
+  "roll": {
+    "damage_multiplier": { "min": 0.95, "max": 1.1 },
+    "range_multiplier": { "min": 0.98, "max": 1.06 }
+  },
+  "pool": [
+    { "entry": { "custom_style_id": "combat_styles_content:braced_thrust" }, "weight": 10 },
+    { "entry": { "custom_style_id": "combat_styles_content:inside_cut" }, "weight": 10 },
+    { "entry": { "custom_style_id": "combat_styles_content:outside_cut" }, "weight": 10 },
+    { "entry": { "custom_style_id": "combat_styles_content:crossing_flurry" }, "weight": 8 },
+    { "entry": { "custom_style_id": "combat_styles_content:overhead_split" }, "weight": 8 },
+    { "entry": { "custom_style_id": "combat_styles_content:rising_cut" }, "weight": 8 },
+    { "entry": { "custom_style_id": "combat_styles_content:uncrossing_flurry" }, "weight": 8 }
+  ]
+}

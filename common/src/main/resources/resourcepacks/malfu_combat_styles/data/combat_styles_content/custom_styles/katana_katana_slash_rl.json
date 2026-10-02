@@ -1,0 +1,16 @@
+{
+  "id": "combat_styles_content:katana_katana_slash_rl",
+  "group": "technique",
+  "style": {
+    "style": "malfu_combat_animation:katana_slash_rl",
+    "affixes": [
+      "combat_styles_content:stalking"
+    ],
+    "attack": {
+      "damage_multiplier": 1.15
+    },
+    "name_key": "style.combat_styles_content.katana_katana_slash_rl"
+  },
+  "category": "katana",
+  "rarity": "uncommon"
+}

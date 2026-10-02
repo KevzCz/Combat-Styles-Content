@@ -1,0 +1,24 @@
+{
+  "id": "combat_styles_content:executioners_seal",
+  "rarity": "rare",
+  "effects": {
+    "execution": {
+      "trigger": {
+        "last_slot": true
+      },
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:culling"
+        ],
+        "tune_affixes": {
+          "combat_styles_content:culling": {
+            "damage_multiplier": 1.5
+          },
+          "combat_styles_content:executioner": {
+            "damage_multiplier": 1.35
+          }
+        }
+      }
+    }
+  }
+}

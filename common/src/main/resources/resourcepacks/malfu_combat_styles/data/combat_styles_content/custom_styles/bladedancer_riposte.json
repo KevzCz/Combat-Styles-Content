@@ -1,0 +1,15 @@
+{
+  "id": "combat_styles_content:bladedancer_riposte",
+  "group": "bladedancer",
+  "style": {
+    "style": "malfu_combat_animation:er_sword_vert_lr",
+    "attack": {
+      "damage_multiplier": 1.05,
+      "upswing": 0.38,
+      "range_multiplier": 1.1
+    },
+    "name_key": "style.combat_styles_content.bladedancer_riposte"
+  },
+  "category": "sword",
+  "rarity": "rare"
+}

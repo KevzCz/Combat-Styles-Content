@@ -1,0 +1,47 @@
+{
+  "id": "combat_styles_content:twocolored_ring",
+  "rarity": "epic",
+  "effects": {
+    "twocolored_edge": {
+      "trigger": {
+        "hitbox": "FORWARD_BOX"
+      },
+      "effect": {
+        "augment": {
+          "damage_multiplier": 1.15,
+          "range_multiplier": 1.12
+        },
+        "on_hit": {
+          "mechanics": {
+            "offense": {
+              "chain": {
+                "max_targets": 2,
+                "range": 5,
+                "falloff": 0.6,
+                "ratio": 0.45
+              }
+            }
+          },
+          "particles": [
+            {
+              "type": "minecraft:enchanted_hit",
+              "count": 6,
+              "spread": 0.25
+            }
+          ]
+        }
+      }
+    },
+    "twocolored_worn": {
+      "effect": {
+        "attributes": {
+          "minecraft:generic.attack_speed": {
+            "amount": 0.08,
+            "operation": "multiply_total",
+            "stacks": true
+          }
+        }
+      }
+    }
+  }
+}

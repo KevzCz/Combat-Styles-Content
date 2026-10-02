@@ -1,0 +1,28 @@
+{
+  "id": "combat_styles_content:occular_ring",
+  "rarity": "epic",
+  "effects": {
+    "occular_watch": {
+      "effect": {
+        "summon_profile": {
+          "entity": "combat_styles_content:great_eye",
+          "max_active": 1,
+          "damage_multiplier": 0.6,
+          "lifespan": 0,
+          "damage_scaling": {
+            "source": "spell_power:arcane",
+            "per_point": 0.02,
+            "strongest": true
+          }
+        },
+        "attributes": {
+          "spell_power:arcane": {
+            "amount": 2,
+            "operation": "add_value",
+            "stacks": true
+          }
+        }
+      }
+    }
+  }
+}

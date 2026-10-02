@@ -1,0 +1,16 @@
+{
+  "id": "combat_styles_content:halberd_glaive_rl",
+  "group": "veteran",
+  "style": {
+    "style": "malfu_combat_animation:glaive_rl",
+    "affixes": [
+      "combat_styles_content:momentum"
+    ],
+    "attack": {
+      "damage_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.halberd_glaive_rl"
+  },
+  "category": "halberd",
+  "rarity": "common"
+}

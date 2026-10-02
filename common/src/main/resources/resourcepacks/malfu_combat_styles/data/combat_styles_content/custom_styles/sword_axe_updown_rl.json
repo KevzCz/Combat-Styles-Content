@@ -1,0 +1,16 @@
+{
+  "id": "combat_styles_content:sword_axe_updown_rl",
+  "group": "foundation",
+  "style": {
+    "style": "malfu_combat_animation:axe_updown_rl",
+    "affixes": [
+      "combat_styles_content:momentum"
+    ],
+    "attack": {
+      "damage_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.sword_axe_updown_rl"
+  },
+  "category": "sword",
+  "rarity": "common"
+}

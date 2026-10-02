@@ -1,0 +1,65 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "combat_styles_content"
+version = "${version}"
+displayName = "Combat Styles Content"
+logoFile = "assets/combat_styles_content/icon.png"
+authors = "Pixel Dream Studios"
+description = '''
+Rings, necklaces, style books, weapons and the styles that fill out Combat Styles.
+'''
+
+[[dependencies.combat_styles_content]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.combat_styles_content]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.combat_styles_content]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.combat_styles_content]]
+modId = "combat_styles"
+type = "required"
+versionRange = "[1.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.combat_styles_content]]
+modId = "geckolib"
+type = "required"
+versionRange = "[4.9,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.combat_styles_content]]
+modId = "bettercombat"
+type = "required"
+versionRange = "[1.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.combat_styles_content]]
+modId = "curios"
+type = "optional"
+versionRange = "[9.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "combat_styles_content.mixins.json"

@@ -1,0 +1,32 @@
+{
+  "id": "combat_styles_content:harrying",
+  "weight": 9,
+  "rarity": "uncommon",
+  "cost_modifier": 1.25,
+  "trail": {
+    "color": "#6E8A5A",
+    "glows": false
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "ratio": 0.1
+    },
+    "knockback": {
+      "strength": 0.55,
+      "pull": true
+    },
+    "splash": {
+      "radius": 2.5,
+      "ratio": 0.2,
+      "hits_attacker": false
+    },
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 5,
+        "spread": 0.3
+      }
+    ]
+  }
+}

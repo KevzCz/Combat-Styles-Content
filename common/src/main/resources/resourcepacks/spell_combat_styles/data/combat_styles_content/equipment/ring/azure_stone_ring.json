@@ -1,0 +1,79 @@
+{
+  "id": "combat_styles_content:azure_stone_ring",
+  "rarity": "legendary",
+  "effects": {
+    "azure_attunement": {
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:attunement"
+        ],
+        "tune_affixes": {
+          "combat_styles_content:kindling": {
+            "rarity": "epic",
+            "damage_multiplier": 1.25,
+            "trail": {
+              "color": "#4FA8E8",
+              "glows": true
+            }
+          },
+          "combat_styles_content:rime": {
+            "rarity": "epic",
+            "damage_multiplier": 1.25,
+            "trail": {
+              "color": "#4FA8E8",
+              "glows": true
+            }
+          },
+          "combat_styles_content:arcing": {
+            "rarity": "epic",
+            "damage_multiplier": 1.25,
+            "trail": {
+              "color": "#4FA8E8",
+              "glows": true
+            }
+          },
+          "combat_styles_content:galvanic": {
+            "rarity": "epic",
+            "damage_multiplier": 1.25,
+            "trail": {
+              "color": "#4FA8E8",
+              "glows": true
+            }
+          },
+          "combat_styles_content:soulbrand": {
+            "rarity": "epic",
+            "damage_multiplier": 1.25,
+            "trail": {
+              "color": "#4FA8E8",
+              "glows": true
+            }
+          },
+          "combat_styles_content:runebound": {
+            "rarity": "epic",
+            "damage_multiplier": 1.25,
+            "trail": {
+              "color": "#4FA8E8",
+              "glows": true
+            }
+          },
+          "combat_styles_content:smoldering": {
+            "rarity": "epic",
+            "damage_multiplier": 1.25,
+            "trail": {
+              "color": "#4FA8E8",
+              "glows": true
+            }
+          },
+          "combat_styles_content:shattering": {
+            "rarity": "epic",
+            "damage_multiplier": 1.25,
+            "trail": {
+              "color": "#4FA8E8",
+              "glows": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

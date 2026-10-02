@@ -1,0 +1,20 @@
+{
+  "categories": [
+    "sword",
+    "dagger",
+    "rapier",
+    "cutlass",
+    "katana"
+  ],
+  "chance": 0.1,
+  "mode": "affix",
+  "slots": [
+    0
+  ],
+  "affixes": [
+    "combat_styles_content:momentum",
+    "combat_styles_content:quickening"
+  ],
+  "affix_chance": 0.6,
+  "max_affixes": 1
+}

@@ -1,0 +1,16 @@
+{
+  "id": "combat_styles_content:rising_cut",
+  "group": "foundation",
+  "style": {
+    "style": "bettercombat:one_handed_uppercut_right",
+    "affixes": [
+      "combat_styles_content:charging_blow"
+    ],
+    "attack": {
+      "damage_multiplier": 1.12,
+      "upswing": 0.55
+    },
+    "name_key": "style.combat_styles_content.rising_cut"
+  },
+  "rarity": "uncommon"
+}

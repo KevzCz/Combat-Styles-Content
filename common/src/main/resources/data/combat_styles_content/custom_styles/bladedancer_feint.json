@@ -1,0 +1,15 @@
+{
+  "id": "combat_styles_content:bladedancer_feint",
+  "group": "bladedancer",
+  "style": {
+    "style": "bettercombat:one_handed_slash_switch_blade_left",
+    "attack": {
+      "damage_multiplier": 0.85,
+      "upswing": 0.32,
+      "range_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.bladedancer_feint"
+  },
+  "category": "sword",
+  "rarity": "rare"
+}

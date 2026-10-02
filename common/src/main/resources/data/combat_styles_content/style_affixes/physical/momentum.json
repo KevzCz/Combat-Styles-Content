@@ -1,0 +1,28 @@
+{
+  "id": "combat_styles_content:momentum",
+  "weight": 14,
+  "rarity": "common",
+  "cost_modifier": 1.1,
+  "trail": {
+    "color": "#C8B48A",
+    "glows": false
+  },
+  "on_hit": {
+    "mechanics": {
+      "offense": {
+        "momentum": {
+          "per_hit_ratio": 0.04,
+          "max_stacks": 5,
+          "decay_ticks": 60
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 3,
+        "spread": 0.2
+      }
+    ]
+  }
+}

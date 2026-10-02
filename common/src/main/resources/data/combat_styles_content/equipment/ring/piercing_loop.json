@@ -1,0 +1,36 @@
+{
+  "id": "combat_styles_content:piercing_loop",
+  "rarity": "uncommon",
+  "effects": {
+    "following_point": {
+      "trigger": {
+        "hitbox": "FORWARD_BOX"
+      },
+      "effect": {
+        "on_hit": {
+          "mechanics": {
+            "control": {
+              "hasten": {
+                "ratio": 0.45,
+                "swings": 1
+              }
+            }
+          },
+          "particles": [
+            {
+              "type": "minecraft:enchanted_hit",
+              "count": 5,
+              "spread": 0.2
+            }
+          ],
+          "sound": {
+            "id": "minecraft:entity.arrow.hit",
+            "volume": 0.3,
+            "pitch": 1.8
+          }
+        }
+      },
+      "cooldown": 40
+    }
+  }
+}

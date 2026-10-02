@@ -1,0 +1,13 @@
+{
+  "id": "combat_styles_content:braced_thrust",
+  "group": "foundation",
+  "style": {
+    "style": "bettercombat:one_handed_stab",
+    "attack": {
+      "damage_multiplier": 1.1,
+      "range_multiplier": 1.15
+    },
+    "name_key": "style.combat_styles_content.braced_thrust"
+  },
+  "rarity": "common"
+}

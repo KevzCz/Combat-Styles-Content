@@ -1,0 +1,83 @@
+{
+  "id": "combat_styles_content:beholder_claymore",
+  "rarity": "legendary",
+  "innate_affixes": [
+    {
+      "slot": 0,
+      "affix": "combat_styles_content:twin_lance"
+    },
+    {
+      "slot": 1,
+      "affix": "combat_styles_content:blink_watch"
+    },
+    {
+      "slot": 2,
+      "affix": "combat_styles_content:furrow"
+    },
+    {
+      "slot": 3,
+      "affix": "combat_styles_content:tether"
+    },
+    {
+      "slot": 4,
+      "affix": "combat_styles_content:wide_cut"
+    },
+    {
+      "slot": 5,
+      "affix": "combat_styles_content:collapse"
+    }
+  ],
+  "effects": {
+    "beholder_summons": {
+      "effect": {
+        "summon_profile": {
+          "entity": "combat_styles_content:beholder_eye",
+          "replaces_summons": false,
+          "anchored": 2,
+          "max_active": 4,
+          "damage_multiplier": 1,
+          "tuning": {
+            "combat_styles_content:supernova": {
+              "damage": {
+                "base_damage": 12
+              },
+              "shape": {
+                "radius": 6.5
+              }
+            },
+            "combat_styles_content:eclipse": {
+              "damage": {
+                "applies_stacks": 2
+              },
+              "shape": {
+                "pull": 0.45
+              }
+            }
+          },
+          "variants": [
+            {
+              "conditions": [
+                {
+                  "equipped": "combat_styles_content:eye_necklace"
+                }
+              ],
+              "damage_multiplier": 1.6,
+              "max_active": 6
+            },
+            {
+              "conditions": [
+                {
+                  "effect": "combat_styles_content:gazing"
+                }
+              ],
+              "finale": "combat_styles_content:supernova",
+              "swaps": {
+                "combat_styles_content:collapse": "combat_styles_content:eclipse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "combat_styles_content:rapier_axe_rl",
+  "group": "signature",
+  "style": {
+    "style": "malfu_combat_animation:axe_rl",
+    "affixes": [
+      "combat_styles_content:momentum"
+    ],
+    "attack": {
+      "damage_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.rapier_axe_rl"
+  },
+  "category": "rapier",
+  "rarity": "common"
+}

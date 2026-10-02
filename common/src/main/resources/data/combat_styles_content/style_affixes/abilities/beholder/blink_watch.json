@@ -1,0 +1,35 @@
+{
+  "id": "combat_styles_content:blink_watch",
+  "weight": 0,
+  "rarity": "epic",
+  "cost_modifier": 1.7,
+  "trail": {
+    "color": "#A986D8",
+    "glows": true
+  },
+  "on_hit": {
+    "mechanics": {
+      "order": {
+        "ability": "combat_styles_content:blink_watch",
+        "damage_ratio": 0.45
+      },
+      "condition": {
+        "slot": {
+          "slot": 1
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:portal",
+        "count": 8,
+        "spread": 0.4
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.enderman.teleport",
+      "volume": 0.35,
+      "pitch": 1.4
+    }
+  }
+}

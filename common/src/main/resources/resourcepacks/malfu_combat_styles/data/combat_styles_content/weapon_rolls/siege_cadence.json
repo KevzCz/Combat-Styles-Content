@@ -1,0 +1,19 @@
+{
+  "categories": [
+    "greathammer",
+    "greataxe",
+    "hammer"
+  ],
+  "chance": 0.07,
+  "mode": "append",
+  "min_slots": 1,
+  "max_slots": 1,
+  "styles": [
+    {
+      "custom_style_id": "combat_styles_content:greathammer_greathammer_slam_lr"
+    }
+  ],
+  "affix_chance": 0.4,
+  "max_affixes": 1,
+  "name": "Siege Cadence"
+}

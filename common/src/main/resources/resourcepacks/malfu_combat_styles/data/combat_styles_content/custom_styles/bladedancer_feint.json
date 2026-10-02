@@ -1,0 +1,15 @@
+{
+  "id": "combat_styles_content:bladedancer_feint",
+  "group": "bladedancer",
+  "style": {
+    "style": "malfu_combat_animation:cutlass_lr_hori",
+    "attack": {
+      "damage_multiplier": 0.85,
+      "upswing": 0.32,
+      "range_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.bladedancer_feint"
+  },
+  "category": "sword",
+  "rarity": "rare"
+}

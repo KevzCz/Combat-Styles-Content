@@ -1,0 +1,37 @@
+{
+  "id": "combat_styles_content:rhythm_band",
+  "rarity": "uncommon",
+  "effects": {
+    "keeping_time": {
+      "trigger": {
+        "every_nth_swing": 2,
+        "hitbox": "HORIZONTAL_PLANE"
+      },
+      "effect": {
+        "on_hit": {
+          "mechanics": {
+            "control": {
+              "hasten": {
+                "ratio": 0.45,
+                "swings": 1
+              }
+            }
+          },
+          "particles": [
+            {
+              "type": "minecraft:crit",
+              "count": 5,
+              "spread": 0.25
+            }
+          ],
+          "sound": {
+            "id": "minecraft:block.note_block.hat",
+            "volume": 0.35,
+            "pitch": 1.6
+          }
+        }
+      },
+      "cooldown": 40
+    }
+  }
+}

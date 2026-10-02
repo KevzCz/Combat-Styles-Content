@@ -1,0 +1,31 @@
+{
+  "id": "combat_styles_content:mending",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.45,
+  "trail": {
+    "color": "#8AE86A",
+    "glows": true
+  },
+  "on_hit": {
+    "mechanics": {
+      "sustain": {
+        "heal": {
+          "ratio": 0.22,
+          "chance": 1,
+          "overheal": false
+        }
+      },
+      "condition": {
+        "self_health_below": 0.5
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:heart",
+        "count": 3,
+        "spread": 0.3
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "combat_styles_content:skyfall",
+  "weight": 4,
+  "rarity": "rare",
+  "cost_modifier": 1.5,
+  "trail": {
+    "color": "#A8C8E8",
+    "glows": true
+  },
+  "applies_to": {
+    "hitbox": [
+      "VERTICAL_PLANE"
+    ]
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "ratio": 0.4
+    },
+    "mechanics": {
+      "condition": {
+        "airborne": true
+      },
+      "offense": {
+        "cleave": {
+          "radius": 2.5,
+          "ratio": 0.4,
+          "max_targets": 4
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:cloud",
+        "count": 12,
+        "spread": 0.5
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.generic.explode",
+      "volume": 0.3,
+      "pitch": 1.5
+    }
+  }
+}

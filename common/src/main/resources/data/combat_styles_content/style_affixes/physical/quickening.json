@@ -1,0 +1,32 @@
+{
+  "id": "combat_styles_content:quickening",
+  "weight": 14,
+  "rarity": "common",
+  "cost_modifier": 1.15,
+  "trail": {
+    "color": "#9FD4E8",
+    "glows": false
+  },
+  "on_hit": {
+    "mechanics": {
+      "control": {
+        "attributes": [
+          {
+            "attribute": "minecraft:generic.attack_speed",
+            "amount": 0.08,
+            "operation": "multiply_total",
+            "duration": 60,
+            "max_stacks": 3
+          }
+        ]
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:end_rod",
+        "count": 4,
+        "spread": 0.25
+      }
+    ]
+  }
+}

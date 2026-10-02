@@ -1,0 +1,43 @@
+{
+  "id": "combat_styles_content:wraithcall",
+  "weight": 1,
+  "rarity": "legendary",
+  "cost_modifier": 2.35,
+  "trail": {
+    "color": "#5AC8D8",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "ratio": 0.15
+    },
+    "mechanics": {
+      "spawn": {
+        "summons": [
+          {
+            "entity": "combat_styles_content:wraith",
+            "count": 3,
+            "lifespan": 160,
+            "radius": 2,
+            "inherit_target": true,
+            "damage_ratio": 0.4
+          }
+        ]
+      },
+      "cooldown": {
+        "ticks": 200
+      },
+      "condition": {
+        "slot": {
+          "last": true
+        }
+      }
+    },
+    "sound": {
+      "id": "minecraft:entity.vex.charge",
+      "volume": 0.5,
+      "pitch": 1
+    }
+  }
+}

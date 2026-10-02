@@ -1,0 +1,29 @@
+{
+  "id": "combat_styles_content:runebound",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.55,
+  "trail": {
+    "color": "#C08AE8",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "school": "arcane",
+      "ratio": 0.22,
+      "scaling": {
+        "source": "spell_power:arcane",
+        "per_point": 0.035,
+        "cap": 1
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:enchant",
+        "count": 10,
+        "spread": 0.4
+      }
+    ]
+  }
+}

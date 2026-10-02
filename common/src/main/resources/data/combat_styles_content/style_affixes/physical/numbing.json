@@ -1,0 +1,37 @@
+{
+  "id": "combat_styles_content:numbing",
+  "weight": 14,
+  "rarity": "common",
+  "cost_modifier": 1.15,
+  "trail": {
+    "color": "#A8D8E8",
+    "glows": false
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "ratio": 0.08
+    },
+    "freeze_ticks": 30,
+    "effects": [
+      {
+        "effect": "minecraft:slowness",
+        "duration": 40,
+        "amplifier": 0,
+        "chance": 0.5
+      }
+    ],
+    "particles": [
+      {
+        "type": "minecraft:snowflake",
+        "count": 6,
+        "spread": 0.3
+      }
+    ],
+    "sound": {
+      "id": "minecraft:block.powder_snow.step",
+      "volume": 0.3,
+      "pitch": 1.2
+    }
+  }
+}

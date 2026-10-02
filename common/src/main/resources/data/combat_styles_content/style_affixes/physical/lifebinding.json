@@ -1,0 +1,28 @@
+{
+  "id": "combat_styles_content:lifebinding",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.75,
+  "trail": {
+    "color": "#C83D5A",
+    "glows": true
+  },
+  "on_hit": {
+    "lifesteal": {
+      "ratio": 0.18,
+      "chance": 1
+    },
+    "particles": [
+      {
+        "type": "minecraft:heart",
+        "count": 3,
+        "spread": 0.3
+      }
+    ],
+    "sound": {
+      "id": "minecraft:block.amethyst_block.chime",
+      "volume": 0.25,
+      "pitch": 1.4
+    }
+  }
+}

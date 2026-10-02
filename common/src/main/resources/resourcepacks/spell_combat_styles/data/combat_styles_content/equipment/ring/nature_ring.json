@@ -1,0 +1,76 @@
+{
+  "id": "combat_styles_content:nature_ring",
+  "rarity": "epic",
+  "effects": {
+    "verdant_gift": {
+      "trigger": {
+        "on_summon_hit": true
+      },
+      "effect": {
+        "on_hit": {
+          "damage": {
+            "mode": "additive",
+            "ratio": 0.25
+          },
+          "splash": {
+            "radius": 3,
+            "ratio": 0.35,
+            "hits_attacker": false
+          },
+          "effects": [
+            {
+              "effect": "minecraft:weakness",
+              "duration": 60,
+              "amplifier": 0,
+              "chance": 0.6
+            }
+          ],
+          "mechanics": {
+            "sustain": {
+              "heal": {
+                "ratio": 0.3,
+                "chance": 1,
+                "overheal": false
+              }
+            }
+          },
+          "particles": [
+            {
+              "type": "minecraft:soul",
+              "count": 8,
+              "spread": 0.4
+            }
+          ],
+          "sound": {
+            "id": "minecraft:entity.vex.death",
+            "volume": 0.35,
+            "pitch": 0.9
+          }
+        }
+      }
+    },
+    "nature_tuning": {
+      "effect": {
+        "tune_affixes": {
+          "combat_styles_content:wraithcall": {
+            "damage_multiplier": 1.3
+          },
+          "combat_styles_content:hauntcall": {
+            "damage_multiplier": 1.4
+          }
+        }
+      }
+    },
+    "nature_worn": {
+      "effect": {
+        "attributes": {
+          "spell_power:soul": {
+            "amount": 2,
+            "operation": "add_value",
+            "stacks": true
+          }
+        }
+      }
+    }
+  }
+}

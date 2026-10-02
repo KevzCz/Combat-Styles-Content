@@ -1,0 +1,32 @@
+{
+  "id": "combat_styles_content:gathering",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.45,
+  "trail": {
+    "color": "#6A5A8A",
+    "glows": true
+  },
+  "on_swing": {
+    "mechanics": {
+      "control": {
+        "vault": {
+          "radius": 4,
+          "strength": -0.45,
+          "upward": false,
+          "chance": 1
+        }
+      },
+      "cooldown": {
+        "ticks": 40
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:portal",
+        "count": 10,
+        "spread": 0.5
+      }
+    ]
+  }
+}

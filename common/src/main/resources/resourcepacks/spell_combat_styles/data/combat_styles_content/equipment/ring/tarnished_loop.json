@@ -1,0 +1,21 @@
+{
+  "id": "combat_styles_content:tarnished_loop",
+  "rarity": "common",
+  "effects": {
+    "tarnished_edge": {
+      "trigger": {
+        "slots": [
+          0
+        ]
+      },
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:rime"
+        ],
+        "augment": {
+          "movement_speed_multiplier": 0.9
+        }
+      }
+    }
+  }
+}

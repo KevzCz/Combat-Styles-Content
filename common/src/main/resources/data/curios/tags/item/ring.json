@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "combat_styles_content:ashen_band",
+    "combat_styles_content:bloodbound_band",
+    "combat_styles_content:cracked_signet",
+    "combat_styles_content:dull_circle",
+    "combat_styles_content:echo_of_embers",
+    "combat_styles_content:echoing_band",
+    "combat_styles_content:executioners_seal",
+    "combat_styles_content:mythwrought_seal",
+    "combat_styles_content:nature_ring",
+    "combat_styles_content:occular_ring",
+    "combat_styles_content:piercing_loop",
+    "combat_styles_content:rhythm_band",
+    "combat_styles_content:rootbound_ring",
+    "combat_styles_content:serpents_coil",
+    "combat_styles_content:stillwater_ring",
+    "combat_styles_content:striped_ring",
+    "combat_styles_content:sunderers_oath",
+    "combat_styles_content:twocolored_ring",
+    "combat_styles_content:unbroken_circle",
+    "combat_styles_content:verdant_stone_ring",
+    "combat_styles_content:wardens_loop"
+  ]
+}

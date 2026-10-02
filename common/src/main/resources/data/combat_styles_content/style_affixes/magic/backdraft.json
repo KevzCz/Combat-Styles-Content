@@ -1,0 +1,33 @@
+{
+  "id": "combat_styles_content:backdraft",
+  "weight": 4,
+  "rarity": "rare",
+  "cost_modifier": 1.4,
+  "trail": {
+    "color": "#E86A2A",
+    "glows": true
+  },
+  "on_swing": {
+    "mechanics": {
+      "condition": {
+        "on_miss": true
+      }
+    },
+    "splash": {
+      "radius": 3,
+      "ratio": 0.35,
+      "hits_attacker": false
+    },
+    "ignite": {
+      "seconds": 3,
+      "chance": 1
+    },
+    "particles": [
+      {
+        "type": "minecraft:flame",
+        "count": 10,
+        "spread": 0.5
+      }
+    ]
+  }
+}

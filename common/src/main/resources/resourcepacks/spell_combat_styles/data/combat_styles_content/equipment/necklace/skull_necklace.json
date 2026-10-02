@@ -1,0 +1,46 @@
+{
+  "id": "combat_styles_content:skull_necklace",
+  "rarity": "epic",
+  "effects": {
+    "skull_flock": {
+      "effect": {
+        "attributes": {
+          "spell_power:soul": {
+            "amount": 2,
+            "operation": "add_value",
+            "stacks": true
+          }
+        }
+      }
+    },
+    "skull_dive": {
+      "effect": {
+        "on_hit": {
+          "particles": [
+            {
+              "type": "minecraft:soul",
+              "count": 6,
+              "spread": 0.35
+            }
+          ],
+          "sound": {
+            "id": "minecraft:entity.wither_skeleton.ambient",
+            "volume": 0.3,
+            "pitch": 1.4
+          }
+        },
+        "summon_order": {
+          "damage_share": 1,
+          "ability": "combat_styles_content:dive",
+          "entities": [
+            "combat_styles_content:kamikaze_skull"
+          ]
+        }
+      },
+      "cooldown": 40,
+      "trigger": {
+        "last_slot": true
+      }
+    }
+  }
+}

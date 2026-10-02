@@ -1,0 +1,39 @@
+{
+  "id": "combat_styles_content:galvanic",
+  "weight": 9,
+  "rarity": "uncommon",
+  "cost_modifier": 1.35,
+  "trail": {
+    "color": "#E8E45A",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "additive",
+      "school": "lightning",
+      "ratio": 0.18,
+      "scaling": {
+        "source": "spell_power:lightning",
+        "per_point": 0.025,
+        "cap": 0.7
+      }
+    },
+    "mechanics": {
+      "offense": {
+        "chain": {
+          "max_targets": 3,
+          "range": 7,
+          "falloff": 0.55,
+          "ratio": 0.45
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:electric_spark",
+        "count": 8,
+        "spread": 0.4
+      }
+    ]
+  }
+}

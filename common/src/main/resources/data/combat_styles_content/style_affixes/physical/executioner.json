@@ -1,0 +1,33 @@
+{
+  "id": "combat_styles_content:executioner",
+  "weight": 1,
+  "rarity": "legendary",
+  "cost_modifier": 2.2,
+  "trail": {
+    "color": "#8A1E1E",
+    "glows": true
+  },
+  "on_hit": {
+    "mechanics": {
+      "offense": {
+        "execute": {
+          "health_threshold": 0.3,
+          "bonus_ratio": 1,
+          "repeat_on_kill": true
+        }
+      }
+    },
+    "sound": {
+      "id": "minecraft:entity.wither.hurt",
+      "volume": 0.5,
+      "pitch": 0.8
+    },
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 14,
+        "spread": 0.5
+      }
+    ]
+  }
+}

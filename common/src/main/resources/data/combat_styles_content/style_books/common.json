@@ -1,0 +1,26 @@
+{
+  "rarity": "common",
+  "roll_weight": 10,
+  "min_attacks": 1,
+  "max_attacks": 2,
+  "affix_chance": 0.15,
+  "max_affixes": 1,
+  "random_weight": 70,
+  "roll": {
+    "damage_multiplier": { "min": 0.95, "max": 1.05 }
+  },
+  "pool": [
+    {
+      "entry": { "custom_style_id": "combat_styles_content:braced_thrust" },
+      "weight": 14
+    },
+    {
+      "entry": { "custom_style_id": "combat_styles_content:inside_cut" },
+      "weight": 14
+    },
+    {
+      "entry": { "custom_style_id": "combat_styles_content:outside_cut" },
+      "weight": 14
+    }
+  ]
+}

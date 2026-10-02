@@ -1,0 +1,16 @@
+{
+  "id": "combat_styles_content:greataxe_greataxe_rl",
+  "group": "master",
+  "style": {
+    "style": "malfu_combat_animation:greataxe_rl",
+    "affixes": [
+      "combat_styles_content:momentum"
+    ],
+    "attack": {
+      "damage_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.greataxe_greataxe_rl"
+  },
+  "category": "greataxe",
+  "rarity": "common"
+}

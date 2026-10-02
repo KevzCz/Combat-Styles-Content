@@ -1,0 +1,33 @@
+{
+  "id": "combat_styles_content:overreach",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.6,
+  "trail": {
+    "color": "#C8A05A",
+    "glows": true
+  },
+  "on_swing": {
+    "splash": {
+      "radius": 4.5,
+      "ratio": 0.5,
+      "hits_attacker": false
+    },
+    "knockback": {
+      "strength": 0.7,
+      "pull": false
+    },
+    "particles": [
+      {
+        "type": "minecraft:sweep_attack",
+        "count": 4,
+        "spread": 0.6
+      }
+    ],
+    "mechanics": {
+      "condition": {
+        "on_miss": true
+      }
+    }
+  }
+}

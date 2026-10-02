@@ -1,0 +1,24 @@
+{
+  "id": "combat_styles_content:dull_circle",
+  "rarity": "uncommon",
+  "effects": {
+    "dull_edge": {
+      "trigger": {
+        "slot_band": "opening"
+      },
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:momentum"
+        ],
+        "augment": {
+          "damage_multiplier": 0.95
+        },
+        "tune_affixes": {
+          "combat_styles_content:momentum": {
+            "damage_multiplier": 1.2
+          }
+        }
+      }
+    }
+  }
+}

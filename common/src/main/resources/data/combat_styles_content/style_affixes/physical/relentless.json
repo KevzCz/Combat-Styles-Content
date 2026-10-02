@@ -1,0 +1,39 @@
+{
+  "id": "combat_styles_content:relentless",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.85,
+  "trail": {
+    "color": "#E86A3D",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.18
+    },
+    "mechanics": {
+      "condition": {
+        "slot": {
+          "requires": {
+            "min_attacks": 1,
+            "per_preceding": 0.35,
+            "per_preceding_cap": 1.4
+          }
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 7,
+        "spread": 0.35
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.player.attack.strong",
+      "volume": 0.28,
+      "pitch": 1.1
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "combat_styles_content:wide_cut",
+  "weight": 0,
+  "rarity": "rare",
+  "cost_modifier": 1.6,
+  "trail": {
+    "color": "#EDC384",
+    "glows": true
+  },
+  "on_hit": {
+    "mechanics": {
+      "order": {
+        "ability": "combat_styles_content:wide_cut",
+        "damage_ratio": 0.4
+      },
+      "condition": {
+        "slot": {
+          "slot": 4
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:enchanted_hit",
+        "count": 8,
+        "spread": 0.4
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.evoker.prepare_attack",
+      "volume": 0.35,
+      "pitch": 1.2
+    }
+  }
+}

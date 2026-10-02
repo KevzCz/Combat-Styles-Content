@@ -1,0 +1,46 @@
+{
+  "id": "combat_styles_content:nightbound",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.45,
+  "trail": {
+    "color": "#3A2A5A",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.3,
+      "scaling": {
+        "source": "spell_power:soul",
+        "per_point": 0.015,
+        "cap": 0.7
+      }
+    },
+    "mechanics": {
+      "condition": {
+        "night": true
+      }
+    },
+    "effects": [
+      {
+        "effect": "minecraft:blindness",
+        "duration": 40,
+        "amplifier": 0,
+        "chance": 0.35
+      }
+    ],
+    "particles": [
+      {
+        "type": "minecraft:smoke",
+        "count": 8,
+        "spread": 0.35
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.phantom.bite",
+      "volume": 0.3,
+      "pitch": 0.9
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "combat_styles_content:verdant_stone_ring",
+  "rarity": "legendary",
+  "effects": {
+    "verdant_attunement": {
+      "trigger": {
+        "on_kill": true
+      },
+      "effect": {
+        "on_hit": {
+          "mechanics": {
+            "sustain": {
+              "heal": {
+                "ratio": 0.4,
+                "chance": 1,
+                "overheal": true
+              },
+              "shield": {
+                "amount": 4,
+                "duration": 100,
+                "dodge_chance": 0.2,
+                "dodge_duration": 40
+              }
+            },
+            "control": {
+              "attributes": [
+                {
+                  "attribute": "minecraft:generic.attack_damage",
+                  "amount": 1.5,
+                  "operation": "add_value",
+                  "duration": 120,
+                  "max_stacks": 3,
+                  "on_target": false
+                }
+              ]
+            }
+          },
+          "particles": [
+            {
+              "type": "minecraft:heart",
+              "count": 6,
+              "spread": 0.4
+            }
+          ],
+          "sound": {
+            "id": "minecraft:block.amethyst_block.chime",
+            "volume": 0.4,
+            "pitch": 1.2
+          }
+        }
+      },
+      "cooldown": 40
+    },
+    "verdant_worn": {
+      "effect": {
+        "attributes": {
+          "minecraft:generic.max_health": {
+            "amount": 2,
+            "operation": "add_value",
+            "stacks": false
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "combat_styles_content:dagger_dagger_lr",
+  "group": "signature",
+  "style": {
+    "style": "malfu_combat_animation:dagger_lr",
+    "attack": {
+      "damage_multiplier": 1
+    },
+    "name_key": "style.combat_styles_content.dagger_dagger_lr"
+  },
+  "category": "dagger",
+  "rarity": "common"
+}

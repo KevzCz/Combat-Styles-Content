@@ -1,0 +1,17 @@
+{
+  "categories": [
+    "fist",
+    "claw"
+  ],
+  "chance": 0.09,
+  "mode": "append",
+  "min_slots": 1,
+  "max_slots": 2,
+  "styles": [
+    {
+      "custom_style_id": "combat_styles_content:rising_cut"
+    }
+  ],
+  "affix_chance": 0.3,
+  "max_affixes": 1
+}

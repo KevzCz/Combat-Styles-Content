@@ -1,0 +1,59 @@
+{
+  "id": "combat_styles_content:rootbound_ring",
+  "rarity": "rare",
+  "effects": {
+    "rootbound_grasp": {
+      "trigger": {
+        "idle_ticks": 40
+      },
+      "effect": {
+        "on_hit": {
+          "damage": {
+            "mode": "additive",
+            "ratio": 0.55
+          },
+          "mechanics": {
+            "control": {
+              "attributes": [
+                {
+                  "attribute": "minecraft:generic.movement_speed",
+                  "amount": -0.15,
+                  "operation": "multiply_total",
+                  "duration": 60,
+                  "max_stacks": 1,
+                  "on_target": true
+                }
+              ]
+            }
+          },
+          "effects": [
+            {
+              "effect": "minecraft:slowness",
+              "duration": 80,
+              "amplifier": 1,
+              "chance": 1
+            }
+          ],
+          "particles": [
+            {
+              "type": "minecraft:witch",
+              "count": 12,
+              "spread": 0.4
+            }
+          ],
+          "sound": {
+            "id": "minecraft:block.vine.break",
+            "volume": 0.4,
+            "pitch": 0.7
+          }
+        },
+        "tune_affixes": {
+          "combat_styles_content:stalking": {
+            "damage_multiplier": 1.3
+          }
+        }
+      },
+      "cooldown": 120
+    }
+  }
+}

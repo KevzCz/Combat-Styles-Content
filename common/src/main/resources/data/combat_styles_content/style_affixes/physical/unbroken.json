@@ -1,0 +1,33 @@
+{
+  "id": "combat_styles_content:unbroken",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.45,
+  "trail": {
+    "color": "#8A8A9A",
+    "glows": false
+  },
+  "on_hit": {
+    "mechanics": {
+      "control": {
+        "attributes": [
+          {
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": -0.15,
+            "operation": "multiply_total",
+            "duration": 100,
+            "max_stacks": 3,
+            "on_target": true
+          }
+        ]
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:enchanted_hit",
+        "count": 5,
+        "spread": 0.3
+      }
+    ]
+  }
+}

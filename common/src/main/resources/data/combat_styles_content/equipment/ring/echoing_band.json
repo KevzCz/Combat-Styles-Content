@@ -1,0 +1,21 @@
+{
+  "id": "combat_styles_content:echoing_band",
+  "rarity": "epic",
+  "effects": {
+    "wave_echo": {
+      "trigger": {
+        "requires_affix": true
+      },
+      "effect": {
+        "on_hit": {
+          "echo": {
+            "times": 1,
+            "delay_ticks": 10,
+            "ratio": 0.5
+          }
+        }
+      },
+      "cooldown": 300
+    }
+  }
+}

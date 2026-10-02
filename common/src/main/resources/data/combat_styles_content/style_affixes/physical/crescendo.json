@@ -1,0 +1,30 @@
+{
+  "id": "combat_styles_content:crescendo",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.55,
+  "trail": {
+    "color": "#E8C05A",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.125
+    },
+    "mechanics": {
+      "condition": {
+        "slot": {
+          "requires": {
+            "per_preceding": 1
+          }
+        }
+      }
+    },
+    "sound": {
+      "id": "minecraft:entity.player.attack.crit",
+      "volume": 0.6,
+      "pitch": 1.1
+    }
+  }
+}

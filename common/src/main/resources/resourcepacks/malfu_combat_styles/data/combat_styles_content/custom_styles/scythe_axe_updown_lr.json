@@ -1,0 +1,16 @@
+{
+  "id": "combat_styles_content:scythe_axe_updown_lr",
+  "group": "arcane",
+  "style": {
+    "style": "malfu_combat_animation:axe_updown_lr",
+    "affixes": [
+      "combat_styles_content:momentum"
+    ],
+    "attack": {
+      "damage_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.scythe_axe_updown_lr"
+  },
+  "category": "scythe",
+  "rarity": "common"
+}

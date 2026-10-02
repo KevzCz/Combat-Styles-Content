@@ -1,0 +1,13 @@
+{
+  "id": "combat_styles_content:claymore_claymore_hori_lr",
+  "group": "veteran",
+  "style": {
+    "style": "malfu_combat_animation:claymore_hori_lr",
+    "attack": {
+      "damage_multiplier": 1
+    },
+    "name_key": "style.combat_styles_content.claymore_claymore_hori_lr"
+  },
+  "category": "claymore",
+  "rarity": "common"
+}

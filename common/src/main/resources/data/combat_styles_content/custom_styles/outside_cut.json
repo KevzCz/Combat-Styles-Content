@@ -1,0 +1,12 @@
+{
+  "id": "combat_styles_content:outside_cut",
+  "group": "foundation",
+  "style": {
+    "style": "bettercombat:one_handed_slash_horizontal_right",
+    "attack": {
+      "damage_multiplier": 1.05
+    },
+    "name_key": "style.combat_styles_content.outside_cut"
+  },
+  "rarity": "common"
+}

@@ -1,0 +1,29 @@
+{
+  "categories": [
+    "sword",
+    "rapier",
+    "cutlass"
+  ],
+  "chance": 0.05,
+  "mode": "replace",
+  "slot_limit": 4,
+  "min_slots": 3,
+  "max_slots": 4,
+  "styles": [
+    {
+      "custom_style_id": "combat_styles_content:sword_er_sword_updown_lr"
+    },
+    {
+      "custom_style_id": "combat_styles_content:sword_er_sword_updown_rl"
+    },
+    {
+      "custom_style_id": "combat_styles_content:sword_er_sword_vert_lr"
+    },
+    {
+      "custom_style_id": "combat_styles_content:sword_er_sword_double_cross_slash"
+    }
+  ],
+  "affix_chance": 0.3,
+  "max_affixes": 1,
+  "name": "Duelist's Stance"
+}

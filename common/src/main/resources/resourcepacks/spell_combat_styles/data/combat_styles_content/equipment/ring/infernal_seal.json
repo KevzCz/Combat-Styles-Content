@@ -1,0 +1,63 @@
+{
+  "id": "combat_styles_content:infernal_seal",
+  "rarity": "legendary",
+  "effects": {
+    "infernal_brand": {
+      "trigger": {
+        "on_miss": true
+      },
+      "effect": {
+        "on_swing": {
+          "damage": {
+            "mode": "additive",
+            "school": "fire",
+            "ratio": 0.3
+          },
+          "ignite": {
+            "seconds": 4,
+            "chance": 1
+          },
+          "particles": [
+            {
+              "type": "minecraft:flame",
+              "count": 16,
+              "spread": 0.7
+            }
+          ],
+          "splash": {
+            "radius": 3.5,
+            "ratio": 0.3,
+            "hits_attacker": false
+          }
+        }
+      },
+      "cooldown": 80
+    },
+    "infernal_tuning": {
+      "effect": {
+        "tune_affixes": {
+          "combat_styles_content:kindling": {
+            "damage_multiplier": 1.35
+          },
+          "combat_styles_content:smoldering": {
+            "damage_multiplier": 1.35
+          },
+          "combat_styles_content:conflagrant": {
+            "damage_multiplier": 1.25
+          }
+        }
+      }
+    },
+    "infernal_worn": {
+      "effect": {
+        "attributes": {
+          "spell_power:fire": {
+            "amount": 2,
+            "operation": "add_value",
+            "stacks": true
+          }
+        }
+      }
+    }
+  }
+}

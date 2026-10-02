@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.pixeldreamstudios.combat_styles_content.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+    "GazeChannelPoseMixin"
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

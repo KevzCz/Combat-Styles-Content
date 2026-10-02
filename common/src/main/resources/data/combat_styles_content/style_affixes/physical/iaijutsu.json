@@ -1,0 +1,44 @@
+{
+  "id": "combat_styles_content:iaijutsu",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.9,
+  "trail": {
+    "color": "#F0F0E8",
+    "glows": true
+  },
+  "applies_to": {
+    "hitbox": [
+      "HORIZONTAL_PLANE",
+      "VERTICAL_PLANE"
+    ]
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.9
+    },
+    "mechanics": {
+      "condition": {
+        "slot": {
+          "first": true
+        }
+      },
+      "cooldown": {
+        "ticks": 40
+      }
+    },
+    "sound": {
+      "id": "minecraft:item.trident.return",
+      "volume": 0.5,
+      "pitch": 1.4
+    },
+    "particles": [
+      {
+        "type": "minecraft:sweep_attack",
+        "count": 3,
+        "spread": 0.2
+      }
+    ]
+  }
+}

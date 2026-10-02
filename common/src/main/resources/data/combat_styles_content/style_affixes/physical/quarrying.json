@@ -1,0 +1,28 @@
+{
+  "id": "combat_styles_content:quarrying",
+  "weight": 14,
+  "rarity": "common",
+  "cost_modifier": 1.15,
+  "trail": {
+    "color": "#B8C89A",
+    "glows": false
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.2
+    },
+    "mechanics": {
+      "condition": {
+        "target_health_above": 0.8
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 4,
+        "spread": 0.25
+      }
+    ]
+  }
+}

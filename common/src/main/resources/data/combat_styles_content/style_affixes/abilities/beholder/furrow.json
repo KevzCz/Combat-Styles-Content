@@ -1,0 +1,38 @@
+{
+  "id": "combat_styles_content:furrow",
+  "weight": 0,
+  "rarity": "epic",
+  "cost_modifier": 1.8,
+  "trail": {
+    "color": "#4E7BD6",
+    "glows": true
+  },
+  "on_hit": {
+    "mechanics": {
+      "order": {
+        "ability": "combat_styles_content:furrow",
+        "damage_ratio": 0.6
+      },
+      "condition": {
+        "slot": {
+          "slot": 2
+        }
+      },
+      "cooldown": {
+        "ticks": 80
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:soul_fire_flame",
+        "count": 10,
+        "spread": 0.4
+      }
+    ],
+    "sound": {
+      "id": "minecraft:block.beacon.activate",
+      "volume": 0.4,
+      "pitch": 0.8
+    }
+  }
+}

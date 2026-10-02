@@ -1,0 +1,13 @@
+{
+  "id": "combat_styles_content:glaive_glaive_downup_lr",
+  "group": "veteran",
+  "style": {
+    "style": "malfu_combat_animation:glaive_downup_lr",
+    "attack": {
+      "damage_multiplier": 1
+    },
+    "name_key": "style.combat_styles_content.glaive_glaive_downup_lr"
+  },
+  "category": "glaive",
+  "rarity": "common"
+}

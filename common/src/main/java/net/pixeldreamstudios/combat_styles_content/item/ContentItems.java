@@ -1,12 +1,10 @@
 package net.pixeldreamstudios.combat_styles_content.item;
 
-import dev.architectury.registry.CreativeTabOutput;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -77,11 +75,12 @@ public final class ContentItems {
     }
 
     public static final RegistrySupplier<CreativeModeTab> TAB = TABS.register("content", () ->
-            CreativeTabRegistry.create(
-                    Component.translatable("itemGroup.combat_styles_content.content"),
-                    () -> new ItemStack(EQUIPMENT.containsKey(MASCOT)
+            CreativeTabRegistry.create(builder -> builder
+                    .title(Component.translatable("itemGroup.combat_styles_content.content"))
+                    .icon(() -> new ItemStack(EQUIPMENT.containsKey(MASCOT)
                             ? EQUIPMENT.get(MASCOT).get()
-                            : BEHOLDER_CLAYMORE.get())));
+                            : BEHOLDER_CLAYMORE.get()))
+                    .displayItems(ContentItems::fillTab)));
 
     private ContentItems() {
     }
@@ -89,11 +88,10 @@ public final class ContentItems {
     public static void register() {
         ITEMS.register();
         TABS.register();
-        CreativeTabRegistry.modify(TAB, ContentItems::fillTab);
     }
 
-    private static void fillTab(FeatureFlagSet flags, CreativeTabOutput output,
-                                boolean canUseGameMasterBlocks) {
+    private static void fillTab(CreativeModeTab.ItemDisplayParameters parameters,
+                                CreativeModeTab.Output output) {
         output.accept(new ItemStack(BEHOLDER_CLAYMORE.get()));
         for (RegistrySupplier<Item> item : EQUIPMENT.values()) {
             output.accept(new ItemStack(item.get()));

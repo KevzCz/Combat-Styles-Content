@@ -1,5 +1,6 @@
 package net.pixeldreamstudios.combat_styles_content.neoforge;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackSelectionConfig;
@@ -22,6 +23,12 @@ public final class MalfuPackProvider {
 
     private static final String PACK_NAME = "malfu_combat_styles";
     private static final String PACK_TITLE = "Combat Styles: Malfu Animations";
+    private static final String KEY_NAME_AND_SOURCE = "pack.nameAndSource";
+    private static final String KEY_BUILT_IN = "pack.source.builtin";
+    private static final PackSource OPT_IN = PackSource.create(
+            name -> Component.translatable(KEY_NAME_AND_SOURCE, name,
+                    Component.translatable(KEY_BUILT_IN)).withStyle(ChatFormatting.GRAY),
+            false);
 
     private MalfuPackProvider() {
     }
@@ -37,7 +44,7 @@ public final class MalfuPackProvider {
             PackLocationInfo location = new PackLocationInfo(
                     CombatStylesContent.MOD_ID + ":" + PACK_NAME,
                     Component.literal(PACK_TITLE),
-                    PackSource.BUILT_IN,
+                    OPT_IN,
                     Optional.empty());
             Pack pack = Pack.readMetaAndCreate(location,
                     new PathPackResources.PathResourcesSupplier(root),

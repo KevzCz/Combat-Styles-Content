@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "combat_styles_content:style_book_uncommon",
+    "combat_styles:style_book_uncommon",
     "combat_styles_content:dull_circle",
     "combat_styles_content:piercing_loop",
     "combat_styles_content:rhythm_band",

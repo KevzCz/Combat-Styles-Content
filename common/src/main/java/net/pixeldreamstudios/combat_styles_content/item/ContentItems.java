@@ -15,11 +15,10 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
 
 import net.pixeldreamstudios.combat_styles.item.EquipmentItem;
-import net.pixeldreamstudios.combat_styles.style.StyleRarity;
+import net.pixeldreamstudios.combat_styles.platform.SpellPowerAccess;
 import net.pixeldreamstudios.combat_styles_content.CombatStylesContent;
 
 import java.util.Collection;
-import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,22 +42,30 @@ public final class ContentItems {
                             .attributes(SwordItem.createAttributes(Tiers.DIAMOND,
                                     BEHOLDER_ATTACK_DAMAGE, BEHOLDER_ATTACK_SPEED))));
 
+    private static final List<String> ACCESSORIES = List.of(
+            "ashen_band", "bloodbound_band", "cracked_signet", "dull_circle", "echo_of_embers",
+            "echoing_band", "executioners_seal", "mythwrought_seal", "nature_ring", "occular_ring",
+            "piercing_loop", "rhythm_band", "rootbound_ring", "serpents_coil", "stillwater_ring",
+            "striped_ring", "sunderers_oath", "twocolored_ring", "unbroken_circle",
+            "verdant_stone_ring", "wardens_loop", "eye_necklace", "skull_necklace",
+            "windstone_necklace");
+    private static final List<String> SPELL_POWER_ACCESSORIES = List.of(
+            "azure_stone_ring", "band_of_embers", "frostbound_loop", "infernal_seal",
+            "tarnished_loop");
+
     private static final Map<String, RegistrySupplier<Item>> EQUIPMENT = new LinkedHashMap<>();
-    private static final Map<StyleRarity, RegistrySupplier<Item>> BOOKS =
-            new EnumMap<>(StyleRarity.class);
 
     static {
-        for (String id : EquipmentIndex.all()) {
-            EQUIPMENT.put(id, ITEMS.register(id, () -> new EquipmentItem(
-                    new Item.Properties().stacksTo(1),
-                    CombatStylesContent.MOD_ID + ":" + id)));
+        ACCESSORIES.forEach(ContentItems::registerAccessory);
+        if (SpellPowerAccess.isLoaded()) {
+            SPELL_POWER_ACCESSORIES.forEach(ContentItems::registerAccessory);
         }
-        for (StyleRarity rarity : StyleRarity.values()) {
-            BOOKS.put(rarity, ITEMS.register("style_book_" + rarity.key(),
-                    () -> new StyleBookItem(new Item.Properties()
-                            .stacksTo(16)
-                            .rarity(rarity.itemRarity()), rarity)));
-        }
+    }
+
+    private static void registerAccessory(String id) {
+        EQUIPMENT.put(id, ITEMS.register(id, () -> new EquipmentItem(
+                new Item.Properties().stacksTo(1),
+                CombatStylesContent.MOD_ID + ":" + id)));
     }
 
     public static RegistrySupplier<Item> equipment(String id) {
@@ -67,15 +74,6 @@ public final class ContentItems {
 
     public static Collection<RegistrySupplier<Item>> equipment() {
         return EQUIPMENT.values();
-    }
-
-    public static List<String> equipmentIds() {
-        return List.copyOf(EQUIPMENT.keySet());
-    }
-
-    public static Item bookFor(StyleRarity rarity) {
-        RegistrySupplier<Item> book = BOOKS.get(rarity == null ? StyleRarity.COMMON : rarity);
-        return book == null ? BOOKS.get(StyleRarity.COMMON).get() : book.get();
     }
 
     public static final RegistrySupplier<CreativeModeTab> TAB = TABS.register("content", () ->
@@ -99,9 +97,6 @@ public final class ContentItems {
         output.accept(new ItemStack(BEHOLDER_CLAYMORE.get()));
         for (RegistrySupplier<Item> item : EQUIPMENT.values()) {
             output.accept(new ItemStack(item.get()));
-        }
-        for (StyleRarity rarity : StyleRarity.values()) {
-            output.accept(new ItemStack(bookFor(rarity)));
         }
     }
 }

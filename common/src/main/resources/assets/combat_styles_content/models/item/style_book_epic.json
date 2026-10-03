@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "combat_styles_content:item/style_book_epic"
-  }
-}

@@ -7,8 +7,8 @@
         "summon_profile": {
           "entity": "combat_styles_content:beholder_eye",
           "replaces_summons": true,
-          "replaced_summoned_entities": [
-            "combat_styles_content:wraith"
+          "exempt": [
+            "combat_styles_content:great_eye"
           ],
           "max_active": 6,
           "lifespan": 140,

@@ -8,11 +8,14 @@
           "entity": "combat_styles_content:great_eye",
           "max_active": 1,
           "damage_multiplier": 0.6,
-          "lifespan": 0,
           "damage_scaling": {
             "source": "spell_power:arcane",
             "per_point": 0.02,
             "strongest": true
+          },
+          "companion": {
+            "count": 1,
+            "respawn_ticks": 20
           }
         },
         "attributes": {

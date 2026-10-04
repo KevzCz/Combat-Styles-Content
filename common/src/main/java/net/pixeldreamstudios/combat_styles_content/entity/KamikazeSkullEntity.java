@@ -22,6 +22,7 @@ import net.minecraft.world.phys.Vec3;
 
 import net.pixeldreamstudios.combat_styles.config.AbilityConfig;
 import net.pixeldreamstudios.combat_styles.entity.ConfigurableSummon;
+import net.pixeldreamstudios.combat_styles.entity.SummonCompanions;
 import net.pixeldreamstudios.combat_styles.equipment.AbilityTuning;
 import net.pixeldreamstudios.combat_styles.equipment.SummonProfile;
 import net.pixeldreamstudios.combat_styles.equipment.SummonProfiles;
@@ -42,13 +43,15 @@ public class KamikazeSkullEntity extends Entity implements ConfigurableSummon {
     }
 
     @Override
-    public boolean canSpawn(Player owner, int index) {
-        return SkullFlock.canSpawn(owner);
+    public void onSpawned(Player owner, int index) {
+        setOrbitOffset(SkullFlock.freeOrbitOffset(owner, this));
     }
 
     @Override
-    public void onSpawned(Player owner, int index) {
-        SkullFlock.markSpawned(owner, this);
+    public void companionSpawned(Player owner, int slot, int count) {
+        companion = true;
+        life = COMPANION_LIFE;
+        setOrbitOffset(SkullFlock.slotOffset(slot, count));
     }
 
     public static final int FADE_TICKS = 5;
@@ -78,6 +81,7 @@ public class KamikazeSkullEntity extends Entity implements ConfigurableSummon {
     private static final double BURST_RADIUS = 2.5D;
     private static final float BURST_SHARE = 0.45F;
     private static final int DEFAULT_LIFE = 240;
+    private static final int COMPANION_LIFE = Integer.MAX_VALUE;
     private static final int UNTETHERED_GRACE = 10;
     private static final float DEGREES = 180.0F;
 
@@ -87,6 +91,7 @@ public class KamikazeSkullEntity extends Entity implements ConfigurableSummon {
     private float damage;
     private int life = DEFAULT_LIFE;
     private int untethered;
+    private boolean companion;
     private AbilityTuning orderTuning;
 
     public KamikazeSkullEntity(EntityType<? extends KamikazeSkullEntity> type, Level level) {
@@ -231,7 +236,7 @@ private void setOwnerId(UUID id) {
         if (level().isClientSide()) {
             return;
         }
-        if (--life <= 0) {
+        if (--life <= 0 || (companion && !SummonCompanions.sustains(this))) {
             beginFade();
             return;
         }

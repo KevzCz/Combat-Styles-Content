@@ -4,11 +4,11 @@
   "effects": {
     "skull_flock": {
       "effect": {
-        "attributes": {
-          "spell_power:soul": {
-            "amount": 2,
-            "operation": "add_value",
-            "stacks": true
+        "summon_profile": {
+          "entity": "combat_styles_content:kamikaze_skull",
+          "companion": {
+            "count": 3,
+            "respawn_ticks": 40
           }
         }
       }

@@ -22,6 +22,7 @@ import software.bernie.geckolib.animation.AnimationController;
 import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import net.pixeldreamstudios.combat_styles.entity.SummonCompanions;
 import net.pixeldreamstudios.combat_styles.entity.SummonStance;
 import net.pixeldreamstudios.combat_styles.entity.SummonOrders;
 import net.pixeldreamstudios.combat_styles.entity.ConfigurableSummon;
@@ -265,6 +266,7 @@ public class BeholderEyeEntity extends Entity implements GeoEntity, Configurable
     }
 
     private static final double EYE_SPAWN_LIFT = 1.7D;
+    private static final double COMPANION_TURN = Math.PI * 2.0D;
 
     @Override
     public double spawnLift() {
@@ -433,7 +435,12 @@ private void setOwnerId(UUID id) {
     }
 
     protected boolean sustainedBy(Player owner) {
-        return BeholderEyes.stillHolding(owner);
+        return SummonCompanions.sustains(this);
+    }
+
+    @Override
+    public void companionSpawned(Player owner, int slot, int count) {
+        assign(owner, (float) (COMPANION_TURN * slot / Math.max(1, count)));
     }
 
     protected boolean usesFinale() {

@@ -11,7 +11,6 @@ import net.pixeldreamstudios.combat_styles_content.entity.BeholderEyes;
 import net.pixeldreamstudios.combat_styles_content.entity.ContentEntities;
 import net.pixeldreamstudios.combat_styles_content.entity.EyeAbilities;
 import net.pixeldreamstudios.combat_styles_content.entity.SkullAbilities;
-import net.pixeldreamstudios.combat_styles_content.entity.GreatEyeFlock;
 import net.pixeldreamstudios.combat_styles_content.entity.SkullFlock;
 import net.pixeldreamstudios.combat_styles_content.item.ContentItems;
 
@@ -43,9 +42,6 @@ public final class CombatStylesContent {
 
     private static void registerSummonHooks() {
         SummonHooks.onForget(BeholderEyes::forget);
-        SummonHooks.onForget(SkullFlock::forget);
-        SummonHooks.onKeepAlive(SkullFlock::keepAlive);
-        SummonHooks.onKeepAlive(GreatEyeFlock::keepAlive);
         SummonHooks.onDive(SkullFlock::diveAll);
     }
 

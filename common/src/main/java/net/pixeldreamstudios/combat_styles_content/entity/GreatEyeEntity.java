@@ -9,7 +9,6 @@ import net.minecraft.world.phys.Vec3;
 
 import net.pixeldreamstudios.combat_styles.entity.SummonStance;
 import net.pixeldreamstudios.combat_styles.affix.AffixTargets;
-import net.pixeldreamstudios.combat_styles_content.config.ContentConfig;
 
 import java.util.List;
 
@@ -46,11 +45,6 @@ public class GreatEyeEntity extends BeholderEyeEntity {
     @Override
     public boolean temporary() {
         return false;
-    }
-
-    @Override
-    protected boolean sustainedBy(Player owner) {
-        return GreatEyeFlock.wearing(owner);
     }
 
     @Override
@@ -125,9 +119,5 @@ public class GreatEyeEntity extends BeholderEyeEntity {
     public void stopActing() {
         super.stopActing();
         furrowHits = 0;
-    }
-
-    public static int wanted(Player player) {
-        return player == null || !ContentConfig.skulls().skullsFollow ? 0 : 1;
     }
 }

@@ -152,7 +152,7 @@
     "item.combat_styles_content.beholder_claymore.attuned":  "Wear the Eye Necklace to command six, each with the full gaze.",
     "item.combat_styles_content.beholder_claymore.bound":  "◈ Attuned — the eyes draw on all six gazes and strike for %s× in total",
     "item.combat_styles_content.beholder_claymore.converge":  "Convergence — Collapse leaves the target Gazed",
-    "item.combat_styles_content.beholder_claymore.desc":  "Two eyes watch beside you. Your affixes tell them what to do.",
+    "item.combat_styles_content.beholder_claymore.desc":  "An eye watches beside you. Your affixes tell it what to do.",
     "item.combat_styles_content.beholder_claymore.focus":  "Ability: Crown the Gaze (Hold Right Click)",
     "item.combat_styles_content.beholder_claymore.focus_desc":  "Slowly gather each beholder eye (minimum of 2), releasing gives Gazing.",
     "item.combat_styles_content.beholder_claymore.gazed_effect":  "Gazed: the beholder eyes abilities deal more damage (+%s%% per stack, to %s stacks) for %ss",

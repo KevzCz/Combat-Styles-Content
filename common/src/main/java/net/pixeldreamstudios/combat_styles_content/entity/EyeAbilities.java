@@ -23,7 +23,7 @@ import net.minecraft.world.phys.Vec3;
 
 import net.pixeldreamstudios.combat_styles.entity.AbilityBehaviour;
 import net.pixeldreamstudios.combat_styles.entity.AbilityRegistry;
-import net.pixeldreamstudios.combat_styles.equipment.SummonProfiles;
+import net.pixeldreamstudios.combat_styles_content.CombatStylesContent;
 import net.pixeldreamstudios.combat_styles.affix.AffixDamageDealer;
 import net.pixeldreamstudios.combat_styles.damage.DamageHurt;
 import net.pixeldreamstudios.combat_styles.affix.AffixTargets;
@@ -129,49 +129,49 @@ public final class EyeAbilities {
     }
 
     public static void registerDefaults() {
-        AbilityRegistry.register(TWIN_LANCE,
+        AbilityRegistry.register(TWIN_LANCE, USED_BY,
                 (level, summon, owner, elapsed, damage, tuned, params) -> {
                     if (summon instanceof BeholderEyeEntity eye) {
                         twinLance(level, eye, owner, elapsed, damage, tuned);
                     }
                 });
-        AbilityRegistry.register(FURROW,
+        AbilityRegistry.register(FURROW, USED_BY,
                 (level, summon, owner, elapsed, damage, tuned, params) -> {
                     if (summon instanceof BeholderEyeEntity eye) {
                         furrow(level, eye, owner, elapsed, damage, tuned);
                     }
                 });
-        AbilityRegistry.register(WIDE_CUT,
+        AbilityRegistry.register(WIDE_CUT, USED_BY,
                 (level, summon, owner, elapsed, damage, tuned, params) -> {
                     if (summon instanceof BeholderEyeEntity eye) {
                         wideCut(level, eye, owner, elapsed, damage, tuned);
                     }
                 });
-        AbilityRegistry.register(BLINK_WATCH,
+        AbilityRegistry.register(BLINK_WATCH, USED_BY,
                 (level, summon, owner, elapsed, damage, tuned, params) -> {
                     if (summon instanceof BeholderEyeEntity eye) {
                         blinkWatch(level, eye, owner, elapsed, damage, tuned);
                     }
                 });
-        AbilityRegistry.register(TETHER,
+        AbilityRegistry.register(TETHER, USED_BY,
                 (level, summon, owner, elapsed, damage, tuned, params) -> {
                     if (summon instanceof BeholderEyeEntity eye) {
                         tether(level, eye, owner, elapsed, damage, tuned);
                     }
                 });
-        AbilityRegistry.register(COLLAPSE,
+        AbilityRegistry.register(COLLAPSE, USED_BY,
                 (level, summon, owner, elapsed, damage, tuned, params) -> {
                     if (summon instanceof BeholderEyeEntity eye) {
                         collapse(level, eye, owner, elapsed, damage, tuned);
                     }
                 });
-        AbilityRegistry.register(SUPERNOVA,
+        AbilityRegistry.register(SUPERNOVA, USED_BY,
                 (level, summon, owner, elapsed, damage, tuned, params) -> {
                     if (summon instanceof BeholderEyeEntity eye) {
                         supernova(level, eye, owner, elapsed, damage, tuned);
                     }
                 });
-        AbilityRegistry.register(ECLIPSE,
+        AbilityRegistry.register(ECLIPSE, USED_BY,
                 (level, summon, owner, elapsed, damage, tuned, params) -> {
                     if (summon instanceof BeholderEyeEntity eye) {
                         eclipse(level, eye, owner, elapsed, damage, tuned);
@@ -513,6 +513,10 @@ public final class EyeAbilities {
         }
     }
 
+    private static final String ENTITY_SEPARATOR = ":";
+    private static final List<String> USED_BY = List.of(
+            CombatStylesContent.MOD_ID + ENTITY_SEPARATOR + "beholder_eye",
+            CombatStylesContent.MOD_ID + ENTITY_SEPARATOR + "great_eye");
     private static final String TWIN_LANCE = "twin_lance";
     private static final String FURROW = "furrow";
     private static final String WIDE_CUT = "wide_cut";
@@ -523,7 +527,7 @@ public final class EyeAbilities {
     private static final String COLLAPSE = "collapse";
 
     private static AbilityConfig.Entry cfg(Player owner, String ability) {
-        SummonProfile.Resolved resolved = owner == null ? null : SummonProfiles.resolvedFor(owner);
+        SummonProfile.Resolved resolved = owner == null ? null : BeholderEyes.resolvedFor(owner);
         return resolved == null ? AbilityConfig.get(ability) : resolved.tuningFor(ability);
     }
 

@@ -11,7 +11,6 @@ import net.pixeldreamstudios.combat_styles_content.CombatStylesContent;
 
 public class CombatStylesContentFabric implements ModInitializer {
 
-    private static final String MALFU_PACK = "malfu_combat_styles";
     private static final String SPELL_PACK = "spell_combat_styles";
 
     @Override
@@ -20,11 +19,6 @@ public class CombatStylesContentFabric implements ModInitializer {
 
         FabricLoader.getInstance().getModContainer(CombatStylesContent.MOD_ID)
                 .ifPresent(container -> {
-                    ResourceManagerHelper.registerBuiltinResourcePack(
-                            ResourceLocation.fromNamespaceAndPath(
-                                    CombatStylesContent.MOD_ID, MALFU_PACK),
-                            container,
-                            ResourcePackActivationType.NORMAL);
                     if (SpellPowerAccess.isLoaded()) {
                         ResourceManagerHelper.registerBuiltinResourcePack(
                                 ResourceLocation.fromNamespaceAndPath(

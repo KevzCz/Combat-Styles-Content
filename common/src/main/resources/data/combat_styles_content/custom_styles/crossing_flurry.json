@@ -2,7 +2,7 @@
   "id": "combat_styles_content:crossing_flurry",
   "group": "veteran",
   "style": {
-    "style": "bettercombat:dual_handed_slash_cross",
+    "style": "bettercombat:sickle/2",
     "affixes": [
       "combat_styles_content:quickening"
     ],

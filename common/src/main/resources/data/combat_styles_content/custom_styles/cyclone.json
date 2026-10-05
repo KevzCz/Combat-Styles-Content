@@ -2,7 +2,7 @@
   "id": "combat_styles_content:cyclone",
   "group": "master",
   "style": {
-    "style": "bettercombat:two_handed_spin",
+    "style": "bettercombat:double_axe/1",
     "affixes": [
       "combat_styles_content:sweeping",
       "combat_styles_content:rending"

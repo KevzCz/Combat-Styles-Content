@@ -2,7 +2,7 @@
   "id": "combat_styles_content:switchblade_left",
   "group": "signature",
   "style": {
-    "style": "bettercombat:one_handed_slash_switch_blade_left",
+    "style": "bettercombat:twin_blade/1",
     "affixes": [
       "combat_styles_content:sweeping"
     ],

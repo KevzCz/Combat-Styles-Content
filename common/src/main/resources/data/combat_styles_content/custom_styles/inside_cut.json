@@ -2,7 +2,7 @@
   "id": "combat_styles_content:inside_cut",
   "group": "foundation",
   "style": {
-    "style": "bettercombat:one_handed_slash_horizontal_left",
+    "style": "bettercombat:sword/1",
     "attack": {
       "damage_multiplier": 1.05
     },

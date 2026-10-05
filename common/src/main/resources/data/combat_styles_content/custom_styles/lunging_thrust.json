@@ -2,7 +2,7 @@
   "id": "combat_styles_content:lunging_thrust",
   "group": "veteran",
   "style": {
-    "style": "bettercombat:two_handed_stab_right",
+    "style": "bettercombat:spear/0",
     "affixes": [
       "combat_styles_content:relentless"
     ],

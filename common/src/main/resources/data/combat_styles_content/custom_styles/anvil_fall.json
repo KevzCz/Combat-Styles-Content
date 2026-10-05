@@ -2,7 +2,7 @@
   "id": "combat_styles_content:anvil_fall",
   "group": "master",
   "style": {
-    "style": "bettercombat:two_handed_slam_heavy",
+    "style": "bettercombat:anchor/0",
     "affixes": [
       "combat_styles_content:encircling"
     ],

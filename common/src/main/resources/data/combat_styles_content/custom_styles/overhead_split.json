@@ -2,7 +2,7 @@
   "id": "combat_styles_content:overhead_split",
   "group": "veteran",
   "style": {
-    "style": "bettercombat:two_handed_slash_vertical_right",
+    "style": "bettercombat:glaive/0",
     "affixes": [
       "combat_styles_content:sweeping"
     ],

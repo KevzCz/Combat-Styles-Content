@@ -6,6 +6,8 @@
   "random_weight": 20,
   "categories": [
     "claymore",
+    "hammer",
+    "heavy_axe",
     "greathammer",
     "greataxe"
   ],

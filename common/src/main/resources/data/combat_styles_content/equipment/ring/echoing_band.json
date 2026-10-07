@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:echoing_band",
+  "active_in": "worn",
   "rarity": "epic",
   "effects": {
     "wave_echo": {

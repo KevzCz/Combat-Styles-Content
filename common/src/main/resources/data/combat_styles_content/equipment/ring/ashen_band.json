@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:ashen_band",
+  "active_in": "worn",
   "rarity": "common",
   "effects": {
     "ember_splash": {

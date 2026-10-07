@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:eye_necklace",
+  "active_in": "worn",
   "rarity": "legendary",
   "effects": {
     "eye_summons": {
@@ -14,14 +15,18 @@
           "lifespan": 140,
           "damage_multiplier": 1.2,
           "finale": "combat_styles_content:collapse",
-          "abilities": [
-            "combat_styles_content:twin_lance",
-            "combat_styles_content:furrow",
-            "combat_styles_content:wide_cut",
-            "combat_styles_content:tether",
-            "combat_styles_content:blink_watch",
-            "combat_styles_content:collapse"
-          ],
+          "actives": {
+            "abilities": [
+              "combat_styles_content:twin_lance",
+              "combat_styles_content:furrow",
+              "combat_styles_content:wide_cut",
+              "combat_styles_content:tether",
+              "combat_styles_content:blink_watch"
+            ],
+            "pick": "random",
+            "recast_ticks": 50,
+            "aim": "hit_target"
+          },
           "variants": [
             {
               "conditions": [

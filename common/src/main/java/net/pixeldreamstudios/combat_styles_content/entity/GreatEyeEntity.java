@@ -8,23 +8,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 import net.pixeldreamstudios.combat_styles.entity.SummonStance;
-import net.pixeldreamstudios.combat_styles.affix.AffixTargets;
 
-import java.util.List;
 
 public class GreatEyeEntity extends BeholderEyeEntity {
     public static final float SCALE = 1.9F;
+    private static final double SLAB_HEIGHT = 0.5D;
 
-    private static final int DECISION_INTERVAL = 40;
-    private static final double TARGET_RANGE = 20.0D;
     private static final int FURROW_HITS_PER_STACK = 3;
-
-    private static final List<String> ROSTER = List.of(
-            "combat_styles_content:twin_lance",
-            "combat_styles_content:blink_watch",
-            "combat_styles_content:furrow",
-            "combat_styles_content:tether",
-            "combat_styles_content:wide_cut");
 
     private int furrowHits;
 
@@ -35,6 +25,11 @@ public class GreatEyeEntity extends BeholderEyeEntity {
     @Override
     public float renderScale() {
         return BeholderEyeEntity.RENDER_SCALE * SCALE;
+    }
+
+    @Override
+    protected double extraBeamLift() {
+        return SLAB_HEIGHT;
     }
 
     @Override
@@ -53,42 +48,8 @@ public class GreatEyeEntity extends BeholderEyeEntity {
     }
 
     @Override
-    public void tick() {
-        super.tick();
-        if (level().isClientSide()) {
-            return;
-        }
-        Player owner = owner();
-        if (owner == null || !owner.isAlive()) {
-            return;
-        }
-        if (acting() || level().getGameTime() % DECISION_INTERVAL != 0L) {
-            return;
-        }
-        LivingEntity mark = markFor(owner);
-        if (mark == null) {
-            return;
-        }
-
-        configure(owner, mark, (float) owner.getAttributeValue(Attributes.ATTACK_DAMAGE), 0);
-        acceptAbility(ROSTER.get(random.nextInt(ROSTER.size())));
-    }
-
-    private LivingEntity markFor(Player owner) {
-        LivingEntity struck = owner.getLastHurtMob();
-        if (usable(owner, struck)) {
-            return struck;
-        }
-        LivingEntity aggressor = owner.getLastHurtByMob();
-        return usable(owner, aggressor) ? aggressor : null;
-    }
-
-    private boolean usable(Player owner, LivingEntity candidate) {
-        return candidate != null
-                && candidate.isAlive()
-                && candidate != owner
-                && candidate.distanceToSqr(this) <= TARGET_RANGE * TARGET_RANGE
-                && AffixTargets.canHit(owner, candidate);
+    protected float recastDamage(Player owner) {
+        return (float) owner.getAttributeValue(Attributes.ATTACK_DAMAGE);
     }
 
     public void onAbilityHit(String ability, LivingEntity victim) {

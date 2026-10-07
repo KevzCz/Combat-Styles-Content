@@ -184,7 +184,7 @@ private void setOwnerId(UUID id) {
                 : SummonProfiles.resolvedFor(owner);
         AbilityConfig.Entry entry = resolved == null
                 ? AbilityConfig.get(SkullAbilities.DIVE)
-                : resolved.tuningFor(SkullAbilities.DIVE);
+                : resolved.tuningFor(SkullAbilities.DIVE, caster());
         return orderTuning == null ? entry : orderTuning.over(entry);
     }
 
@@ -298,7 +298,7 @@ private void setOwnerId(UUID id) {
                     SoundEvents.WITHER_SKELETON_DEATH, SoundSource.PLAYERS, 0.5F, 1.5F);
         }
         AbilityConfig.Entry tuned = tuned(owner);
-        float hit = damage + tuned.damage.baseDamage;
+        float hit = damage + tuned.asDamageSpec().base();
         if (hit > 0.0F && owner != null) {
             DamageSource source = owner.damageSources().indirectMagic(this, owner);
             if (struck != null) {

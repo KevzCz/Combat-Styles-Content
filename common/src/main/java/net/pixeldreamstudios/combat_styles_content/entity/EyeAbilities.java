@@ -1,18 +1,12 @@
 package net.pixeldreamstudios.combat_styles_content.entity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
@@ -21,8 +15,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
-import net.pixeldreamstudios.combat_styles.entity.AbilityBehaviour;
+import net.pixeldreamstudios.combat_styles.entity.ActiveAbility;
+import net.pixeldreamstudios.combat_styles.entity.AbilityHost;
+import net.pixeldreamstudios.combat_styles.entity.AbilityStrike;
+import net.pixeldreamstudios.combat_styles.entity.ScriptedAbilities;
 import net.pixeldreamstudios.combat_styles.entity.AbilityRegistry;
+import net.pixeldreamstudios.combat_styles.entity.SummonAbility;
 import net.pixeldreamstudios.combat_styles_content.CombatStylesContent;
 import net.pixeldreamstudios.combat_styles.affix.AffixDamageDealer;
 import net.pixeldreamstudios.combat_styles.damage.DamageHurt;
@@ -32,24 +30,12 @@ import net.pixeldreamstudios.combat_styles.config.AbilityConfig;
 import net.pixeldreamstudios.combat_styles.config.SummonTuning;
 import net.pixeldreamstudios.combat_styles.equipment.AbilityTuning;
 import net.pixeldreamstudios.combat_styles.equipment.SummonProfile;
-import net.pixeldreamstudios.combat_styles.platform.SpellPowerAccess;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public final class EyeAbilities {
-    private static final List<EyeAbility> ROAMING = List.of(
-            EyeAbility.TWIN_LANCE,
-            EyeAbility.FURROW,
-            EyeAbility.WIDE_CUT,
-            EyeAbility.BLINK_WATCH,
-            EyeAbility.TETHER);
-
-    public static EyeAbility randomAbility(RandomSource random) {
-        return ROAMING.get(random.nextInt(ROAMING.size()));
-    }
-
     private EyeAbilities() {
     }
 
@@ -58,7 +44,18 @@ public final class EyeAbilities {
 
     public static Vec3 focusFor(BeholderEyeEntity eye, Player owner, String ability,
                                 int elapsed) {
+        if (ScriptedAbilities.scripted(ability)) {
+            Vec3 scripted = ScriptedAbilities.focusFor(ability, AbilityHost.of(eye, owner),
+                    cfg(eye, owner, ability));
+            if (scripted != null) {
+                return scripted;
+            }
+        }
         return focusFor(eye, owner, EyeAbility.byName(ability), elapsed);
+    }
+
+    public static int cooldownOf(BeholderEyeEntity eye, Player owner, String ability) {
+        return acts(ability) ? cfg(eye, owner, ability).cooldown() : 0;
     }
 
     public static Vec3 focusFor(BeholderEyeEntity eye, Player owner, EyeAbility ability,
@@ -103,12 +100,12 @@ public final class EyeAbilities {
         }
         AbilityConfig.Entry tuned = cfg(eye, owner, ability);
         float damage = tuned.damageFrom(owner, weaponDamage);
-        if (damage < SummonTuning.get().minimumDamage) {
+        if (damage < SummonTuning.get().minimumDamage && !ScriptedAbilities.scripted(ability)) {
             return;
         }
-        AbilityBehaviour behaviour = AbilityRegistry.get(ability);
+        SummonAbility behaviour = AbilityRegistry.get(ability);
         if (behaviour != null) {
-            behaviour.tick(level, eye, owner, elapsed, damage, tuned, eye.params(tuned));
+            behaviour.run(level, AbilityHost.of(eye, owner), elapsed, damage, tuned);
         }
     }
 
@@ -122,61 +119,130 @@ public final class EyeAbilities {
         if (damage < SummonTuning.get().minimumDamage) {
             return;
         }
-        AbilityBehaviour behaviour = AbilityRegistry.get(ability.key());
+        SummonAbility behaviour = AbilityRegistry.get(ability.key());
         if (behaviour != null) {
-            behaviour.tick(level, eye, owner, elapsed, damage, tuned, eye.params(tuned));
+            behaviour.run(level, AbilityHost.of(eye, owner), elapsed, damage, tuned);
         }
     }
 
     public static void registerDefaults() {
-        AbilityRegistry.register(TWIN_LANCE, USED_BY,
-                (level, summon, owner, elapsed, damage, tuned, params) -> {
-                    if (summon instanceof BeholderEyeEntity eye) {
-                        twinLance(level, eye, owner, elapsed, damage, tuned);
-                    }
-                });
-        AbilityRegistry.register(FURROW, USED_BY,
-                (level, summon, owner, elapsed, damage, tuned, params) -> {
-                    if (summon instanceof BeholderEyeEntity eye) {
-                        furrow(level, eye, owner, elapsed, damage, tuned);
-                    }
-                });
-        AbilityRegistry.register(WIDE_CUT, USED_BY,
-                (level, summon, owner, elapsed, damage, tuned, params) -> {
-                    if (summon instanceof BeholderEyeEntity eye) {
-                        wideCut(level, eye, owner, elapsed, damage, tuned);
-                    }
-                });
-        AbilityRegistry.register(BLINK_WATCH, USED_BY,
-                (level, summon, owner, elapsed, damage, tuned, params) -> {
-                    if (summon instanceof BeholderEyeEntity eye) {
-                        blinkWatch(level, eye, owner, elapsed, damage, tuned);
-                    }
-                });
-        AbilityRegistry.register(TETHER, USED_BY,
-                (level, summon, owner, elapsed, damage, tuned, params) -> {
-                    if (summon instanceof BeholderEyeEntity eye) {
-                        tether(level, eye, owner, elapsed, damage, tuned);
-                    }
-                });
-        AbilityRegistry.register(COLLAPSE, USED_BY,
-                (level, summon, owner, elapsed, damage, tuned, params) -> {
-                    if (summon instanceof BeholderEyeEntity eye) {
-                        collapse(level, eye, owner, elapsed, damage, tuned);
-                    }
-                });
-        AbilityRegistry.register(SUPERNOVA, USED_BY,
-                (level, summon, owner, elapsed, damage, tuned, params) -> {
-                    if (summon instanceof BeholderEyeEntity eye) {
-                        supernova(level, eye, owner, elapsed, damage, tuned);
-                    }
-                });
-        AbilityRegistry.register(ECLIPSE, USED_BY,
-                (level, summon, owner, elapsed, damage, tuned, params) -> {
-                    if (summon instanceof BeholderEyeEntity eye) {
-                        eclipse(level, eye, owner, elapsed, damage, tuned);
-                    }
-                });
+        defineTuning();
+        AbilityRegistry.register(TWIN_LANCE, new EyeActive(EyeAbilities::twinLance));
+        AbilityRegistry.register(FURROW, new EyeActive(EyeAbilities::furrow));
+        AbilityRegistry.register(WIDE_CUT, new EyeActive(EyeAbilities::wideCut));
+        AbilityRegistry.register(BLINK_WATCH, new EyeActive(EyeAbilities::blinkWatch));
+        AbilityRegistry.register(TETHER, new EyeActive(EyeAbilities::tether));
+        AbilityRegistry.register(COLLAPSE, new EyeActive(EyeAbilities::collapse));
+        AbilityRegistry.register(SUPERNOVA, new EyeActive(EyeAbilities::supernova));
+        AbilityRegistry.register(ECLIPSE, new EyeActive(EyeAbilities::eclipse));
+    }
+
+    @FunctionalInterface
+    private interface EyeMove {
+        void cast(ServerLevel level, BeholderEyeEntity eye, Player owner, int elapsed, float damage,
+                  AbilityConfig.Entry tuned);
+    }
+
+    private record EyeActive(EyeMove move) implements ActiveAbility {
+
+        @Override
+        public void run(ServerLevel level, AbilityHost host, int elapsed, float damage,
+                        AbilityConfig.Entry tuned) {
+            if (host.body() instanceof BeholderEyeEntity eye) {
+                move.cast(level, eye, host.owner(), elapsed, damage, tuned);
+            }
+        }
+
+        @Override
+        public List<String> usedBy() {
+            return USED_BY;
+        }
+    }
+
+    private static void defineTuning() {
+        AbilityConfig.Entry lance = tuning(2.0F, 0.5F, 2, 10, 2);
+        lance.shape.range = 14.0D;
+        lance.fx.particles = 4;
+        lance.fx.spread = 0.1D;
+        lance.fx.pitch = 1.8F;
+        AbilityConfig.define(TWIN_LANCE, lance);
+
+        AbilityConfig.Entry furrow = tuning(4.0F, 1.0F, 1, 30, 4);
+        furrow.shape.radius = 1.1D;
+        furrow.shape.range = 9.0D;
+        furrow.shape.maxTargets = 4;
+        furrow.fx.particles = 2;
+        furrow.fx.spread = 0.2D;
+        furrow.fx.pitch = 0.6F;
+        AbilityConfig.define(FURROW, furrow);
+
+        AbilityConfig.Entry wideCut = tuning(3.0F, 1.0F, 1, 16, 2);
+        wideCut.shape.radius = 1.0D;
+        wideCut.shape.range = 7.0D;
+        wideCut.shape.maxTargets = 5;
+        wideCut.fx.pitch = 0.7F;
+        AbilityConfig.define(WIDE_CUT, wideCut);
+
+        AbilityConfig.Entry blinkWatch = tuning(3.5F, 1.0F, 1, 18, 8);
+        blinkWatch.shape.range = 3.0D;
+        blinkWatch.fx.particles = 12;
+        blinkWatch.fx.spread = 0.3D;
+        blinkWatch.fx.pitch = 1.5F;
+        AbilityConfig.define(BLINK_WATCH, blinkWatch);
+
+        AbilityConfig.Entry tether = tuning(1.5F, 0.35F, 1, 40, 8);
+        tether.damage.lifesteal = 0.35F;
+        tether.fx.particles = 3;
+        tether.fx.spread = 0.2D;
+        tether.fx.pitch = 1.2F;
+        AbilityConfig.define(TETHER, tether);
+
+        AbilityConfig.Entry collapse = tuning(6.0F, 1.0F, 1, 24, 18);
+        collapse.damage.applies = GAZED;
+        collapse.shape.radius = 4.0D;
+        collapse.shape.rise = -0.35D;
+        collapse.shape.maxTargets = 8;
+        collapse.fx.particles = 1;
+        collapse.fx.spread = 0.15D;
+        collapse.fx.volume = 0.6F;
+        collapse.fx.pitch = 1.4F;
+        AbilityConfig.define(COLLAPSE, collapse);
+
+        AbilityConfig.Entry eclipse = tuning(7.0F, 1.0F, 1, 26, 18);
+        eclipse.damage.applies = GAZED;
+        eclipse.shape.radius = 4.5D;
+        eclipse.shape.rise = 0.9D;
+        eclipse.shape.pull = 0.35D;
+        eclipse.shape.lift = 0.12D;
+        eclipse.shape.maxTargets = 8;
+        eclipse.fx.particles = 12;
+        eclipse.fx.spread = 0.7D;
+        eclipse.fx.volume = 0.55F;
+        eclipse.fx.pitch = 0.75F;
+        AbilityConfig.define(ECLIPSE, eclipse);
+
+        AbilityConfig.Entry supernova = tuning(10.0F, 1.0F, 1, 30, 22);
+        supernova.damage.detonates = true;
+        supernova.shape.radius = 6.0D;
+        supernova.shape.rise = 1.1D;
+        supernova.shape.maxTargets = 12;
+        supernova.fx.particles = 24;
+        supernova.fx.spread = 1.2D;
+        supernova.fx.volume = 0.8F;
+        supernova.fx.pitch = 1.15F;
+        AbilityConfig.define(SUPERNOVA, supernova);
+    }
+
+    private static AbilityConfig.Entry tuning(float baseDamage, float weaponRatio, int hits,
+                                              int durationTicks, int windupTicks) {
+        AbilityConfig.Entry entry = new AbilityConfig.Entry();
+        entry.damage.useSpec(AbilityConfig.Damage.scaledSpec(baseDamage, weaponRatio,
+                SPELL_POWER_PER_POINT));
+        entry.damage.hits = hits;
+        entry.timing.durationTicks = durationTicks;
+        entry.timing.windupTicks = windupTicks;
+        entry.fx.volume = DEFAULT_VOLUME;
+        return entry;
     }
 
     private static void cue(ServerLevel level, BeholderEyeEntity eye,
@@ -525,6 +591,9 @@ public final class EyeAbilities {
     private static final String ECLIPSE = "eclipse";
     private static final String SUPERNOVA = "supernova";
     private static final String COLLAPSE = "collapse";
+    private static final String GAZED = CombatStylesContent.MOD_ID + ENTITY_SEPARATOR + Convergence.ID;
+    private static final double SPELL_POWER_PER_POINT = 0.02D;
+    private static final float DEFAULT_VOLUME = 0.35F;
 
     private static AbilityConfig.Entry cfg(Player owner, String ability) {
         SummonProfile.Resolved resolved = owner == null ? null : BeholderEyes.resolvedFor(owner);
@@ -532,7 +601,10 @@ public final class EyeAbilities {
     }
 
     private static AbilityConfig.Entry cfg(BeholderEyeEntity eye, Player owner, String ability) {
-        AbilityConfig.Entry entry = cfg(owner, ability);
+        SummonProfile.Resolved resolved = owner == null ? null : BeholderEyes.resolvedFor(owner);
+        AbilityConfig.Entry entry = resolved == null
+                ? AbilityConfig.get(ability)
+                : resolved.tuningFor(ability, eye == null ? null : eye.caster());
         AbilityTuning ordered = eye == null ? null : eye.orderTuning();
         return ordered == null ? entry : ordered.over(entry);
     }
@@ -543,7 +615,7 @@ public final class EyeAbilities {
             return;
         }
         float amplified = damage * Convergence.amplify(owner, victim);
-        DamageSource source = schoolSource(eye, owner, tuned);
+        DamageSource source = AbilityStrike.sourceFor(eye, owner, tuned);
         DamageHurt.bypassingIFrames(victim, source, amplified);
         if (eye instanceof GreatEyeEntity great) {
             great.onAbilityHit(eye.abilityKey(), victim);
@@ -560,22 +632,5 @@ public final class EyeAbilities {
             return;
         }
         Convergence.apply(owner, victim, tuned.damage.applies, tuned.damage.appliesStacks);
-    }
-
-    private static DamageSource schoolSource(BeholderEyeEntity eye, Player owner,
-                                             AbilityConfig.Entry tuned) {
-        ResourceLocation typeId = SpellPowerAccess.damageTypeOf(
-                tuned == null ? null : tuned.damage.school);
-        if (typeId != null) {
-            Holder<DamageType> holder = eye.level().registryAccess()
-                    .registryOrThrow(Registries.DAMAGE_TYPE)
-                    .getHolder(ResourceKey.create(
-                            Registries.DAMAGE_TYPE, typeId))
-                    .orElse(null);
-            if (holder != null) {
-                return new DamageSource(holder, eye, owner);
-            }
-        }
-        return owner.damageSources().indirectMagic(eye, owner);
     }
 }

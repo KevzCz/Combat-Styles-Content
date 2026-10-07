@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:cracked_signet",
+  "active_in": "worn",
   "rarity": "common",
   "effects": {
     "cracked_edge": {

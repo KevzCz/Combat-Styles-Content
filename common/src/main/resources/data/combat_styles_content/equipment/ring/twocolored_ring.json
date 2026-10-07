@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:twocolored_ring",
+  "active_in": "worn",
   "rarity": "epic",
   "effects": {
     "twocolored_edge": {

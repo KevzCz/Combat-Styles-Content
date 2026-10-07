@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:windstone_necklace",
+  "active_in": "worn",
   "rarity": "rare",
   "effects": {
     "windstone_gust": {

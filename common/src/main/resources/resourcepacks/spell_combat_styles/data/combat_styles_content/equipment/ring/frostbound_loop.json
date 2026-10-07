@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:frostbound_loop",
+  "active_in": "worn",
   "rarity": "uncommon",
   "effects": {
     "frost_bite": {

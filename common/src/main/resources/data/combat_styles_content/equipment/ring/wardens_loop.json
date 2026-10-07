@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:wardens_loop",
+  "active_in": "worn",
   "rarity": "epic",
   "effects": {
     "wardens_guard": {

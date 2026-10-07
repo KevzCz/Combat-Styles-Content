@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:rhythm_band",
+  "active_in": "worn",
   "rarity": "uncommon",
   "effects": {
     "keeping_time": {

@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:tarnished_loop",
+  "active_in": "worn",
   "rarity": "common",
   "effects": {
     "tarnished_edge": {

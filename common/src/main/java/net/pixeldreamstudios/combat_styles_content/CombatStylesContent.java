@@ -10,6 +10,7 @@ import net.pixeldreamstudios.combat_styles_content.effect.ModEffects;
 import net.pixeldreamstudios.combat_styles_content.entity.BeholderEyes;
 import net.pixeldreamstudios.combat_styles_content.entity.ContentEntities;
 import net.pixeldreamstudios.combat_styles_content.entity.EyeAbilities;
+import net.pixeldreamstudios.combat_styles_content.entity.GazeRitual;
 import net.pixeldreamstudios.combat_styles_content.entity.SkullAbilities;
 import net.pixeldreamstudios.combat_styles_content.entity.SkullFlock;
 import net.pixeldreamstudios.combat_styles_content.item.ContentItems;
@@ -20,6 +21,7 @@ import net.pixeldreamstudios.combat_styles.equipment.AccessoryCompat;
 public final class CombatStylesContent {
 
     public static final String MOD_ID = "combat_styles_content";
+    public static final String SPELL_PACK = "spell_combat_styles";
     public static final String PARENT_ID = "combat_styles";
     public static final Logger LOGGER = LoggerFactory.getLogger("Combat Styles Content");
 
@@ -42,6 +44,7 @@ public final class CombatStylesContent {
 
     private static void registerSummonHooks() {
         SummonHooks.onForget(BeholderEyes::forget);
+        SummonHooks.onForget(GazeRitual::forget);
         SummonHooks.onDive(SkullFlock::diveAll);
     }
 
@@ -49,7 +52,6 @@ public final class CombatStylesContent {
         if (!AccessoryCompat.isLoaded()) {
             return;
         }
-        ContentItems.equipment().forEach(item -> item.listen(AccessoryCompat::registerItem));
     }
 
     public static ResourceLocation id(String path) {

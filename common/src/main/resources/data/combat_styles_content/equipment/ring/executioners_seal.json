@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:executioners_seal",
+  "active_in": "worn",
   "rarity": "rare",
   "effects": {
     "execution": {

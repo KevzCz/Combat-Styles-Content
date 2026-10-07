@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:azure_stone_ring",
+  "active_in": "worn",
   "rarity": "legendary",
   "effects": {
     "azure_attunement": {

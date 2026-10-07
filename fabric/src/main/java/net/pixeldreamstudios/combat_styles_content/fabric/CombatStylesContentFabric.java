@@ -11,7 +11,6 @@ import net.pixeldreamstudios.combat_styles_content.CombatStylesContent;
 
 public class CombatStylesContentFabric implements ModInitializer {
 
-    private static final String SPELL_PACK = "spell_combat_styles";
 
     @Override
     public void onInitialize() {
@@ -22,7 +21,7 @@ public class CombatStylesContentFabric implements ModInitializer {
                     if (SpellPowerAccess.isLoaded()) {
                         ResourceManagerHelper.registerBuiltinResourcePack(
                                 ResourceLocation.fromNamespaceAndPath(
-                                        CombatStylesContent.MOD_ID, SPELL_PACK),
+                                        CombatStylesContent.MOD_ID, CombatStylesContent.SPELL_PACK),
                                 container,
                                 ResourcePackActivationType.ALWAYS_ENABLED);
                     }

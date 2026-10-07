@@ -21,7 +21,6 @@ import java.util.Optional;
 @EventBusSubscriber(modid = CombatStylesContent.MOD_ID)
 public final class SpellPackProvider {
 
-    private static final String PACK_NAME = "spell_combat_styles";
     private static final String PACK_TITLE = "Combat Styles: Spell Power";
 
     private SpellPackProvider() {
@@ -37,9 +36,9 @@ public final class SpellPackProvider {
         }
         ModList.get().getModContainerById(CombatStylesContent.MOD_ID).ifPresent(container -> {
             Path root = container.getModInfo().getOwningFile().getFile()
-                    .findResource("resourcepacks", PACK_NAME);
+                    .findResource("resourcepacks", CombatStylesContent.SPELL_PACK);
             PackLocationInfo location = new PackLocationInfo(
-                    CombatStylesContent.MOD_ID + ":" + PACK_NAME,
+                    CombatStylesContent.MOD_ID + ":" + CombatStylesContent.SPELL_PACK,
                     Component.literal(PACK_TITLE),
                     PackSource.BUILT_IN,
                     Optional.empty());

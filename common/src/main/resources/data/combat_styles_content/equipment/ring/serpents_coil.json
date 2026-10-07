@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:serpents_coil",
+  "active_in": "worn",
   "rarity": "uncommon",
   "effects": {
     "serpents_bite": {

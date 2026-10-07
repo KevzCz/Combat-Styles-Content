@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:occular_ring",
+  "active_in": "worn",
   "rarity": "epic",
   "effects": {
     "occular_watch": {
@@ -16,6 +17,18 @@
           "companion": {
             "count": 1,
             "respawn_ticks": 20
+          },
+          "actives": {
+            "abilities": [
+              "combat_styles_content:twin_lance",
+              "combat_styles_content:blink_watch",
+              "combat_styles_content:furrow",
+              "combat_styles_content:tether",
+              "combat_styles_content:wide_cut"
+            ],
+            "pick": "random",
+            "recast_ticks": 40,
+            "aim": "hit_target"
           }
         },
         "attributes": {

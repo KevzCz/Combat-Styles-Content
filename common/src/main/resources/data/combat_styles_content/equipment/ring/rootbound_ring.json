@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:rootbound_ring",
+  "active_in": "worn",
   "rarity": "rare",
   "effects": {
     "rootbound_grasp": {

@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:unbroken_circle",
+  "active_in": "worn",
   "rarity": "rare",
   "effects": {
     "unbroken_guard": {

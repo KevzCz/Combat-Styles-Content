@@ -11,6 +11,7 @@ import org.joml.Vector3d;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
+import net.pixeldreamstudios.combat_styles.client.BeamRenderer;
 import net.pixeldreamstudios.combat_styles_content.entity.BeholderEyeEntity;
 import net.pixeldreamstudios.combat_styles_content.entity.GreatEyeEntity;
 
@@ -53,7 +54,7 @@ public class BeholderEyeRenderer extends GeoEntityRenderer<BeholderEyeEntity> {
         Vec3 muzzle = muzzleFrom(entity);
         poses.pushPose();
         poses.translate(-entity.getX(), -entity.getY(), -entity.getZ());
-        EyeBeamRenderer.draw(poses, buffers, muzzle, end,
+        BeamRenderer.draw(poses, buffers, muzzle, end,
                 BEAM_WIDTH * (entity.renderScale() / SCALE),
                 BEAM_R, BEAM_G, BEAM_B, BEAM_ALPHA, entity.tickCount + partialTick);
         poses.popPose();

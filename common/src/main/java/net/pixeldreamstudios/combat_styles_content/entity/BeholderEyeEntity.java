@@ -22,6 +22,9 @@ import software.bernie.geckolib.animation.AnimationController;
 import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import net.pixeldreamstudios.combat_styles.entity.AbilityCadence;
+import net.pixeldreamstudios.combat_styles.entity.AbilityCaster;
+import net.pixeldreamstudios.combat_styles.entity.AbilityHost;
 import net.pixeldreamstudios.combat_styles.entity.SummonCompanions;
 import net.pixeldreamstudios.combat_styles.entity.SummonStance;
 import net.pixeldreamstudios.combat_styles.entity.SummonOrders;
@@ -76,12 +79,14 @@ public class BeholderEyeEntity extends Entity implements GeoEntity, Configurable
     public static final float RENDER_SCALE = 0.6F;
 
     private static final double PIVOT_ABOVE_CUBE_CENTRE_PIXELS = 3.0D;
+    private static final double BONE_PIVOT_PIXELS = 12.0D;
 
     public float renderScale() {
         return RENDER_SCALE;
     }
 
     private static final double BEAM_LIFT_PIXELS = -5.0D;
+    private static final double NO_EXTRA_LIFT = 0.0D;
 
     private static double beamOriginY(float scale) {
         return -PIVOT_ABOVE_CUBE_CENTRE_PIXELS / MODEL_UNITS_PER_BLOCK * scale
@@ -91,7 +96,12 @@ public class BeholderEyeEntity extends Entity implements GeoEntity, Configurable
     public double beamLift() {
         float scale = renderScale();
         return beamOriginY(scale)
-                - PIVOT_ABOVE_CUBE_CENTRE_PIXELS / MODEL_UNITS_PER_BLOCK * scale;
+                - PIVOT_ABOVE_CUBE_CENTRE_PIXELS / MODEL_UNITS_PER_BLOCK * scale
+                + extraBeamLift();
+    }
+
+    protected double extraBeamLift() {
+        return NO_EXTRA_LIFT;
     }
 
     public double muzzleReach() {
@@ -137,7 +147,7 @@ public class BeholderEyeEntity extends Entity implements GeoEntity, Configurable
 
     private UUID ownerId;
     private int untethered;
-    private int abilityTicks;
+    private final AbilityCaster caster = new AbilityCaster();
     private float abilityDamage;
     private AbilityTuning orderTuning;
     private int life = -1;
@@ -216,7 +226,10 @@ public class BeholderEyeEntity extends Entity implements GeoEntity, Configurable
         setAbility(value.key());
     }
 
-    private int abilityElapsed;
+    @Override
+    public AbilityCaster caster() {
+        return caster;
+    }
 
     private void setAbility(String key) {
         String wanted = key == null || key.isBlank()
@@ -233,8 +246,12 @@ public class BeholderEyeEntity extends Entity implements GeoEntity, Configurable
                     wanted, MINIMUM_DURATION);
             span = MINIMUM_DURATION;
         }
-        abilityTicks = span;
-        abilityElapsed = 0;
+        if (EyeAbilities.acts(wanted)) {
+            caster.begin(wanted, span, EyeAbilities.cooldownOf(this, owner(), wanted),
+                    level().getGameTime(), abilityStart);
+        } else {
+            caster.stop();
+        }
         cachedParams = null;
         sweepHeading = null;
     }
@@ -331,21 +348,18 @@ public class BeholderEyeEntity extends Entity implements GeoEntity, Configurable
         return orderTuning;
     }
 
-    private String queuedAbility;
-
     @Override
     public void acceptAbility(String ability) {
         String wanted = substitutedKey(ability);
         if (acting() && EyeAbilities.acts(wanted)) {
-            queuedAbility = wanted;
+            caster.queue(wanted);
             return;
         }
         beginAbility(wanted);
     }
 
     private void startQueuedAbility() {
-        String wanted = queuedAbility;
-        queuedAbility = null;
+        String wanted = caster.takeQueued();
         if (wanted != null) {
             beginAbility(wanted);
         }
@@ -404,8 +418,12 @@ private void setOwnerId(UUID id) {
 
     public Vec3 muzzle() {
         return position()
-                .add(0.0D, beamOriginY(renderScale()), 0.0D)
+                .add(0.0D, muzzleHeight(), 0.0D)
                 .add(getLookAngle().scale(muzzleReach()));
+    }
+
+    private double muzzleHeight() {
+        return BONE_PIVOT_PIXELS / MODEL_UNITS_PER_BLOCK * renderScale() + beamLift();
     }
 
     public int fadeTicks() {
@@ -429,7 +447,7 @@ private void setOwnerId(UUID id) {
     @Override
     public void dismiss() {
         SummonEvents.fireDismissed(owner(), this);
-        queuedAbility = null;
+        caster.clearQueue();
         stopActing();
         beginFade();
     }
@@ -497,7 +515,7 @@ private void setOwnerId(UUID id) {
             wasGazing = false;
             EyeAbility ending = pendingFinale;
             pendingFinale = EyeAbility.IDLE;
-            if (usesFinale() && ending.acting() && !ability().acting()) {
+            if (usesFinale() && ending.acting() && !acting()) {
                 beginAbility(ending);
                 return;
             }
@@ -508,7 +526,7 @@ private void setOwnerId(UUID id) {
                 life--;
             }
             if (life <= 0 && !inCrown()) {
-                if (ability().acting()) {
+                if (acting()) {
                     tickAbility(owner);
                     return;
                 }
@@ -525,8 +543,12 @@ private void setOwnerId(UUID id) {
             return;
         }
 
-        if (ability().acting()) {
+        if (acting()) {
             tickAbility(owner);
+            return;
+        }
+
+        if (!gazing && !inCrown() && recast(owner)) {
             return;
         }
 
@@ -539,9 +561,24 @@ private void setOwnerId(UUID id) {
         aimAt(owner.getEyePosition().add(owner.getLookAngle().scale(AIM_DISTANCE)));
     }
 
+    private boolean recast(Player owner) {
+        AbilityCadence.Recast next = AbilityCadence.next(AbilityHost.of(this, owner));
+        if (next == null) {
+            return false;
+        }
+        retarget(next.target());
+        abilityDamage = recastDamage(owner);
+        acceptAbility(next.ability());
+        return acting();
+    }
+
+    protected float recastDamage(Player owner) {
+        return abilityDamage;
+    }
+
     private void tickAbility(Player owner) {
         String current = abilityKey();
-        int elapsed = abilityElapsed++;
+        int elapsed = caster.elapsed();
 
         if (anchored != null) {
             setPos(anchored.x, anchored.y, anchored.z);
@@ -555,7 +592,7 @@ private void setOwnerId(UUID id) {
             return;
         }
 
-        if (--abilityTicks <= 0) {
+        if (caster.advance()) {
             stopActing();
         }
     }
@@ -634,7 +671,7 @@ private void setOwnerId(UUID id) {
     }
 
     public void aimAt(Vec3 point) {
-        Vec3 delta = point.subtract(position().add(0.0D, beamOriginY(renderScale()), 0.0D));
+        Vec3 delta = point.subtract(position().add(0.0D, muzzleHeight(), 0.0D));
         double flat = Math.sqrt(delta.x * delta.x + delta.z * delta.z);
         float wantYaw = (float) (Math.atan2(delta.z, delta.x) * (DEGREES / Math.PI)) - 90.0F;
         float wantPitch = (float) (-Math.atan2(delta.y, flat) * (DEGREES / Math.PI));
@@ -657,6 +694,22 @@ private void setOwnerId(UUID id) {
         return SummonStance.of(this, owner, owner != null && Gazing.active(owner));
     }
 
+    @Override
+    public Vec3 abilityOrigin() {
+        return muzzle();
+    }
+
+    @Override
+    public void showBeam(Vec3 end) {
+        setBeamEnd(end);
+    }
+
+    @Override
+    public boolean drawsOwnBeam() {
+        return true;
+    }
+
+    @Override
     public void holdAt(Vec3 point) {
         anchored = point;
         setPos(point.x, point.y, point.z);
@@ -703,10 +756,12 @@ private void setOwnerId(UUID id) {
         return flat.lengthSqr() < 1.0E-4D ? null : flat.normalize();
     }
 
+    @Override
     public Vec3 abilityStart() {
         return abilityStart == null ? position() : abilityStart;
     }
 
+    @Override
     public float abilityDamage() {
         return abilityDamage;
     }
@@ -717,6 +772,7 @@ private void setOwnerId(UUID id) {
         this.cachedTarget = target;
     }
 
+    @Override
     public LivingEntity abilityTarget() {
         if (cachedTarget != null && cachedTarget.isAlive() && !cachedTarget.isRemoved()) {
             return cachedTarget;
@@ -765,6 +821,7 @@ private void setOwnerId(UUID id) {
         life = tag.contains(TAG_LIFE) ? tag.getInt(TAG_LIFE) : -1;
         finale = tag.getBoolean(TAG_FINALE);
         abilityDamage = tag.getFloat(TAG_DAMAGE);
+        caster.load(tag);
     }
 
     @Override
@@ -783,6 +840,7 @@ private void setOwnerId(UUID id) {
         if (abilityDamage > 0.0F) {
             tag.putFloat(TAG_DAMAGE, abilityDamage);
         }
+        caster.save(tag);
     }
 
     @Override

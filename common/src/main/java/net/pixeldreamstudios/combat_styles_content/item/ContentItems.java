@@ -12,88 +12,83 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
 
+import net.pixeldreamstudios.combat_styles.item.AddonItems;
 import net.pixeldreamstudios.combat_styles.item.EquipmentItem;
 import net.pixeldreamstudios.combat_styles.platform.SpellPowerAccess;
 import net.pixeldreamstudios.combat_styles_content.CombatStylesContent;
 
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 public final class ContentItems {
 
-    public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(CombatStylesContent.MOD_ID, Registries.ITEM);
     public static final DeferredRegister<CreativeModeTab> TABS =
             DeferredRegister.create(CombatStylesContent.MOD_ID, Registries.CREATIVE_MODE_TAB);
 
-    private static final String MASCOT = "sunderers_oath";
     private static final int BEHOLDER_ATTACK_DAMAGE = 6;
     private static final float BEHOLDER_ATTACK_SPEED = -2.9F;
 
-    public static final RegistrySupplier<Item> BEHOLDER_CLAYMORE =
-            ITEMS.register("beholder_claymore",
+    public static final RegistrySupplier<BeholderClaymoreItem> BEHOLDER_CLAYMORE =
+            AddonItems.item(CombatStylesContent.MOD_ID, "beholder_claymore",
                     () -> new BeholderClaymoreItem(Tiers.DIAMOND, new Item.Properties()
                             .rarity(Rarity.EPIC)
                             .fireResistant()
                             .attributes(SwordItem.createAttributes(Tiers.DIAMOND,
                                     BEHOLDER_ATTACK_DAMAGE, BEHOLDER_ATTACK_SPEED))));
 
-    private static final List<String> ACCESSORIES = List.of(
-            "ashen_band", "bloodbound_band", "cracked_signet", "dull_circle", "echo_of_embers",
-            "echoing_band", "executioners_seal", "mythwrought_seal", "nature_ring", "occular_ring",
-            "piercing_loop", "rhythm_band", "rootbound_ring", "serpents_coil", "stillwater_ring",
-            "striped_ring", "sunderers_oath", "twocolored_ring", "unbroken_circle",
-            "verdant_stone_ring", "wardens_loop", "eye_necklace", "skull_necklace",
-            "windstone_necklace");
-    private static final List<String> SPELL_POWER_ACCESSORIES = List.of(
-            "azure_stone_ring", "band_of_embers", "frostbound_loop", "infernal_seal",
-            "tarnished_loop");
+    public static final RegistrySupplier<EquipmentItem> ASHEN_BAND = accessory("ashen_band");
+    public static final RegistrySupplier<EquipmentItem> BLOODBOUND_BAND = accessory("bloodbound_band");
+    public static final RegistrySupplier<EquipmentItem> CRACKED_SIGNET = accessory("cracked_signet");
+    public static final RegistrySupplier<EquipmentItem> DULL_CIRCLE = accessory("dull_circle");
+    public static final RegistrySupplier<EquipmentItem> ECHO_OF_EMBERS = accessory("echo_of_embers");
+    public static final RegistrySupplier<EquipmentItem> ECHOING_BAND = accessory("echoing_band");
+    public static final RegistrySupplier<EquipmentItem> EXECUTIONERS_SEAL = accessory("executioners_seal");
+    public static final RegistrySupplier<EquipmentItem> MYTHWROUGHT_SEAL = accessory("mythwrought_seal");
+    public static final RegistrySupplier<EquipmentItem> NATURE_RING = accessory("nature_ring");
+    public static final RegistrySupplier<EquipmentItem> OCCULAR_RING = accessory("occular_ring");
+    public static final RegistrySupplier<EquipmentItem> PIERCING_LOOP = accessory("piercing_loop");
+    public static final RegistrySupplier<EquipmentItem> RHYTHM_BAND = accessory("rhythm_band");
+    public static final RegistrySupplier<EquipmentItem> ROOTBOUND_RING = accessory("rootbound_ring");
+    public static final RegistrySupplier<EquipmentItem> SERPENTS_COIL = accessory("serpents_coil");
+    public static final RegistrySupplier<EquipmentItem> STILLWATER_RING = accessory("stillwater_ring");
+    public static final RegistrySupplier<EquipmentItem> STRIPED_RING = accessory("striped_ring");
+    public static final RegistrySupplier<EquipmentItem> SUNDERERS_OATH = accessory("sunderers_oath");
+    public static final RegistrySupplier<EquipmentItem> TWOCOLORED_RING = accessory("twocolored_ring");
+    public static final RegistrySupplier<EquipmentItem> UNBROKEN_CIRCLE = accessory("unbroken_circle");
+    public static final RegistrySupplier<EquipmentItem> VERDANT_STONE_RING = accessory("verdant_stone_ring");
+    public static final RegistrySupplier<EquipmentItem> WARDENS_LOOP = accessory("wardens_loop");
+    public static final RegistrySupplier<EquipmentItem> EYE_NECKLACE = accessory("eye_necklace");
+    public static final RegistrySupplier<EquipmentItem> SKULL_NECKLACE = accessory("skull_necklace");
+    public static final RegistrySupplier<EquipmentItem> WINDSTONE_NECKLACE = accessory("windstone_necklace");
 
-    private static final Map<String, RegistrySupplier<Item>> EQUIPMENT = new LinkedHashMap<>();
+    public static final RegistrySupplier<EquipmentItem> AZURE_STONE_RING = spellAccessory("azure_stone_ring");
+    public static final RegistrySupplier<EquipmentItem> BAND_OF_EMBERS = spellAccessory("band_of_embers");
+    public static final RegistrySupplier<EquipmentItem> FROSTBOUND_LOOP = spellAccessory("frostbound_loop");
+    public static final RegistrySupplier<EquipmentItem> INFERNAL_SEAL = spellAccessory("infernal_seal");
+    public static final RegistrySupplier<EquipmentItem> TARNISHED_LOOP = spellAccessory("tarnished_loop");
 
-    static {
-        ACCESSORIES.forEach(ContentItems::registerAccessory);
-        if (SpellPowerAccess.isLoaded()) {
-            SPELL_POWER_ACCESSORIES.forEach(ContentItems::registerAccessory);
-        }
+    private static RegistrySupplier<EquipmentItem> accessory(String id) {
+        return AddonItems.equipment(CombatStylesContent.MOD_ID, id);
     }
 
-    private static void registerAccessory(String id) {
-        EQUIPMENT.put(id, ITEMS.register(id, () -> new EquipmentItem(
-                new Item.Properties().stacksTo(1),
-                CombatStylesContent.MOD_ID + ":" + id)));
-    }
-
-    public static RegistrySupplier<Item> equipment(String id) {
-        return EQUIPMENT.get(id);
-    }
-
-    public static Collection<RegistrySupplier<Item>> equipment() {
-        return EQUIPMENT.values();
+    private static RegistrySupplier<EquipmentItem> spellAccessory(String id) {
+        return SpellPowerAccess.isLoaded() ? accessory(id) : null;
     }
 
     public static final RegistrySupplier<CreativeModeTab> TAB = TABS.register("content", () ->
             CreativeTabRegistry.create(builder -> builder
                     .title(Component.translatable("itemGroup.combat_styles_content.content"))
-                    .icon(() -> new ItemStack(EQUIPMENT.containsKey(MASCOT)
-                            ? EQUIPMENT.get(MASCOT).get()
-                            : BEHOLDER_CLAYMORE.get()))
+                    .icon(() -> new ItemStack(SUNDERERS_OATH.get()))
                     .displayItems(ContentItems::fillTab)));
 
     private ContentItems() {
     }
 
     public static void register() {
-        ITEMS.register();
         TABS.register();
     }
 
     private static void fillTab(CreativeModeTab.ItemDisplayParameters parameters,
                                 CreativeModeTab.Output output) {
-        output.accept(new ItemStack(BEHOLDER_CLAYMORE.get()));
-        for (RegistrySupplier<Item> item : EQUIPMENT.values()) {
+        for (RegistrySupplier<? extends Item> item : AddonItems.of(CombatStylesContent.MOD_ID)) {
             output.accept(new ItemStack(item.get()));
         }
     }

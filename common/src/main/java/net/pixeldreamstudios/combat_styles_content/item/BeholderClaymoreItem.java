@@ -53,7 +53,6 @@ public class BeholderClaymoreItem extends SwordItem {
     private static final int CHANNEL_TICKS = 72000;
     private static final int MIN_CROWN = 2;
 
-    private int settled;
     private static final float FOCUS_VOLUME = 0.7F;
     private static final float FOCUS_PITCH = 1.3F;
 
@@ -109,11 +108,10 @@ public class BeholderClaymoreItem extends SwordItem {
         int gathered = GazeRitual.tick(server, player, elapsed);
 
         if (!GazeRitual.complete(player, gathered)) {
-            settled = 0;
+            GazeRitual.unsettle(player);
             return;
         }
-        if (++settled >= GazeRitual.SETTLE_TICKS) {
-            settled = 0;
+        if (GazeRitual.settle(player)) {
             grant(level, player);
             player.stopUsingItem();
         }
@@ -131,7 +129,6 @@ public class BeholderClaymoreItem extends SwordItem {
     }
 
     private void release(ItemStack stack, Level level, LivingEntity holder, int remaining) {
-        settled = 0;
         if (level.isClientSide() || !(holder instanceof Player player)) {
             return;
         }

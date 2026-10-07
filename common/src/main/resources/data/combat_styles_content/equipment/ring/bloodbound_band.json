@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:bloodbound_band",
+  "active_in": "worn",
   "rarity": "epic",
   "effects": {
     "blood_toll": {

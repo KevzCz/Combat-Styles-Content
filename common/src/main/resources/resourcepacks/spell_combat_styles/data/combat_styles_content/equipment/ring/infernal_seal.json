@@ -1,5 +1,6 @@
 {
   "id": "combat_styles_content:infernal_seal",
+  "active_in": "worn",
   "rarity": "legendary",
   "effects": {
     "infernal_brand": {

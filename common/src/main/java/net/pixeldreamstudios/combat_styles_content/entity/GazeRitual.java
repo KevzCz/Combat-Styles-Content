@@ -12,6 +12,9 @@ import net.minecraft.world.phys.Vec3;
 import net.pixeldreamstudios.combat_styles.affix.AffixTargets;
 
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class GazeRitual {
 
@@ -30,7 +33,26 @@ public final class GazeRitual {
     private static final float PITCH_STEP = 0.08F;
     private static final float BASE_PITCH = 0.9F;
 
+    private static final Map<UUID, Integer> SETTLED = new ConcurrentHashMap<>();
+
     private GazeRitual() {
+    }
+
+    public static boolean settle(Player player) {
+        int held = SETTLED.merge(player.getUUID(), 1, Integer::sum);
+        if (held < SETTLE_TICKS) {
+            return false;
+        }
+        SETTLED.remove(player.getUUID());
+        return true;
+    }
+
+    public static void unsettle(Player player) {
+        SETTLED.remove(player.getUUID());
+    }
+
+    public static void forget(UUID playerId) {
+        SETTLED.remove(playerId);
     }
 
     public static int tick(ServerLevel level, Player player, int elapsed) {
@@ -68,6 +90,7 @@ public final class GazeRitual {
     }
 
     public static void release(Player player) {
+        unsettle(player);
         for (BeholderEyeEntity eye : BeholderEyes.ownedEyesOf(player)) {
             eye.leaveCrown();
         }

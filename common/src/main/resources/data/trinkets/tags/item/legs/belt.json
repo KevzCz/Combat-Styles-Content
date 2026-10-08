@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "combat_styles_content:black_belt",
+    "combat_styles_content:brown_belt",
+    "combat_styles_content:gold_skull_belt",
+    "combat_styles_content:white_skull_belt",
+    "combat_styles_content:twinshot_belt"
+  ]
+}

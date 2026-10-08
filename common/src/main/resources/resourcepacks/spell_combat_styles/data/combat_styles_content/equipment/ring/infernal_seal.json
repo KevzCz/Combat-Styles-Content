@@ -9,11 +9,6 @@
       },
       "effect": {
         "on_swing": {
-          "damage": {
-            "mode": "additive",
-            "school": "fire",
-            "ratio": 0.3
-          },
           "ignite": {
             "seconds": 4,
             "chance": 1
@@ -28,7 +23,18 @@
           "splash": {
             "radius": 3.5,
             "ratio": 0.3,
-            "hits_attacker": false
+            "hits_attacker": false,
+            "damage_spec": {
+              "of_hit": 0.3,
+              "school": "fire",
+              "scaling": [
+                {
+                  "source": "spell_power:fire",
+                  "per_point": 0.02,
+                  "mode": "multiplier"
+                }
+              ]
+            }
           }
         }
       },
@@ -58,6 +64,25 @@
             "stacks": true
           }
         }
+      }
+    },
+    "spell_attuned": {
+      "trigger": {
+        "has_spell_school": [
+          "fire"
+        ]
+      },
+      "effect": {
+        "damage_bonus": [
+          {
+            "damage_type": [
+              "#minecraft:is_fire",
+              "spell_power:fire"
+            ],
+            "amount": 0.15,
+            "operation": "multiply_base"
+          }
+        ]
       }
     }
   }

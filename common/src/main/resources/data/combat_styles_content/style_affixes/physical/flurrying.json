@@ -1,0 +1,30 @@
+{
+  "id": "combat_styles_content:flurrying",
+  "weight": 9,
+  "rarity": "uncommon",
+  "cost_modifier": 1.3,
+  "trail": {
+    "color": "#D8E88A",
+    "glows": false
+  },
+  "on_hit": {
+    "mechanics": {
+      "control": {
+        "hasten": {
+          "ratio": 0.3,
+          "swings": 1
+        }
+      },
+      "cooldown": {
+        "ticks": 40
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:end_rod",
+        "count": 4,
+        "spread": 0.25
+      }
+    ]
+  }
+}

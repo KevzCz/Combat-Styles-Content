@@ -1,0 +1,73 @@
+{
+  "id": "combat_styles_content:ember_star",
+  "active_in": "held",
+  "rarity": "rare",
+  "effects": {
+    "ember": {
+      "effect": {
+        "on_swing": {
+          "projectiles": [
+            {
+              "entity": "combat_styles_content:shuriken_projectile",
+              "count": 1,
+              "speed": 1.6,
+              "spread": 0,
+              "lifetime_ticks": 30,
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": 0.9
+                  }
+                ]
+              },
+              "name": "Ember Star",
+              "custom": [
+                {
+                  "hook": "combat_styles_content:shuriken",
+                  "options": {
+                    "item": "@held",
+                    "pierce": 1,
+                    "spin_speed": 40
+                  }
+                },
+                {
+                  "hook": "combat_styles_content:burst",
+                  "options": {
+                    "on_hit": true,
+                    "on_land": true,
+                    "radius": 2,
+                    "damage_spec": {
+                      "scaling": [
+                        {
+                          "source": "minecraft:generic.attack_damage",
+                          "per_point": 0.35
+                        },
+                        {
+                          "source": "spell_power:fire",
+                          "per_point": 0.35
+                        }
+                      ],
+                      "scaling_mode": "strongest",
+                      "school": "fire"
+                    },
+                    "ignite_seconds": 3,
+                    "particle": "minecraft:flame",
+                    "particle_count": 24,
+                    "sound": "minecraft:entity.blaze.shoot"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "cooldown": {
+        "ticks": 200,
+        "uses": 8,
+        "duration": 100,
+        "refresh_on_use": false
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "passive",
+  "on": "hit",
+  "chance": 0.25,
+  "tuning": {
+    "timing": {
+      "duration_ticks": 10,
+      "cooldown_ticks": 100
+    },
+    "fx": {
+      "particles": 16,
+      "spread": 0.3,
+      "volume": 0.7,
+      "pitch": 1.2
+    }
+  },
+  "steps": [
+    {
+      "at": "start",
+      "action": {
+        "type": "heal_owner",
+        "heal_ratio": 0.2,
+        "damage_spec": {
+          "base": 2
+        },
+        "sound": "minecraft:block.amethyst_block.chime",
+        "particle": "minecraft:enchant",
+        "particle_shape": {
+          "form": "ring",
+          "radius": 1.2,
+          "points": 14,
+          "y_offset": 1
+        }
+      }
+    }
+  ]
+}

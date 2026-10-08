@@ -1,0 +1,6 @@
+{
+  "parent": "combat_styles_content:item/throwing_star",
+  "textures": {
+    "layer0": "combat_styles_content:item/sunstar"
+  }
+}

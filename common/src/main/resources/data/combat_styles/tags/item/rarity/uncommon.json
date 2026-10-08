@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "combat_styles_content:brown_belt",
+    "combat_styles_content:dull_circle",
+    "combat_styles_content:gamblers_coin",
+    "combat_styles_content:gilded_loop",
+    "combat_styles_content:golden_shuriken",
+    "combat_styles_content:lesser_gaze",
+    "combat_styles_content:piercing_loop",
+    "combat_styles_content:rhythm_band",
+    "combat_styles_content:serpents_coil",
+    "combat_styles_content:shuriken"
+  ]
+}

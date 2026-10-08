@@ -1,0 +1,37 @@
+{
+  "kind": "passive",
+  "on": "hurt",
+  "chance": 1,
+  "tuning": {
+    "timing": {
+      "duration_ticks": 10,
+      "cooldown_ticks": 160
+    },
+    "fx": {
+      "particles": 16,
+      "spread": 0.3,
+      "volume": 0.7,
+      "pitch": 1.2
+    }
+  },
+  "steps": [
+    {
+      "at": "start",
+      "action": {
+        "type": "heal_owner",
+        "heal_ratio": 0.3,
+        "damage_spec": {
+          "base": 3
+        },
+        "sound": "minecraft:entity.wolf.howl",
+        "particle": "minecraft:heart",
+        "particle_shape": {
+          "form": "ring",
+          "radius": 0.8,
+          "points": 8,
+          "y_offset": 1
+        }
+      }
+    }
+  ]
+}

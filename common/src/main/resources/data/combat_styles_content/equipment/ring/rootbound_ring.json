@@ -55,6 +55,38 @@
         }
       },
       "cooldown": 120
+    },
+    "rooting_block": {
+      "trigger": {
+        "on_shield_block": {}
+      },
+      "cooldown": 120,
+      "effect": {
+        "events": {
+          "on_shield_block": {
+            "effects": [
+              {
+                "effect": "minecraft:slowness",
+                "duration": 60,
+                "amplifier": 3,
+                "chance": 1
+              }
+            ],
+            "particles": [
+              {
+                "type": "minecraft:witch",
+                "count": 10,
+                "spread": 0.4
+              }
+            ],
+            "sound": {
+              "id": "minecraft:block.vine.break",
+              "volume": 0.4,
+              "pitch": 0.7
+            }
+          }
+        }
+      }
     }
   }
 }

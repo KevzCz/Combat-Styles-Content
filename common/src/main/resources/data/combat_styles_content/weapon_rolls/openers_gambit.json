@@ -5,7 +5,7 @@
     "cutlass",
     "rapier"
   ],
-  "chance": 0.08,
+  "weight": 8,
   "mode": "slot",
   "slots": [
     0
@@ -18,7 +18,7 @@
       "custom_style_id": "combat_styles_content:outside_cut"
     }
   ],
-  "affix_chance": 0.35,
+  "affix_chance": 0.5,
   "max_affixes": 1,
   "name": "Opening Gambit"
 }

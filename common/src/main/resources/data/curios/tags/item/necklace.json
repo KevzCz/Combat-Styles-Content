@@ -3,6 +3,11 @@
   "values": [
     "combat_styles_content:skull_necklace",
     "combat_styles_content:eye_necklace",
-    "combat_styles_content:windstone_necklace"
+    "combat_styles_content:windstone_necklace",
+    "combat_styles_content:night_owl_pendant",
+    "combat_styles_content:fang_charm",
+    "combat_styles_content:gamblers_coin",
+    "combat_styles_content:tidecaller_shell",
+    "combat_styles_content:lesser_gaze"
   ]
 }

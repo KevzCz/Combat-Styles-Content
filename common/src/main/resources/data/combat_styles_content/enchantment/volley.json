@@ -1,0 +1,22 @@
+{
+  "description": {
+    "translate": "enchantment.combat_styles_content.volley"
+  },
+  "supported_items": "#combat_styles_content:shurikens",
+  "weight": 2,
+  "max_level": 3,
+  "min_cost": {
+    "base": 20,
+    "per_level_above_first": 10
+  },
+  "max_cost": {
+    "base": 70,
+    "per_level_above_first": 10
+  },
+  "anvil_cost": 8,
+  "slots": [
+    "mainhand",
+    "offhand"
+  ],
+  "effects": {}
+}

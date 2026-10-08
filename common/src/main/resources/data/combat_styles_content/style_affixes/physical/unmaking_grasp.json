@@ -12,6 +12,14 @@
       "mode": "additive",
       "ratio": 0.35
     },
+    "effects": [
+      {
+        "effect": "combat_styles_content:wounded",
+        "duration": 120,
+        "amplifier": 0,
+        "chance": 0.6
+      }
+    ],
     "mechanics": {
       "control": {
         "disarm": {

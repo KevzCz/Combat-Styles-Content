@@ -44,6 +44,18 @@
           }
         }
       }
+    },
+    "spell_attuned": {
+      "trigger": {
+        "has_spell": true
+      },
+      "effect": {
+        "tune_affixes": {
+          "combat_styles_content:kindling": {
+            "damage_multiplier": 1.15
+          }
+        }
+      }
     }
   }
 }

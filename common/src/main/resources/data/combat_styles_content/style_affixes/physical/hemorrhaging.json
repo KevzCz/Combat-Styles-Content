@@ -1,0 +1,38 @@
+{
+  "id": "combat_styles_content:hemorrhaging",
+  "weight": 1,
+  "rarity": "legendary",
+  "cost_modifier": 2.2,
+  "trail": {
+    "color": "#C0141F",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.1
+    },
+    "effects": [
+      {
+        "effect": "combat_styles_content:bleeding",
+        "duration": 100,
+        "amplifier": 0,
+        "chance": 1,
+        "stacks": true,
+        "max_amplifier": 4
+      }
+    ],
+    "particles": [
+      {
+        "type": "minecraft:damage_indicator",
+        "count": 8,
+        "spread": 0.35
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.player.hurt_sweet_berry_bush",
+      "volume": 0.35,
+      "pitch": 0.7
+    }
+  }
+}

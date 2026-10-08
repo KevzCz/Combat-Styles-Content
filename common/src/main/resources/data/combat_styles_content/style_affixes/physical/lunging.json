@@ -1,0 +1,44 @@
+{
+  "id": "combat_styles_content:lunging",
+  "weight": 9,
+  "rarity": "uncommon",
+  "cost_modifier": 1.3,
+  "trail": {
+    "color": "#8FB8D8",
+    "glows": false
+  },
+  "on_swing": {
+    "mechanics": {
+      "motion": {
+        "dash": {
+          "forward": 0.6
+        }
+      },
+      "condition": {
+        "slot": {
+          "first": true
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:cloud",
+        "count": 5,
+        "spread": 0.3
+      }
+    ]
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.2
+    },
+    "mechanics": {
+      "condition": {
+        "slot": {
+          "first": true
+        }
+      }
+    }
+  }
+}

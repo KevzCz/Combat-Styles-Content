@@ -1,0 +1,44 @@
+{
+  "id": "combat_styles_content:shadowstep",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.8,
+  "trail": {
+    "color": "#3A2A5A",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.3
+    },
+    "mechanics": {
+      "motion": {
+        "blink": {
+          "distance": 2,
+          "behind_target": true
+        }
+      },
+      "condition": {
+        "slot": {
+          "last": true
+        }
+      },
+      "cooldown": {
+        "ticks": 120
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:portal",
+        "count": 12,
+        "spread": 0.4
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.enderman.teleport",
+      "volume": 0.35,
+      "pitch": 1.3
+    }
+  }
+}

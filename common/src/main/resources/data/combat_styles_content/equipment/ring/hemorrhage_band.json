@@ -1,0 +1,65 @@
+{
+  "id": "combat_styles_content:hemorrhage_band",
+  "active_in": "worn",
+  "rarity": "rare",
+  "effects": {
+    "open_wounds": {
+      "effect": {
+        "on_hit": {
+          "effects": [
+            {
+              "effect": "combat_styles_content:bleeding",
+              "duration": 100,
+              "amplifier": 0,
+              "chance": 0.15,
+              "stacks": true,
+              "max_amplifier": 4
+            }
+          ]
+        }
+      }
+    },
+    "piercing_wounds": {
+      "trigger": {
+        "on_projectile_hit": {}
+      },
+      "effect": {
+        "events": {
+          "on_projectile_hit": {
+            "effects": [
+              {
+                "effect": "combat_styles_content:bleeding",
+                "duration": 100,
+                "amplifier": 0,
+                "chance": 0.2,
+                "stacks": true,
+                "max_amplifier": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    "pack_wounds": {
+      "trigger": {
+        "on_summon_hit": true
+      },
+      "effect": {
+        "events": {
+          "on_summon_hit": {
+            "effects": [
+              {
+                "effect": "combat_styles_content:bleeding",
+                "duration": 100,
+                "amplifier": 0,
+                "chance": 0.1,
+                "stacks": true,
+                "max_amplifier": 4
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

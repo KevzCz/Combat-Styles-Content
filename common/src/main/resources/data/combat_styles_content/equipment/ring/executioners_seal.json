@@ -20,6 +20,25 @@
           }
         }
       }
+    },
+    "chained_execution": {
+      "trigger": {
+        "on_kill": true,
+        "last_slot": true
+      },
+      "cooldown": 60,
+      "effect": {
+        "reset_combo": true,
+        "on_hit": {
+          "particles": [
+            {
+              "type": "minecraft:soul",
+              "count": 8,
+              "spread": 0.4
+            }
+          ]
+        }
+      }
     }
   }
 }

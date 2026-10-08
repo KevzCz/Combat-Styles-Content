@@ -1,0 +1,30 @@
+{
+  "id": "combat_styles_content:gilded_loop",
+  "active_in": "worn",
+  "rarity": "uncommon",
+  "effects": {
+    "gilded_smite": {
+      "trigger": {
+        "target": [
+          "#minecraft:undead",
+          "#minecraft:arthropod"
+        ]
+      },
+      "effect": {
+        "on_hit": {
+          "damage": {
+            "mode": "additive",
+            "ratio": 0.2
+          },
+          "particles": [
+            {
+              "type": "minecraft:wax_off",
+              "count": 4,
+              "spread": 0.3
+            }
+          ]
+        }
+      }
+    }
+  }
+}

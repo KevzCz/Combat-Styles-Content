@@ -1,0 +1,28 @@
+{
+  "id": "combat_styles_content:ambidextrous",
+  "weight": 9,
+  "rarity": "uncommon",
+  "cost_modifier": 1.3,
+  "trail": {
+    "color": "#A8C8B8",
+    "glows": false
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.18
+    },
+    "mechanics": {
+      "condition": {
+        "dual_wielding": true
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:sweep_attack",
+        "count": 1,
+        "spread": 0.2
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "combat_styles_content:steadfast",
+  "weight": 9,
+  "rarity": "uncommon",
+  "cost_modifier": 1.3,
+  "trail": {
+    "color": "#9A9A7A",
+    "glows": false
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.25
+    },
+    "self_effects": [
+      {
+        "effect": "minecraft:resistance",
+        "duration": 20,
+        "amplifier": 0
+      }
+    ],
+    "mechanics": {
+      "condition": {
+        "crouching": true
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 4,
+        "spread": 0.25
+      }
+    ]
+  }
+}

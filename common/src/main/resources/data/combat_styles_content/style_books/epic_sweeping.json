@@ -6,14 +6,34 @@
   "random_weight": 0,
   "affix_pools": [
     {
-      "chance": 1.0,
+      "chance": 1,
       "min": 1,
       "max": 1,
       "affixes": [
-        { "affixes": ["combat_styles_content:cresting"], "weight": 5 },
-        { "affixes": ["combat_styles_content:upheaval"], "weight": 5 },
-        { "affixes": ["combat_styles_content:overreach"], "weight": 4 },
-        { "affixes": ["combat_styles_content:relentless"], "weight": 3 }
+        {
+          "affixes": [
+            "combat_styles_content:cresting"
+          ],
+          "weight": 5
+        },
+        {
+          "affixes": [
+            "combat_styles_content:upheaval"
+          ],
+          "weight": 5
+        },
+        {
+          "affixes": [
+            "combat_styles_content:overreach"
+          ],
+          "weight": 4
+        },
+        {
+          "affixes": [
+            "combat_styles_content:relentless"
+          ],
+          "weight": 3
+        }
       ]
     },
     {
@@ -23,13 +43,39 @@
     }
   ],
   "roll": {
-    "damage_multiplier": { "min": 1.0, "max": 1.15 },
-    "range_multiplier": { "min": 1.05, "max": 1.2 }
+    "damage_multiplier": {
+      "min": 1,
+      "max": 1.15
+    },
+    "range_multiplier": {
+      "min": 1.05,
+      "max": 1.2
+    }
   },
   "pool": [
-    { "entry": { "custom_style_id": "combat_styles_content:cyclone" }, "weight": 10 },
-    { "entry": { "custom_style_id": "combat_styles_content:crossing_flurry" }, "weight": 8 },
-    { "entry": { "custom_style_id": "combat_styles_content:uncrossing_flurry" }, "weight": 8 },
-    { "entry": { "custom_style_id": "combat_styles_content:lunging_thrust" }, "weight": 6 }
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:cyclone"
+      },
+      "weight": 10
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:crossing_flurry"
+      },
+      "weight": 8
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:uncrossing_flurry"
+      },
+      "weight": 8
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:lunging_thrust"
+      },
+      "weight": 6
+    }
   ]
 }

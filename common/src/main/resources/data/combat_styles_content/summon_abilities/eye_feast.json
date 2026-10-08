@@ -1,0 +1,38 @@
+{
+  "kind": "passive",
+  "on": "kill",
+  "chance": 1,
+  "tuning": {
+    "timing": {
+      "duration_ticks": 10,
+      "cooldown_ticks": 120
+    },
+    "fx": {
+      "particles": 16,
+      "spread": 0.3,
+      "volume": 0.7,
+      "pitch": 1.2
+    }
+  },
+  "steps": [
+    {
+      "at": "start",
+      "action": {
+        "type": "heal_owner",
+        "heal_ratio": 0.3,
+        "damage_spec": {
+          "base": 4
+        },
+        "sound": "minecraft:entity.evoker.prepare_wololo",
+        "particle": "minecraft:witch",
+        "particle_shape": {
+          "form": "spiral",
+          "radius": 0.8,
+          "height": 2,
+          "turns": 1.5,
+          "points": 16
+        }
+      }
+    }
+  ]
+}

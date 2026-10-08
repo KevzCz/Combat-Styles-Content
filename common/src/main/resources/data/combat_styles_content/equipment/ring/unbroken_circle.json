@@ -23,6 +23,18 @@
           }
         }
       }
+    },
+    "shaken_momentum": {
+      "trigger": {
+        "damaged_within": 60
+      },
+      "effect": {
+        "tune_affixes": {
+          "combat_styles_content:momentum": {
+            "damage_multiplier": 0.6
+          }
+        }
+      }
     }
   }
 }

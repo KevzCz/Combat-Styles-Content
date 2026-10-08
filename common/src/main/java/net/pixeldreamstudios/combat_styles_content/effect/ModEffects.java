@@ -2,6 +2,8 @@ package net.pixeldreamstudios.combat_styles_content.effect;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
 
@@ -18,10 +20,20 @@ public final class ModEffects {
     public static final RegistrySupplier<MobEffect> GAZING =
             EFFECTS.register("gazing", GazingEffect::new);
 
+    public static final RegistrySupplier<MobEffect> BLEEDING =
+            EFFECTS.register("bleeding", BleedingEffect::new);
+
+    public static final RegistrySupplier<MobEffect> WOUNDED =
+            EFFECTS.register("wounded", WoundedEffect::new);
+
     private ModEffects() {
     }
 
     public static void register() {
         EFFECTS.register();
+    }
+
+    public static Holder<MobEffect> holder(RegistrySupplier<MobEffect> effect) {
+        return BuiltInRegistries.MOB_EFFECT.wrapAsHolder(effect.get());
     }
 }

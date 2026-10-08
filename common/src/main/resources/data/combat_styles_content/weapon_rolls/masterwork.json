@@ -1,0 +1,14 @@
+{
+  "weight": 3,
+  "mode": "affix",
+  "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "affix_chance": 0.75,
+  "max_affixes": 2
+}

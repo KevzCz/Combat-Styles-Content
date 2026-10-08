@@ -1,0 +1,33 @@
+{
+  "id": "combat_styles_content:shifting",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.5,
+  "trail": {
+    "color": "#C88AD8",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.25
+    },
+    "mechanics": {
+      "condition": {
+        "slot": {
+          "requires": {
+            "min_attacks": 2,
+            "same_style": false
+          }
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:enchanted_hit",
+        "count": 5,
+        "spread": 0.3
+      }
+    ]
+  }
+}

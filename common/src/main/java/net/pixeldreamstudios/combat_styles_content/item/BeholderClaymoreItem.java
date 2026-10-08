@@ -3,19 +3,11 @@ package net.pixeldreamstudios.combat_styles_content.item;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
-import net.minecraft.world.level.Level;
 
 import net.pixeldreamstudios.combat_styles.item.TooltipContextAccess;
 import net.pixeldreamstudios.combat_styles.affix.AffixRegistry;
@@ -23,7 +15,6 @@ import net.pixeldreamstudios.combat_styles.affix.StyleAffix;
 import net.pixeldreamstudios.combat_styles_content.effect.GazingEffect;
 import net.pixeldreamstudios.combat_styles_content.entity.BeholderEyes;
 import net.pixeldreamstudios.combat_styles_content.entity.Convergence;
-import net.pixeldreamstudios.combat_styles_content.entity.GazeRitual;
 import net.pixeldreamstudios.combat_styles_content.entity.Gazing;
 import net.pixeldreamstudios.combat_styles.style.ClientHolder;
 import net.pixeldreamstudios.combat_styles.style.InnateAffixes;
@@ -49,12 +40,6 @@ public class BeholderClaymoreItem extends SwordItem {
     private static final String KEY_EXPAND = "tooltip.combat_styles.expand_hint";
 
     private static final int SECOND = 20;
-    private static final int FOCUS_COOLDOWN = 400;
-    private static final int CHANNEL_TICKS = 72000;
-    private static final int MIN_CROWN = 2;
-
-    private static final float FOCUS_VOLUME = 0.7F;
-    private static final float FOCUS_PITCH = 1.3F;
 
     private static final String TOP = "╭─────────────────────────╮";
     private static final String BOTTOM = "╰─────────────────────────╯";
@@ -72,89 +57,6 @@ public class BeholderClaymoreItem extends SwordItem {
     private static final ChatFormatting BODY = ChatFormatting.GRAY;
     public BeholderClaymoreItem(Tier tier, Properties properties) {
         super(tier, properties);
-    }
-
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player,
-                                                  InteractionHand hand) {
-        ItemStack held = player.getItemInHand(hand);
-        if (player.getCooldowns().isOnCooldown(this)) {
-            return InteractionResultHolder.pass(held);
-        }
-        player.startUsingItem(hand);
-        if (!level.isClientSide()) {
-            level.playSound(null, player.blockPosition(), SoundEvents.WARDEN_SONIC_CHARGE,
-                    SoundSource.PLAYERS, FOCUS_VOLUME, FOCUS_PITCH);
-        }
-        return InteractionResultHolder.consume(held);
-    }
-
-    @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.SPEAR;
-    }
-
-    @Override
-    public int getUseDuration(ItemStack stack, LivingEntity holder) {
-        return CHANNEL_TICKS;
-    }
-
-    @Override
-    public void onUseTick(Level level, LivingEntity holder, ItemStack stack, int remaining) {
-        if (!(level instanceof ServerLevel server) || !(holder instanceof Player player)) {
-            return;
-        }
-        int elapsed = CHANNEL_TICKS - remaining;
-        int gathered = GazeRitual.tick(server, player, elapsed);
-
-        if (!GazeRitual.complete(player, gathered)) {
-            GazeRitual.unsettle(player);
-            return;
-        }
-        if (GazeRitual.settle(player)) {
-            grant(level, player);
-            player.stopUsingItem();
-        }
-    }
-
-    @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity holder) {
-        release(stack, level, holder, 0);
-        return stack;
-    }
-
-    @Override
-    public void releaseUsing(ItemStack stack, Level level, LivingEntity holder, int remaining) {
-        release(stack, level, holder, remaining);
-    }
-
-    private void release(ItemStack stack, Level level, LivingEntity holder, int remaining) {
-        if (level.isClientSide() || !(holder instanceof Player player)) {
-            return;
-        }
-        int gathered = BeholderEyes.crownSize(player);
-        int owned = BeholderEyes.ownedEyesOf(player).size();
-        int floor = Math.min(MIN_CROWN, Math.max(1, owned));
-
-        if (gathered < floor) {
-            GazeRitual.release(player);
-            level.playSound(null, player.blockPosition(), SoundEvents.AMETHYST_BLOCK_BREAK,
-                    SoundSource.PLAYERS, FOCUS_VOLUME, FOCUS_PITCH);
-            return;
-        }
-        grant(level, player);
-    }
-
-    private void grant(Level level, Player player) {
-        int gathered = BeholderEyes.crownSize(player);
-        GazeRitual.release(player);
-        if (gathered <= 0) {
-            return;
-        }
-        Gazing.begin(player, gathered);
-        player.getCooldowns().addCooldown(this, FOCUS_COOLDOWN);
-        level.playSound(null, player.blockPosition(), SoundEvents.WARDEN_SONIC_BOOM,
-                SoundSource.PLAYERS, FOCUS_VOLUME, FOCUS_PITCH);
     }
 
     @Override

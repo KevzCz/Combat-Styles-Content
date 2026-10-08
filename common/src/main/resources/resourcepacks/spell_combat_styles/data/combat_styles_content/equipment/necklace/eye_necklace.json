@@ -44,6 +44,14 @@
                 "combat_styles_content:collapse": "combat_styles_content:eclipse"
               }
             }
+          ],
+          "passives": [
+            {
+              "ability": "combat_styles_content:eye_mark",
+              "on": "hit",
+              "chance": 0.3,
+              "cooldown_ticks": 60
+            }
           ]
         },
         "attributes": {

@@ -1,0 +1,30 @@
+{
+  "id": "combat_styles_content:twinshot_belt",
+  "active_in": "worn",
+  "rarity": "rare",
+  "effects": {
+    "twin_shot": {
+      "trigger": {
+        "on_shoot": {
+          "entity": [
+            "minecraft:arrow",
+            "minecraft:spectral_arrow",
+            "combat_styles_content:shuriken_projectile"
+          ]
+        },
+        "chance": 0.33
+      },
+      "effect": {
+        "custom": [
+          {
+            "hook": "combat_styles_content:twin_shot",
+            "options": {
+              "count": 2,
+              "spread_degrees": 10
+            }
+          }
+        ]
+      }
+    }
+  }
+}

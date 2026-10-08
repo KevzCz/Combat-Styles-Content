@@ -1,0 +1,54 @@
+{
+  "id": "combat_styles_content:mossfang_ring",
+  "active_in": "worn",
+  "rarity": "rare",
+  "effects": {
+    "mossfang_bite": {
+      "trigger": {
+        "on_hurt": {
+          "taken_damage_type": [
+            "minecraft:mob_attack",
+            "minecraft:player_attack"
+          ]
+        }
+      },
+      "cooldown": 20,
+      "effect": {
+        "events": {
+          "on_hurt": {
+            "effects": [
+              {
+                "effect": "minecraft:poison",
+                "duration": 100,
+                "amplifier": 0,
+                "chance": 1
+              }
+            ],
+            "particles": [
+              {
+                "type": "minecraft:item_slime",
+                "count": 6,
+                "spread": 0.3
+              }
+            ]
+          }
+        }
+      }
+    },
+    "venom_edge": {
+      "trigger": {
+        "target_effects": [
+          "minecraft:poison"
+        ]
+      },
+      "effect": {
+        "on_hit": {
+          "damage": {
+            "mode": "additive",
+            "ratio": 0.15
+          }
+        }
+      }
+    }
+  }
+}

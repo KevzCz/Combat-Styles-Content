@@ -4,7 +4,7 @@
     "rapier",
     "cutlass"
   ],
-  "chance": 0.05,
+  "weight": 2,
   "mode": "replace",
   "slot_limit": 4,
   "min_slots": 3,
@@ -23,7 +23,7 @@
       "custom_style_id": "combat_styles_content:switchblade_left"
     }
   ],
-  "affix_chance": 0.3,
-  "max_affixes": 1,
+  "affix_chance": 0.6,
+  "max_affixes": 2,
   "name": "Duelist's Stance"
 }

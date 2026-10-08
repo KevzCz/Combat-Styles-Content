@@ -1,0 +1,58 @@
+{
+  "id": "combat_styles_content:gamblers_coin",
+  "active_in": "worn",
+  "rarity": "uncommon",
+  "groups": {
+    "coin_flip": {
+      "entries": [
+        {
+          "effect": "heads",
+          "chance": 1
+        },
+        {
+          "effect": "tails",
+          "chance": 1
+        }
+      ],
+      "picks": 1
+    }
+  },
+  "effects": {
+    "heads": {
+      "effect": {
+        "augment": {
+          "damage_multiplier": 1.4
+        },
+        "on_hit": {
+          "particles": [
+            {
+              "type": "minecraft:wax_on",
+              "count": 6,
+              "spread": 0.3
+            }
+          ]
+        }
+      }
+    },
+    "tails": {
+      "effect": {
+        "on_hit": {
+          "mechanics": {
+            "sustain": {
+              "heal": {
+                "flat": 1
+              }
+            }
+          },
+          "particles": [
+            {
+              "type": "minecraft:heart",
+              "count": 2,
+              "spread": 0.3
+            }
+          ]
+        }
+      }
+    }
+  }
+}

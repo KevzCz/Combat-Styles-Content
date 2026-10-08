@@ -72,6 +72,21 @@
           }
         }
       }
+    },
+    "verdant_tether": {
+      "effect": {
+        "grant_abilities": {
+          "applies_to": "both",
+          "passives": [
+            {
+              "ability": "combat_styles_content:verdant_tether",
+              "on": "hit",
+              "chance": 0.5,
+              "cooldown_ticks": 40
+            }
+          ]
+        }
+      }
     }
   }
 }

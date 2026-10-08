@@ -1,0 +1,95 @@
+{
+  "id": "combat_styles_content:bloodwind_star",
+  "active_in": "held",
+  "rarity": "rare",
+  "effects": {
+    "throw": {
+      "hide_tooltip": false,
+      "effect": {
+        "on_swing": {
+          "projectiles": [
+            {
+              "entity": "combat_styles_content:shuriken_projectile",
+              "count": 1,
+              "speed": 1.6,
+              "spread": 0,
+              "lifetime_ticks": 30,
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": 0.9
+                  }
+                ]
+              },
+              "custom": [
+                {
+                  "hook": "combat_styles_content:shuriken",
+                  "options": {
+                    "item": "@held",
+                    "pierce": 2,
+                    "spin_speed": 40
+                  }
+                },
+                {
+                  "hook": "combat_styles_content:afflicted",
+                  "options": {
+                    "effects": [
+                      "combat_styles_content:bleeding",
+                      "combat_styles_content:wounded"
+                    ],
+                    "bonus": 0.1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "cooldown": {
+        "ticks": 200,
+        "uses": 15,
+        "duration": 100,
+        "refresh_on_use": false
+      },
+      "tooltip_edits": {
+        "own:swing/projectiles#0@0": "tooltip.combat_styles_content.throw.copy"
+      }
+    },
+    "bloodletting": {
+      "trigger": {
+        "on_projectile_hit": {
+          "entity": [
+            "combat_styles_content:shuriken_projectile"
+          ]
+        }
+      },
+      "effect": {
+        "events": {
+          "on_projectile_hit": {
+            "lifesteal": {
+              "ratio": 0.15
+            },
+            "particles": [
+              {
+                "type": "minecraft:damage_indicator",
+                "count": 4,
+                "spread": 0.3
+              }
+            ],
+            "effects": [
+              {
+                "effect": "combat_styles_content:bleeding",
+                "duration": 100,
+                "amplifier": 0,
+                "chance": 0.5,
+                "stacks": true,
+                "max_amplifier": 4
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

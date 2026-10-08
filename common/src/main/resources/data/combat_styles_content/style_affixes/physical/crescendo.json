@@ -10,13 +10,14 @@
   "on_hit": {
     "damage": {
       "mode": "amplify",
-      "ratio": 0.125
+      "ratio": 0.4
     },
     "mechanics": {
       "condition": {
         "slot": {
+          "last": true,
           "requires": {
-            "per_preceding": 1
+            "hits_landed": 2
           }
         }
       }

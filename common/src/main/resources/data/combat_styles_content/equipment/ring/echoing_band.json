@@ -17,6 +17,22 @@
         }
       },
       "cooldown": 300
+    },
+    "wave_refresh": {
+      "trigger": {
+        "requires_affix": true,
+        "every_nth_swing": 3
+      },
+      "cooldown": 120,
+      "effect": {
+        "on_hit": {
+          "echo": {
+            "times": 1,
+            "delay_ticks": 10,
+            "ratio": 0.35
+          }
+        }
+      }
     }
   }
 }

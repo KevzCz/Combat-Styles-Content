@@ -7,23 +7,95 @@
   "max_affixes": 2,
   "random_weight": 20,
   "roll": {
-    "damage_multiplier": { "min": 1.05, "max": 1.25 },
-    "range_multiplier": { "min": 1.0, "max": 1.12 },
-    "cooldown_scale": { "min": 0.85, "max": 1.0 },
-    "hastens_next": { "min": 0.85, "max": 1.0 }
+    "damage_multiplier": {
+      "min": 1.05,
+      "max": 1.25
+    },
+    "range_multiplier": {
+      "min": 1,
+      "max": 1.12
+    },
+    "cooldown_scale": {
+      "min": 0.85,
+      "max": 1
+    },
+    "hastens_next": {
+      "min": 0.85,
+      "max": 1
+    }
   },
   "pool": [
-    { "entry": { "custom_style_id": "combat_styles_content:braced_thrust" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:inside_cut" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:outside_cut" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:crossing_flurry" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:overhead_split" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:rising_cut" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:uncrossing_flurry" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:anvil_fall" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:cyclone" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:lunging_thrust" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:switchblade_left" }, "weight": 6 },
-    { "entry": { "custom_style_id": "combat_styles_content:executioners_turn" }, "weight": 4 }
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:braced_thrust"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:inside_cut"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:outside_cut"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:crossing_flurry"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:overhead_split"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:rising_cut"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:uncrossing_flurry"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:anvil_fall"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:cyclone"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:lunging_thrust"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:switchblade_left"
+      },
+      "weight": 6
+    },
+    {
+      "entry": {
+        "custom_style_id": "combat_styles_content:executioners_turn"
+      },
+      "weight": 4
+    }
   ]
 }

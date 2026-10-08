@@ -3,15 +3,16 @@
     "fist",
     "claw"
   ],
-  "chance": 0.09,
+  "weight": 10,
   "mode": "append",
   "min_slots": 1,
-  "max_slots": 2,
+  "max_slots": 1,
   "styles": [
     {
       "custom_style_id": "combat_styles_content:rising_cut"
     }
   ],
-  "affix_chance": 0.3,
-  "max_affixes": 1
+  "affix_chance": 0.25,
+  "max_affixes": 1,
+  "name": "Brawler's Habit"
 }

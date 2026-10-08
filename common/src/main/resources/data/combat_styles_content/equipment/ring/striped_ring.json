@@ -84,7 +84,38 @@
           ]
         }
       },
-      "cooldown": 100
+      "cooldown": 100,
+      "self_effects": [
+        {
+          "effect": "minecraft:speed",
+          "duration": 40,
+          "amplifier": 1
+        }
+      ]
+    },
+    "windstep_leap": {
+      "trigger": {
+        "slots": [
+          0
+        ],
+        "airborne": true
+      },
+      "cooldown": 60,
+      "effect": {
+        "on_hit": {
+          "damage": {
+            "mode": "amplify",
+            "ratio": 0.3
+          },
+          "particles": [
+            {
+              "type": "minecraft:cloud",
+              "count": 6,
+              "spread": 0.3
+            }
+          ]
+        }
+      }
     }
   }
 }

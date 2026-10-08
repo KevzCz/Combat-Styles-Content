@@ -1,0 +1,40 @@
+{
+  "id": "combat_styles_content:brown_belt",
+  "active_in": "worn",
+  "rarity": "uncommon",
+  "effects": {
+    "braced_riposte": {
+      "tooltip_header": "tooltip.combat_styles_content.header.braced_riposte",
+      "trigger": {
+        "on_shield_block": {}
+      },
+      "cooldown": {
+        "ticks": 60,
+        "uses": 1,
+        "duration": 60
+      },
+      "effect": {
+        "augment": {
+          "damage_multiplier": 1.5
+        },
+        "on_hit": {
+          "mechanics": {
+            "control": {
+              "hasten": {
+                "ratio": 0.5,
+                "swings": 1
+              }
+            }
+          },
+          "particles": [
+            {
+              "type": "minecraft:crit",
+              "count": 10,
+              "spread": 0.3
+            }
+          ]
+        }
+      }
+    }
+  }
+}

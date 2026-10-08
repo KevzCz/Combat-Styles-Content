@@ -10,14 +10,21 @@
   "on_hit": {
     "damage": {
       "mode": "amplify",
-      "ratio": 0.15
+      "ratio": 0.1
     },
     "mechanics": {
       "offense": {
         "momentum": {
-          "per_hit_ratio": 0.12,
-          "max_stacks": 3,
+          "per_hit_ratio": 0.08,
+          "max_stacks": 5,
           "decay_ticks": 40
+        }
+      },
+      "condition": {
+        "slot": {
+          "requires": {
+            "same_target": true
+          }
         }
       }
     },

@@ -10,12 +10,22 @@
   "on_hit": {
     "damage": {
       "mode": "amplify",
-      "ratio": 0.2
+      "ratio": 0.15
     },
+    "effects": [
+      {
+        "effect": "combat_styles_content:bleeding",
+        "duration": 100,
+        "amplifier": 0,
+        "chance": 0.5,
+        "stacks": true,
+        "max_amplifier": 4
+      }
+    ],
     "mechanics": {
       "cost": {
-        "health": 2,
-        "cancel_if_short": false
+        "health": 1,
+        "cancel_if_short": true
       }
     },
     "particles": [

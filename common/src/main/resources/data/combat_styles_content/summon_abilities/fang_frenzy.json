@@ -1,0 +1,57 @@
+{
+  "kind": "passive",
+  "on": "kill",
+  "chance": 1,
+  "tuning": {
+    "timing": {
+      "duration_ticks": 12,
+      "cooldown_ticks": 100
+    },
+    "shape": {
+      "radius": 3,
+      "max_targets": 4
+    },
+    "fx": {
+      "particles": 16,
+      "spread": 0.3,
+      "volume": 0.7,
+      "pitch": 1.2
+    }
+  },
+  "steps": [
+    {
+      "at": "start",
+      "action": {
+        "type": "heal_owner",
+        "heal_ratio": 0.4,
+        "damage_spec": {
+          "base": 3
+        },
+        "sound": "minecraft:entity.wolf.growl",
+        "particle": "minecraft:heart",
+        "particle_shape": {
+          "form": "ring",
+          "radius": 0.8,
+          "points": 6,
+          "y_offset": 1
+        }
+      }
+    },
+    {
+      "at": "end",
+      "action": {
+        "type": "burst",
+        "damage_spec": {
+          "base": 4
+        },
+        "particle": "minecraft:sweep_attack",
+        "particle_shape": {
+          "form": "ring",
+          "radius": 2.5,
+          "points": 10,
+          "y_offset": 0.5
+        }
+      }
+    }
+  ]
+}

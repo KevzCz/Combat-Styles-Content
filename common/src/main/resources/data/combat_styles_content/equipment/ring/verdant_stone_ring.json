@@ -62,6 +62,26 @@
           }
         }
       }
+    },
+    "verdant_rising": {
+      "trigger": {
+        "on_kill": true
+      },
+      "cooldown": 100,
+      "effect": {
+        "on_hit": {
+          "mechanics": {
+            "spawn": {
+              "raise_dead": {
+                "lifespan_ticks": 300,
+                "max_active": 2,
+                "chance": 0.5,
+                "spectral": true
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -54,6 +54,31 @@
           }
         }
       }
+    },
+    "warden_block": {
+      "trigger": {
+        "on_shield_block": {}
+      },
+      "cooldown": 100,
+      "effect": {
+        "events": {
+          "on_shield_block": {
+            "mechanics": {
+              "sustain": {
+                "shield": {
+                  "amount": 6,
+                  "duration": 120
+                }
+              }
+            },
+            "sound": {
+              "id": "minecraft:item.shield.block",
+              "volume": 0.4,
+              "pitch": 1.4
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -42,6 +42,22 @@
       "trigger": {
         "last_slot": true
       }
+    },
+    "skull_mark": {
+      "trigger": {
+        "on_summon_hit": true
+      },
+      "cooldown": {
+        "ticks": 40,
+        "uses": 1,
+        "duration": 60
+      },
+      "effect": {
+        "augment": {
+          "damage_multiplier": 1.3
+        }
+      },
+      "tooltip_header": "tooltip.combat_styles_content.header.skull_mark"
     }
   }
 }

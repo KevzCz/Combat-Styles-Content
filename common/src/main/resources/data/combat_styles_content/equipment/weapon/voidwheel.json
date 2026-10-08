@@ -1,0 +1,130 @@
+{
+  "id": "combat_styles_content:voidwheel",
+  "active_in": "held",
+  "rarity": "epic",
+  "projectiles": {
+    "void_star": {
+      "entity": "combat_styles_content:shuriken_projectile",
+      "count": 1,
+      "spread": 0,
+      "damage_spec": {
+        "type": "combat_styles:void"
+      }
+    }
+  },
+  "effects": {
+    "throw": {
+      "trigger": {
+        "slots": {
+          "except": [
+            -1
+          ]
+        }
+      },
+      "cooldown": {
+        "ticks": 200,
+        "uses": 10,
+        "duration": 100,
+        "refresh_on_use": false
+      },
+      "tooltip_edits": {
+        "own:swing/projectiles#0@0": "tooltip.combat_styles_content.throw.copy"
+      },
+      "effect": {
+        "on_swing": {
+          "projectiles": [
+            {
+              "projectile": "@void_star",
+              "speed": 1.6,
+              "lifetime_ticks": 30,
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": 0.6
+                  }
+                ]
+              },
+              "custom": [
+                {
+                  "hook": "combat_styles_content:shuriken",
+                  "options": {
+                    "item": "@held",
+                    "pierce": 1,
+                    "spin_speed": 40
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "void_edge": {
+      "effect": {
+        "grant_affixes": [
+          "combat_styles_content:void_touch"
+        ]
+      }
+    },
+    "void_wheel": {
+      "trigger": {
+        "last_slot": true
+      },
+      "cooldown": {
+        "ticks": 40
+      },
+      "effect": {
+        "on_swing": {
+          "projectiles": [
+            {
+              "projectile": "@void_star",
+              "speed": 1,
+              "lifetime_ticks": 160,
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": 1
+                  }
+                ]
+              },
+              "name": "Void Wheel",
+              "custom": [
+                {
+                  "hook": "combat_styles_content:shuriken",
+                  "options": {
+                    "item": "combat_styles_content:voidwheel",
+                    "pierce": 1,
+                    "spin_speed": 25
+                  }
+                },
+                {
+                  "hook": "combat_styles_content:void_well",
+                  "options": {
+                    "grow_to": 3,
+                    "grow_ticks": 40,
+                    "duration_ticks": 100,
+                    "radius": 5,
+                    "pull": 0.12,
+                    "tick_every_degrees": 360,
+                    "hurt_radius": 1.5,
+                    "damage_spec": {
+                      "scaling": [
+                        {
+                          "source": "minecraft:generic.attack_damage",
+                          "per_point": 0.25
+                        }
+                      ],
+                      "type": "combat_styles:void"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "combat_styles_content:night_owl_pendant",
+  "active_in": "worn",
+  "rarity": "rare",
+  "effects": {
+    "owl_strike": {
+      "trigger": {
+        "night": true,
+        "behind_target": true
+      },
+      "effect": {
+        "on_hit": {
+          "effects": [
+            {
+              "effect": "minecraft:glowing",
+              "duration": 100,
+              "amplifier": 0,
+              "chance": 1
+            }
+          ],
+          "damage": {
+            "mode": "amplify",
+            "ratio": 0.5
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "combat_styles_content:exsanguinating",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.75,
+  "trail": {
+    "color": "#7A0E14",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.25
+    },
+    "lifesteal": {
+      "ratio": 0.1
+    },
+    "mechanics": {
+      "condition": {
+        "target_effects": [
+          "combat_styles_content:bleeding",
+          "combat_styles_content:wounded"
+        ]
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:damage_indicator",
+        "count": 6,
+        "spread": 0.3
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.player.hurt_sweet_berry_bush",
+      "volume": 0.3,
+      "pitch": 0.8
+    }
+  }
+}

@@ -5,7 +5,7 @@
     "warglaive",
     "halberd"
   ],
-  "chance": 0.05,
+  "weight": 2,
   "mode": "replace",
   "min_slots": 3,
   "max_slots": 4,
@@ -17,7 +17,7 @@
       "custom_style_id": "combat_styles_content:anvil_fall"
     }
   ],
-  "affix_chance": 0.35,
-  "max_affixes": 1,
+  "affix_chance": 0.6,
+  "max_affixes": 2,
   "name": "Reaper's Arc"
 }

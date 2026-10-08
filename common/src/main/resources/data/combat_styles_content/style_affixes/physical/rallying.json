@@ -1,0 +1,27 @@
+{
+  "id": "combat_styles_content:rallying",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.45,
+  "trail": {
+    "color": "#D8B85A",
+    "glows": true
+  },
+  "on_hit": {
+    "mechanics": {
+      "order": {
+        "quicken": {
+          "ratio": 0.15,
+          "chance": 0.3
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:happy_villager",
+        "count": 3,
+        "spread": 0.3
+      }
+    ]
+  }
+}

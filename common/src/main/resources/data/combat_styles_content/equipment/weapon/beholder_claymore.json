@@ -28,7 +28,46 @@
       "affix": "combat_styles_content:collapse"
     }
   ],
+  "use": {
+    "mode": "channel",
+    "hold_ticks": -1,
+    "channel_ticks": 1,
+    "pose": "spear"
+  },
   "effects": {
+    "gaze": {
+      "trigger": {
+        "on_use": {
+          "phase": "every"
+        }
+      },
+      "hide_tooltip": true,
+      "effect": {
+        "events": {
+          "on_use": {
+            "custom": [
+              {
+                "hook": "combat_styles_content:gaze_ritual",
+                "options": {
+                  "cooldown_ticks": 400,
+                  "min_crown": 2,
+                  "gather_interval_ticks": 10,
+                  "settle_ticks": 20,
+                  "shockwave_radius": 3,
+                  "shockwave_radius_per_eye": 0.75,
+                  "shockwave_strength": 0.4,
+                  "shockwave_strength_per_eye": 0.12,
+                  "shockwave_lift": 0.25,
+                  "damage_spec": 3,
+                  "shockwave_damage_per_eye": 0.5,
+                  "gazed_per_eye": 1
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "beholder_summons": {
       "effect": {
         "summon_profile": {

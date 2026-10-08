@@ -9,6 +9,13 @@
   },
   "on_hit": {
     "mechanics": {
+      "condition": {
+        "slot": {
+          "requires": {
+            "min_attacks": 2
+          }
+        }
+      },
       "sustain": {
         "shield": {
           "amount": 6,

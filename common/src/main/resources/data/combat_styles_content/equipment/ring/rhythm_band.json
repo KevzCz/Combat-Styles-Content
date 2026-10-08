@@ -6,7 +6,8 @@
     "keeping_time": {
       "trigger": {
         "every_nth_swing": 2,
-        "hitbox": "HORIZONTAL_PLANE"
+        "hitbox": "HORIZONTAL_PLANE",
+        "sprinting": false
       },
       "effect": {
         "on_hit": {
@@ -33,6 +34,37 @@
         }
       },
       "cooldown": 40
+    },
+    "sprint_time": {
+      "trigger": {
+        "hitbox": "HORIZONTAL_PLANE",
+        "sprinting": true
+      },
+      "cooldown": 40,
+      "effect": {
+        "on_hit": {
+          "mechanics": {
+            "control": {
+              "hasten": {
+                "ratio": 0.45,
+                "swings": 1
+              }
+            }
+          },
+          "particles": [
+            {
+              "type": "minecraft:crit",
+              "count": 5,
+              "spread": 0.25
+            }
+          ],
+          "sound": {
+            "id": "minecraft:block.note_block.hat",
+            "volume": 0.35,
+            "pitch": 1.6
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,23 @@
+{
+  "description": {
+    "translate": "enchantment.combat_styles_content.ricochet"
+  },
+  "supported_items": "#combat_styles_content:shurikens",
+  "primary_items": "#combat_styles_content:shurikens",
+  "weight": 5,
+  "max_level": 3,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 9
+  },
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 9
+  },
+  "anvil_cost": 4,
+  "slots": [
+    "mainhand",
+    "offhand"
+  ],
+  "effects": {}
+}

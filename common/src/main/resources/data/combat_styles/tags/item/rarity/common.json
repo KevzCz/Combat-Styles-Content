@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "combat_styles_content:ashen_band",
+    "combat_styles_content:cracked_signet",
+    "combat_styles_content:stone_shuriken"
+  ]
+}

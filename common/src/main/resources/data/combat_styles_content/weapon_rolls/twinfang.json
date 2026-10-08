@@ -5,7 +5,7 @@
     "sai",
     "dagger"
   ],
-  "chance": 0.05,
+  "weight": 2,
   "mode": "replace",
   "min_slots": 2,
   "max_slots": 3,
@@ -17,7 +17,7 @@
       "custom_style_id": "combat_styles_content:uncrossing_flurry"
     }
   ],
-  "affix_chance": 0.35,
-  "max_affixes": 1,
+  "affix_chance": 0.6,
+  "max_affixes": 2,
   "name": "Twinfang"
 }

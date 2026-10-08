@@ -17,6 +17,22 @@
           }
         }
       }
+    },
+    "airborne_gust": {
+      "trigger": {
+        "airborne": true
+      },
+      "cooldown": 30,
+      "effect": {
+        "on_swing": {
+          "slash_wave": {
+            "range": 6,
+            "radius": 1,
+            "ratio": 0.3,
+            "speed": 0.9
+          }
+        }
+      }
     }
   }
 }

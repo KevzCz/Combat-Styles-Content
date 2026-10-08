@@ -1,0 +1,8 @@
+{
+  "weight": 5,
+  "mode": "replace",
+  "min_slots": 2,
+  "max_slots": 4,
+  "affix_chance": 0.35,
+  "max_affixes": 1
+}

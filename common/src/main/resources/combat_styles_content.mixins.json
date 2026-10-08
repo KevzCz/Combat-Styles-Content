@@ -7,6 +7,7 @@
     "GazeChannelPoseMixin"
   ],
   "mixins": [
+    "BleedDamageMixin"
   ],
   "injectors": {
     "defaultRequire": 1

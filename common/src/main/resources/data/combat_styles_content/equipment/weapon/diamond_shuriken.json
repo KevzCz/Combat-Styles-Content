@@ -1,0 +1,49 @@
+{
+  "id": "combat_styles_content:diamond_shuriken",
+  "active_in": "held",
+  "rarity": "rare",
+  "effects": {
+    "throw": {
+      "effect": {
+        "on_swing": {
+          "projectiles": [
+            {
+              "entity": "combat_styles_content:shuriken_projectile",
+              "count": 1,
+              "speed": 1.6,
+              "spread": 0,
+              "lifetime_ticks": 30,
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": 1
+                  }
+                ]
+              },
+              "custom": [
+                {
+                  "hook": "combat_styles_content:shuriken",
+                  "options": {
+                    "item": "@held",
+                    "pierce": 3,
+                    "spin_speed": 40
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "cooldown": {
+        "ticks": 200,
+        "uses": 10,
+        "duration": 100,
+        "refresh_on_use": false
+      },
+      "tooltip_edits": {
+        "own:swing/projectiles#0@0": "tooltip.combat_styles_content.throw.copy"
+      }
+    }
+  }
+}

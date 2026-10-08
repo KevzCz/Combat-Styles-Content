@@ -20,6 +20,31 @@
           }
         }
       }
+    },
+    "blood_frenzy": {
+      "trigger": {
+        "on_hurt": {}
+      },
+      "cooldown": {
+        "ticks": 160,
+        "uses": 3,
+        "duration": 100
+      },
+      "effect": {
+        "on_hit": {
+          "lifesteal": {
+            "ratio": 0.15
+          },
+          "particles": [
+            {
+              "type": "minecraft:damage_indicator",
+              "count": 4,
+              "spread": 0.3
+            }
+          ]
+        }
+      },
+      "tooltip_header": "tooltip.combat_styles_content.header.blood_frenzy"
     }
   }
 }

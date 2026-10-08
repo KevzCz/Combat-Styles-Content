@@ -1,0 +1,122 @@
+{
+  "id": "combat_styles_content:bone_wheel",
+  "active_in": "held",
+  "rarity": "epic",
+  "effects": {
+    "wheel": {
+      "cooldown": {
+        "ticks": 150,
+        "uses": 2,
+        "duration": 50,
+        "refresh_on_use": false
+      },
+      "effect": {
+        "on_swing": {
+          "projectiles": [
+            {
+              "entity": "combat_styles_content:shuriken_projectile",
+              "count": 1,
+              "speed": 1,
+              "spread": 0,
+              "lifetime_ticks": 400,
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": 1.1
+                  }
+                ]
+              },
+              "name": "Bone Wheel",
+              "custom": [
+                {
+                  "hook": "combat_styles_content:shuriken",
+                  "options": {
+                    "item": "@held",
+                    "pierce": 50,
+                    "spin_speed": 30
+                  }
+                },
+                {
+                  "hook": "combat_styles_content:bone_shatter",
+                  "options": {
+                    "shatter_chance": 0.5,
+                    "shatter_count": 4,
+                    "shatter_speed": 0.55,
+                    "hit_chance": 0.1,
+                    "hit_count": 2,
+                    "hit_rise": 0.7,
+                    "bone": {
+                      "entity": "combat_styles_content:bone_shard",
+                      "count": 1,
+                      "speed": 0.6,
+                      "spread": 0,
+                      "lifetime_ticks": 100,
+                      "damage_spec": {
+                        "scaling": [
+                          {
+                            "source": "minecraft:generic.attack_damage",
+                            "per_point": 0.3
+                          },
+                          {
+                            "source": "spell_power:soul",
+                            "per_point": 0.3
+                          }
+                        ],
+                        "scaling_mode": "strongest",
+                        "school": "soul"
+                      }
+                    }
+                  }
+                },
+                {
+                  "hook": "combat_styles_content:returning",
+                  "options": {
+                    "range": 16,
+                    "return_speed": 1.3,
+                    "catch_radius": 1.5,
+                    "return_to": "origin",
+                    "drop_ticks": 40,
+                    "pickup_radius": 1.5
+                  }
+                },
+                {
+                  "hook": "combat_styles_content:burst",
+                  "options": {
+                    "on_hit": true,
+                    "on_land": false,
+                    "radius": 3,
+                    "damage_spec": {
+                      "scaling": [
+                        {
+                          "source": "minecraft:generic.attack_damage",
+                          "per_point": 0.5
+                        },
+                        {
+                          "source": "spell_power:soul",
+                          "per_point": 0.5
+                        }
+                      ],
+                      "scaling_mode": "strongest",
+                      "school": "soul"
+                    },
+                    "particle": "minecraft:white_ash",
+                    "particle_count": 40,
+                    "sound": "minecraft:entity.skeleton.death"
+                  }
+                },
+                {
+                  "hook": "combat_styles_content:catch_refund",
+                  "options": {
+                    "effect": "wheel",
+                    "ratio": 0.2
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

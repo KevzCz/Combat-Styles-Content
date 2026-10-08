@@ -1,0 +1,44 @@
+{
+  "id": "combat_styles_content:tidecaller_shell",
+  "active_in": "worn",
+  "rarity": "rare",
+  "effects": {
+    "tide_wave": {
+      "trigger": {
+        "on_shield_block": {}
+      },
+      "cooldown": 60,
+      "effect": {
+        "events": {
+          "on_shield_block": {
+            "slash_wave": {
+              "range": 10,
+              "radius": 1.5,
+              "speed": 0.8,
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": 1
+                  }
+                ]
+              }
+            },
+            "particles": [
+              {
+                "type": "minecraft:splash",
+                "count": 20,
+                "spread": 0.6
+              }
+            ],
+            "sound": {
+              "id": "minecraft:entity.player.splash",
+              "volume": 0.5,
+              "pitch": 1.2
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "combat_styles_content:lacerating",
+  "weight": 14,
+  "rarity": "common",
+  "cost_modifier": 1.15,
+  "trail": {
+    "color": "#A3121A",
+    "glows": false
+  },
+  "on_hit": {
+    "effects": [
+      {
+        "effect": "combat_styles_content:bleeding",
+        "duration": 100,
+        "amplifier": 0,
+        "chance": 0.2,
+        "stacks": true,
+        "max_amplifier": 4
+      }
+    ],
+    "particles": [
+      {
+        "type": "minecraft:damage_indicator",
+        "count": 3,
+        "spread": 0.25
+      }
+    ]
+  }
+}

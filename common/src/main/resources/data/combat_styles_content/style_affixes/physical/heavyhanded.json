@@ -1,0 +1,35 @@
+{
+  "id": "combat_styles_content:heavyhanded",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.5,
+  "trail": {
+    "color": "#7A7A6A",
+    "glows": false
+  },
+  "on_hit": {
+    "knockback": {
+      "strength": 0.5,
+      "pull": false
+    },
+    "mechanics": {
+      "offense": {
+        "cleave": {
+          "radius": 2.5,
+          "ratio": 0.35,
+          "max_targets": 4
+        }
+      },
+      "condition": {
+        "two_handed": true
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:sweep_attack",
+        "count": 2,
+        "spread": 0.4
+      }
+    ]
+  }
+}

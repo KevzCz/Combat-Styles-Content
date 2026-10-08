@@ -22,7 +22,7 @@ import net.pixeldreamstudios.combat_styles.entity.ScriptedAbilities;
 import net.pixeldreamstudios.combat_styles.entity.AbilityRegistry;
 import net.pixeldreamstudios.combat_styles.entity.SummonAbility;
 import net.pixeldreamstudios.combat_styles_content.CombatStylesContent;
-import net.pixeldreamstudios.combat_styles.affix.AffixDamageDealer;
+import net.pixeldreamstudios.combat_styles.affix.CombatEffectDealer;
 import net.pixeldreamstudios.combat_styles.damage.DamageHurt;
 import net.pixeldreamstudios.combat_styles.affix.AffixTargets;
 import net.pixeldreamstudios.combat_styles.affix.EffectChance;
@@ -620,7 +620,7 @@ public final class EyeAbilities {
         if (eye instanceof GreatEyeEntity great) {
             great.onAbilityHit(eye.abilityKey(), victim);
         }
-        AffixDamageDealer.onSummonHit(owner, victim, amplified);
+        CombatEffectDealer.onSummonHit(owner, victim, amplified);
         applyMark(owner, victim, tuned);
     }
 

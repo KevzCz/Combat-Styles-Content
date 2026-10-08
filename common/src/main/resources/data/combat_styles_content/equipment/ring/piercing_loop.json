@@ -13,7 +13,7 @@
             "control": {
               "hasten": {
                 "ratio": 0.45,
-                "swings": 1
+                "swings": 2
               }
             }
           },
@@ -28,6 +28,11 @@
             "id": "minecraft:entity.arrow.hit",
             "volume": 0.3,
             "pitch": 1.8
+          },
+          "damage": {
+            "mode": "additive",
+            "ratio": 0.1,
+            "ignores_armour": true
           }
         }
       },

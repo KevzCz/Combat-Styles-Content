@@ -1,0 +1,41 @@
+{
+  "kind": "passive",
+  "on": "hit",
+  "chance": 0.3,
+  "focus": "target",
+  "tuning": {
+    "timing": {
+      "duration_ticks": 6,
+      "cooldown_ticks": 60
+    },
+    "shape": {
+      "radius": 0.5
+    },
+    "fx": {
+      "particles": 16,
+      "spread": 0.3,
+      "volume": 0.7,
+      "pitch": 1.2
+    }
+  },
+  "steps": [
+    {
+      "at": "start",
+      "action": {
+        "type": "apply_stacks",
+        "at_focus": true,
+        "effect": "minecraft:glowing",
+        "stacks": 1,
+        "duration_ticks": 120,
+        "max_stacks": 1,
+        "particle": "minecraft:glow",
+        "particle_shape": {
+          "form": "ring",
+          "radius": 0.6,
+          "points": 8,
+          "y_offset": 1
+        }
+      }
+    }
+  ]
+}

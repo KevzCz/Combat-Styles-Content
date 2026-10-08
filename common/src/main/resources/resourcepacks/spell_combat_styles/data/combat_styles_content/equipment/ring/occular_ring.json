@@ -29,7 +29,14 @@
             "pick": "random",
             "recast_ticks": 40,
             "aim": "hit_target"
-          }
+          },
+          "passives": [
+            {
+              "ability": "combat_styles_content:eye_feast",
+              "on": "kill",
+              "cooldown_ticks": 120
+            }
+          ]
         },
         "attributes": {
           "spell_power:arcane": {

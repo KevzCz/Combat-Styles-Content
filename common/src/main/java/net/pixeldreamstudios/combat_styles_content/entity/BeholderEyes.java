@@ -126,31 +126,6 @@ public final class BeholderEyes {
         return resolved.maxActiveOr(MAX_TEMPORARY_ATTUNED);
     }
 
-    public static String substituteAbility(Player player, int slot) {
-        SummonProfile.Resolved resolved = resolvedFor(player);
-        if (resolved != null) {
-            String declared = resolved.abilityFor(slot);
-            if (declared != null) {
-                return declared;
-            }
-        }
-        List<String> pool = attuned(player) ? ATTUNED_ABILITIES : SUBSTITUTE_ABILITIES;
-        return pool.get(Math.floorMod(slot, pool.size()));
-    }
-
-    private static final List<String> SUBSTITUTE_ABILITIES = List.of(
-            EyeAbility.TWIN_LANCE.name(),
-            EyeAbility.WIDE_CUT.name(),
-            EyeAbility.BLINK_WATCH.name());
-
-    private static final List<String> ATTUNED_ABILITIES = List.of(
-            EyeAbility.TWIN_LANCE.name(),
-            EyeAbility.FURROW.name(),
-            EyeAbility.WIDE_CUT.name(),
-            EyeAbility.TETHER.name(),
-            EyeAbility.BLINK_WATCH.name(),
-            EyeAbility.COLLAPSE.name());
-
     public static boolean attuned(Player player) {
         if (player == null) {
             return false;
@@ -206,16 +181,6 @@ public final class BeholderEyes {
     public static String swapKeyFor(Player player, String wanted) {
         SummonProfile.Resolved resolved = wanted == null ? null : resolvedFor(player);
         return resolved == null ? wanted : resolved.swap(AbilityConfig.key(wanted));
-    }
-
-    public static EyeAbility swapFor(Player player, EyeAbility wanted) {
-        SummonProfile.Resolved resolved = wanted == null ? null : resolvedFor(player);
-        if (resolved == null) {
-            return wanted;
-        }
-        EyeAbility swapped = EyeAbility.byName(
-                resolved.swap(wanted.key()));
-        return swapped.acting() ? swapped : wanted;
     }
 
     public static EyeAbility finaleFor(Player player) {

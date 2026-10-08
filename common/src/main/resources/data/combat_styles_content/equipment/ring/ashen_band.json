@@ -35,6 +35,32 @@
           "damage_multiplier": 0.92
         }
       }
+    },
+    "ember_arm": {
+      "trigger": {
+        "on_miss": true
+      },
+      "cooldown": {
+        "ticks": 120,
+        "uses": 1,
+        "duration": 40
+      },
+      "effect": {
+        "on_hit": {
+          "ignite": {
+            "seconds": 3,
+            "chance": 1
+          },
+          "particles": [
+            {
+              "type": "minecraft:flame",
+              "count": 6,
+              "spread": 0.3
+            }
+          ]
+        }
+      },
+      "tooltip_header": "tooltip.combat_styles_content.header.ember_arm"
     }
   }
 }

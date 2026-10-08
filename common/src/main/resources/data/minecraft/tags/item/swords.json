@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "combat_styles_content:azure_crossblade",
+    "combat_styles_content:beholder_claymore",
+    "combat_styles_content:bloodwind_star",
+    "combat_styles_content:bone_wheel",
+    "combat_styles_content:diamond_shuriken",
+    "combat_styles_content:ember_star",
+    "combat_styles_content:golden_shuriken",
+    "combat_styles_content:netherite_shuriken",
+    "combat_styles_content:ocular_star",
+    "combat_styles_content:shuriken",
+    "combat_styles_content:silver_star",
+    "combat_styles_content:slime_shuriken",
+    "combat_styles_content:solar_flare",
+    "combat_styles_content:stone_shuriken",
+    "combat_styles_content:sunstar",
+    "combat_styles_content:umbral_star",
+    "combat_styles_content:voidwheel"
+  ]
+}

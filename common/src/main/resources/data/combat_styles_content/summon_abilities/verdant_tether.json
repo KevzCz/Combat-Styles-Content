@@ -1,0 +1,35 @@
+{
+  "kind": "passive",
+  "on": "hit",
+  "chance": 0.5,
+  "tuning": {
+    "timing": {
+      "duration_ticks": 6,
+      "cooldown_ticks": 40
+    },
+    "fx": {
+      "particles": 16,
+      "spread": 0.3,
+      "volume": 0.7,
+      "pitch": 1.2
+    }
+  },
+  "steps": [
+    {
+      "at": "start",
+      "action": {
+        "type": "heal_owner",
+        "heal_ratio": 0.15,
+        "damage_spec": {
+          "base": 1.5
+        },
+        "particle": "minecraft:happy_villager",
+        "particle_shape": {
+          "form": "column",
+          "height": 1.5,
+          "points": 8
+        }
+      }
+    }
+  ]
+}

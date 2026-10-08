@@ -26,7 +26,7 @@ import net.pixeldreamstudios.combat_styles.entity.SummonCompanions;
 import net.pixeldreamstudios.combat_styles.equipment.AbilityTuning;
 import net.pixeldreamstudios.combat_styles.equipment.SummonProfile;
 import net.pixeldreamstudios.combat_styles.equipment.SummonProfiles;
-import net.pixeldreamstudios.combat_styles.affix.AffixDamageDealer;
+import net.pixeldreamstudios.combat_styles.affix.CombatEffectDealer;
 import net.pixeldreamstudios.combat_styles.damage.DamageHurt;
 import net.pixeldreamstudios.combat_styles.affix.AffixTargets;
 
@@ -303,7 +303,7 @@ private void setOwnerId(UUID id) {
             DamageSource source = owner.damageSources().indirectMagic(this, owner);
             if (struck != null) {
                 DamageHurt.bypassingIFrames(struck, source, hit);
-                AffixDamageDealer.onSummonHit(owner, struck, hit);
+                CombatEffectDealer.onSummonHit(owner, struck, hit);
             }
             int capped = tuned.shape.maxTargets > 1 ? tuned.shape.maxTargets : 0;
             int reached = 0;
@@ -318,7 +318,7 @@ private void setOwnerId(UUID id) {
                 reached++;
                 float splash = hit * BURST_SHARE;
                 DamageHurt.bypassingIFrames(nearby, source, splash);
-                AffixDamageDealer.onSummonHit(owner, nearby, splash);
+                CombatEffectDealer.onSummonHit(owner, nearby, splash);
             }
         }
         beginFade();

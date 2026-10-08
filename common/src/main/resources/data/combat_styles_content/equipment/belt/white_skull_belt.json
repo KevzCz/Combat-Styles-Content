@@ -1,0 +1,36 @@
+{
+  "id": "combat_styles_content:white_skull_belt",
+  "active_in": "worn",
+  "rarity": "epic",
+  "effects": {
+    "pet_mending": {
+      "effect": {
+        "grant_abilities": {
+          "applies_to": "pets",
+          "passives": [
+            {
+              "ability": "combat_styles_content:mending_howl",
+              "on": "hurt",
+              "cooldown_ticks": 160
+            }
+          ]
+        }
+      }
+    },
+    "summon_ward": {
+      "effect": {
+        "grant_abilities": {
+          "applies_to": "summons",
+          "passives": [
+            {
+              "ability": "combat_styles_content:warding_pulse",
+              "on": "hit",
+              "chance": 0.25,
+              "cooldown_ticks": 100
+            }
+          ]
+        }
+      }
+    }
+  }
+}

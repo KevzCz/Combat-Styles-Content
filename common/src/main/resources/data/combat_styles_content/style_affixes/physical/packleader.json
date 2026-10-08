@@ -1,0 +1,28 @@
+{
+  "id": "combat_styles_content:packleader",
+  "weight": 5,
+  "rarity": "rare",
+  "cost_modifier": 1.45,
+  "trail": {
+    "color": "#8A6A4A",
+    "glows": false
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "amplify",
+      "ratio": 0.2
+    },
+    "mechanics": {
+      "condition": {
+        "summons_active": 1
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 4,
+        "spread": 0.25
+      }
+    ]
+  }
+}

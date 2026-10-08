@@ -16,7 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 import net.pixeldreamstudios.combat_styles.entity.ConfigurableSummon;
-import net.pixeldreamstudios.combat_styles.affix.AffixDamageDealer;
+import net.pixeldreamstudios.combat_styles.affix.CombatEffectDealer;
 import net.pixeldreamstudios.combat_styles.damage.DamageHurt;
 
 import java.util.Optional;
@@ -189,7 +189,7 @@ private void setOwnerId(UUID id) {
         if (damage > 0.0F) {
             DamageSource source = owner.damageSources().indirectMagic(this, owner);
             DamageHurt.bypassingIFrames(target, source, damage);
-            AffixDamageDealer.onSummonHit(owner, target, damage);
+            CombatEffectDealer.onSummonHit(owner, target, damage);
         }
         beginFade();
     }

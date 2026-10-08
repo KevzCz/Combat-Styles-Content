@@ -5,7 +5,7 @@
     "greathammer",
     "greataxe"
   ],
-  "chance": 0.07,
+  "weight": 7,
   "mode": "append",
   "min_slots": 1,
   "max_slots": 1,
@@ -14,7 +14,7 @@
       "custom_style_id": "combat_styles_content:anvil_fall"
     }
   ],
-  "affix_chance": 0.4,
+  "affix_chance": 0.6,
   "max_affixes": 1,
   "name": "Siege Cadence"
 }

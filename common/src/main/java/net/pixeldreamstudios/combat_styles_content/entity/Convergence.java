@@ -36,10 +36,6 @@ public final class Convergence {
     private Convergence() {
     }
 
-    public static double maxMultiplier() {
-        return 1.0D + maxStacks() * perStack();
-    }
-
     public static float amplify(Player owner, LivingEntity victim) {
         if (owner == null || victim == null) {
             return 1.0F;
@@ -74,27 +70,6 @@ public final class Convergence {
         victim.addEffect(new MobEffectInstance(holder, duration, amplifier,
                 ambient, visible, icon));
     }
-
-    public static int extensionTicks() {
-        return EXTENSION_TICKS;
-    }
-
-    public static int highestNear(Player owner) {
-        if (owner == null) {
-            return 0;
-        }
-        int best = 0;
-        for (LivingEntity nearby : owner.level().getEntitiesOfClass(LivingEntity.class,
-                owner.getBoundingBox().inflate(SIGHT_RADIUS))) {
-            if (nearby == owner) {
-                continue;
-            }
-            best = Math.max(best, stacksOn(nearby));
-        }
-        return best;
-    }
-
-    private static final double SIGHT_RADIUS = 16.0D;
 
     public static float detonate(Player owner, LivingEntity victim) {
         int stacks = stacksOn(victim);

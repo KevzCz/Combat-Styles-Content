@@ -1,0 +1,37 @@
+{
+  "id": "combat_styles_content:void_touch",
+  "weight": 0,
+  "rarity": "rare",
+  "cost_modifier": 1,
+  "trail": {
+    "color": "#6A3FA8",
+    "glows": true
+  },
+  "on_hit": {
+    "damage": {
+      "mode": "convert",
+      "ratio": 0.5,
+      "scaling": {
+        "source": [
+          "spell_power:arcane",
+          "spell_power:fire",
+          "spell_power:frost",
+          "spell_power:lightning",
+          "spell_power:soul",
+          "spell_power:healing"
+        ],
+        "per_point": 0.01,
+        "cap": 0.9,
+        "strongest": true
+      },
+      "type": "combat_styles:void"
+    },
+    "particles": [
+      {
+        "type": "minecraft:portal",
+        "count": 6,
+        "spread": 0.3
+      }
+    ]
+  }
+}

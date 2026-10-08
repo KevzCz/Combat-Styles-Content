@@ -1,0 +1,8 @@
+{
+  "weight": 12,
+  "mode": "append",
+  "min_slots": 1,
+  "max_slots": 1,
+  "affix_chance": 0.25,
+  "max_affixes": 1
+}

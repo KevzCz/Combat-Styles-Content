@@ -8,15 +8,6 @@
     "glows": true
   },
   "on_swing": {
-    "splash": {
-      "radius": 4.5,
-      "ratio": 0.5,
-      "hits_attacker": false
-    },
-    "knockback": {
-      "strength": 0.7,
-      "pull": false
-    },
     "particles": [
       {
         "type": "minecraft:sweep_attack",
@@ -25,6 +16,17 @@
       }
     ],
     "mechanics": {
+      "motion": {
+        "dash": {
+          "forward": 0.7
+        }
+      },
+      "control": {
+        "hasten": {
+          "ratio": 0.3,
+          "swings": 1
+        }
+      },
       "condition": {
         "on_miss": true
       }

@@ -1,0 +1,33 @@
+{
+  "id": "combat_styles_content:spellstrike",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.85,
+  "trail": {
+    "color": "#9B7AE8",
+    "glows": true
+  },
+  "on_hit": {
+    "cast_spells": [
+      {
+        "spell": "wizards:arcane_bolt",
+        "cast_target": "hit",
+        "chance": 0.25
+      }
+    ],
+    "mechanics": {
+      "condition": {
+        "slot": {
+          "last": true
+        }
+      }
+    },
+    "particles": [
+      {
+        "type": "minecraft:enchant",
+        "count": 10,
+        "spread": 0.4
+      }
+    ]
+  }
+}

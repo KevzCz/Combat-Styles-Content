@@ -1,0 +1,55 @@
+{
+  "id": "combat_styles_content:slime_shuriken",
+  "active_in": "held",
+  "rarity": "rare",
+  "effects": {
+    "throw": {
+      "effect": {
+        "on_swing": {
+          "projectiles": [
+            {
+              "entity": "combat_styles_content:shuriken_projectile",
+              "count": 1,
+              "speed": 1.4,
+              "spread": 0,
+              "lifetime_ticks": 80,
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": 0.6
+                  }
+                ]
+              },
+              "spawn": {
+                "velocity": {
+                  "gravity": 0.035
+                }
+              },
+              "name": "Slime Shuriken",
+              "custom": [
+                {
+                  "hook": "combat_styles_content:shuriken",
+                  "options": {
+                    "item": "@held",
+                    "pierce": 6,
+                    "spin_speed": 40,
+                    "bounces": 6,
+                    "bounce_restitution": 0.85,
+                    "rehit": true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "cooldown": {
+        "ticks": 200,
+        "uses": 5,
+        "duration": 100,
+        "refresh_on_use": false
+      }
+    }
+  }
+}

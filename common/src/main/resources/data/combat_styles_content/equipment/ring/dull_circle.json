@@ -20,6 +20,17 @@
           }
         }
       }
+    },
+    "dull_weight": {
+      "effect": {
+        "attributes": {
+          "minecraft:generic.knockback_resistance": {
+            "amount": 0.15,
+            "operation": "add_value",
+            "stacks": false
+          }
+        }
+      }
     }
   }
 }

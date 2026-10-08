@@ -1,0 +1,59 @@
+{
+  "id": "combat_styles_content:azure_crossblade",
+  "active_in": "held",
+  "rarity": "rare",
+  "effects": {
+    "fan": {
+      "effect": {
+        "on_swing": {
+          "projectiles": [
+            {
+              "entity": "combat_styles_content:shuriken_projectile",
+              "count": 3,
+              "speed": 1.6,
+              "spread": 0,
+              "lifetime_ticks": 30,
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": 0.4
+                  }
+                ]
+              },
+              "spawn": {
+                "mode": "fan",
+                "arc": 20
+              },
+              "name": "Azure Blade",
+              "custom": [
+                {
+                  "hook": "combat_styles_content:shuriken",
+                  "options": {
+                    "item": "@held",
+                    "pierce": 1,
+                    "spin_speed": 40
+                  }
+                },
+                {
+                  "hook": "combat_styles_content:focus",
+                  "options": {
+                    "hits": 3,
+                    "bonus": 0.5,
+                    "window_ticks": 10
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "cooldown": {
+        "ticks": 200,
+        "uses": 12,
+        "duration": 100,
+        "refresh_on_use": false
+      }
+    }
+  }
+}

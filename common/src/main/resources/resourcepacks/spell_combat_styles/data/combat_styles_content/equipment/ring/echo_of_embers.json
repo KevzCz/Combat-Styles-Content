@@ -22,7 +22,13 @@
             "damage_multiplier": 1.15
           }
         },
-        "reset_combo": true
+        "reset_combo": true,
+        "on_hit": {
+          "ignite": {
+            "seconds": 3,
+            "chance": 1
+          }
+        }
       },
       "cooldown": 70
     }

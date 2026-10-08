@@ -1,0 +1,39 @@
+{
+  "id": "combat_styles_content:spellweave_sash",
+  "active_in": "worn",
+  "rarity": "epic",
+  "effects": {
+    "woven_edge": {
+      "tooltip_header": "tooltip.combat_styles_content.header.woven_edge",
+      "trigger": {
+        "cast_spell": {
+          "phase": "cast"
+        }
+      },
+      "cooldown": {
+        "ticks": 40,
+        "uses": 3,
+        "duration": 100
+      },
+      "effect": {
+        "augment": {
+          "damage_multiplier": 1.2
+        },
+        "on_hit": {
+          "damage": {
+            "mode": "additive",
+            "school": "arcane",
+            "ratio": 0.15
+          },
+          "particles": [
+            {
+              "type": "minecraft:enchant",
+              "count": 10,
+              "spread": 0.4
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -108,16 +108,7 @@ public class BeholderEyeEntity extends Entity implements GeoEntity, Configurable
         return MUZZLE_OFFSET * (renderScale() / RENDER_SCALE);
     }
 
-    public static double beamLiftFromBone() {
-        return beamOriginY(RENDER_SCALE)
-                - PIVOT_ABOVE_CUBE_CENTRE_PIXELS / MODEL_UNITS_PER_BLOCK * RENDER_SCALE;
-    }
-
     private static final double MUZZLE_OFFSET = 0.159D;
-
-    public static double muzzleOffset() {
-        return MUZZLE_OFFSET;
-    }
 
     private static final int DEFAULT_TEMPORARY_LIFE = 110;
 

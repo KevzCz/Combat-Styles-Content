@@ -1,5 +1,5 @@
 {
-  "chance": 0.07,
+  "weight": 5,
   "mode": "slot",
   "slots": [
     -1
@@ -12,7 +12,6 @@
   "affixes": [
     "combat_styles_content:crescendo"
   ],
-  "affix_chance": 0.5,
   "max_affixes": 1,
   "name": "Finisher's Mark"
 }

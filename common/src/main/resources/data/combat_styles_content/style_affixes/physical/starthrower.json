@@ -1,0 +1,45 @@
+{
+  "id": "combat_styles_content:starthrower",
+  "weight": 3,
+  "rarity": "epic",
+  "cost_modifier": 1.8,
+  "trail": {
+    "color": "#C8C8D8",
+    "glows": true
+  },
+  "on_swing": {
+    "projectiles": [
+      {
+        "entity": "combat_styles_content:shuriken_projectile",
+        "count": 3,
+        "speed": 1.6,
+        "spread": 0,
+        "lifetime_ticks": 30,
+        "damage_spec": {
+          "of_hit": 0.4
+        },
+        "spawn": {
+          "mode": "fan",
+          "arc": 20
+        },
+        "custom": [
+          {
+            "hook": "combat_styles_content:shuriken",
+            "options": {
+              "item": "combat_styles_content:shuriken",
+              "pierce": 1,
+              "spin_speed": 40
+            }
+          }
+        ]
+      }
+    ],
+    "mechanics": {
+      "condition": {
+        "slot": {
+          "last": true
+        }
+      }
+    }
+  }
+}

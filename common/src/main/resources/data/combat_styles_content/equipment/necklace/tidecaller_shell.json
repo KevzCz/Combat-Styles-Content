@@ -2,6 +2,21 @@
   "id": "combat_styles_content:tidecaller_shell",
   "active_in": "worn",
   "rarity": "rare",
+  "crits": {
+    "rogue_wave": {
+      "chance": 0.2,
+      "value": 1.5,
+      "on_crit": {
+        "particles": [
+          {
+            "type": "minecraft:bubble_column_up",
+            "count": 30,
+            "spread": 0.8
+          }
+        ]
+      }
+    }
+  },
   "effects": {
     "tide_wave": {
       "trigger": {
@@ -13,13 +28,23 @@
           "on_shield_block": {
             "slash_wave": {
               "range": 10,
-              "radius": 1.5,
+              "radius": {
+                "scaled": 1.5,
+                "crit": {
+                  "group": "@rogue_wave"
+                }
+              },
               "speed": 0.8,
               "damage_spec": {
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 1
+                    "per_point": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@rogue_wave"
+                      }
+                    }
                   }
                 ]
               }

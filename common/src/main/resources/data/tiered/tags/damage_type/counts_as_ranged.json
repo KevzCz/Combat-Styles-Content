@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "combat_styles_content:shuriken",
+      "required": false
+    }
+  ]
+}

@@ -2,6 +2,27 @@
   "id": "combat_styles_content:solar_flare",
   "active_in": "held",
   "rarity": "legendary",
+  "crits": {
+    "corona": {
+      "chance": {
+        "scaled": 0.05,
+        "by": [
+          {
+            "source": "use:charge",
+            "per_point": 0.3
+          }
+        ]
+      },
+      "value": 1.5,
+      "on_crit": {
+        "sound": {
+          "id": "minecraft:item.firecharge.use",
+          "volume": 0.7,
+          "pitch": 1.2
+        }
+      }
+    }
+  },
   "use": {
     "mode": "charge",
     "hold_ticks": 40,
@@ -32,11 +53,21 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 0.5
+                    "per_point": {
+                      "scaled": 0.5,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   },
                   {
                     "source": "spell_power:fire",
-                    "per_point": 0.5
+                    "per_point": {
+                      "scaled": 0.5,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   }
                 ]
               },
@@ -46,9 +77,30 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
-                    "pierce": 1,
-                    "spin_speed": 40,
-                    "size": 0.6
+                    "pierce": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 0.6,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
+                    "trail": "minecraft:flame",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
+                    "spin_speed": 40
                   }
                 }
               ]
@@ -88,7 +140,10 @@
                             "source": "use:charge",
                             "per_point": 0.7
                           }
-                        ]
+                        ],
+                        "crit": {
+                          "group": "@corona"
+                        }
                       }
                     },
                     {
@@ -100,7 +155,10 @@
                             "source": "use:charge",
                             "per_point": 0.7
                           }
-                        ]
+                        ],
+                        "crit": {
+                          "group": "@corona"
+                        }
                       }
                     }
                   ]
@@ -111,8 +169,6 @@
                     "hook": "combat_styles_content:shuriken",
                     "options": {
                       "item": "combat_styles_content:solar_flare",
-                      "pierce": 1,
-                      "spin_speed": 30,
                       "size": {
                         "scaled": 1.3,
                         "by": [
@@ -120,8 +176,23 @@
                             "source": "use:charge",
                             "per_point": 1.1
                           }
-                        ]
-                      }
+                        ],
+                        "crit": {
+                          "group": "@corona",
+                          "value": 1.3
+                        }
+                      },
+                      "trail": "minecraft:lava",
+                      "trail_rate": {
+                        "scaled": 0,
+                        "crit": {
+                          "group": "@corona",
+                          "value": 1.5,
+                          "mode": "add_value"
+                        }
+                      },
+                      "pierce": 1,
+                      "spin_speed": 30
                     }
                   },
                   {
@@ -136,7 +207,11 @@
                             "source": "use:charge",
                             "per_point": 2
                           }
-                        ]
+                        ],
+                        "crit": {
+                          "group": "@corona",
+                          "value": 1.3
+                        }
                       },
                       "damage_spec": {
                         "scaling": [

@@ -2,6 +2,19 @@
   "id": "combat_styles_content:netherite_shuriken",
   "active_in": "held",
   "rarity": "epic",
+  "crits": {
+    "sever": {
+      "chance": 0.15,
+      "value": 1.8,
+      "on_crit": {
+        "sound": {
+          "id": "minecraft:block.netherite_block.hit",
+          "volume": 0.7,
+          "pitch": 1.3
+        }
+      }
+    }
+  },
   "effects": {
     "throw": {
       "effect": {
@@ -17,7 +30,12 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 1.1
+                    "per_point": {
+                      "scaled": 1.1,
+                      "crit": {
+                        "group": "@sever"
+                      }
+                    }
                   }
                 ]
               },
@@ -26,7 +44,30 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
-                    "pierce": 3,
+                    "pierce": {
+                      "scaled": 3,
+                      "crit": {
+                        "group": "@sever",
+                        "value": 3,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@sever",
+                        "value": 1.5
+                      }
+                    },
+                    "trail": "minecraft:soul_fire_flame",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@sever",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
                     "spin_speed": 40
                   }
                 }

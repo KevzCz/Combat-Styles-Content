@@ -17,11 +17,21 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 0.9
+                    "per_point": {
+                      "scaled": 0.9,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   },
                   {
                     "source": "spell_power:arcane",
-                    "per_point": 0.9
+                    "per_point": {
+                      "scaled": 0.9,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   }
                 ],
                 "scaling_mode": "strongest",
@@ -29,7 +39,13 @@
               },
               "spawn": {
                 "velocity": {
-                  "homing": 0.15
+                  "homing": {
+                    "scaled": 0.15,
+                    "crit": {
+                      "group": "@combat_styles_content:sharp_throw",
+                      "value": 2
+                    }
+                  }
                 }
               },
               "name": "Ocular Star",
@@ -38,7 +54,29 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
-                    "pierce": 1,
+                    "pierce": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
+                    "trail": "minecraft:enchant",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
                     "spin_speed": 40
                   }
                 },
@@ -46,7 +84,13 @@
                   "hook": "combat_styles_content:summon_quicken",
                   "options": {
                     "ratio": 0.1,
-                    "chance": 0.5
+                    "chance": {
+                      "scaled": 0.5,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 2
+                      }
+                    }
                   }
                 }
               ]

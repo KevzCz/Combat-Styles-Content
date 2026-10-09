@@ -17,7 +17,8 @@ import net.pixeldreamstudios.combat_styles_content.entity.ShurikenEntity;
 public class ShurikenRenderer extends EntityRenderer<ShurikenEntity> {
 
     private static final float SCALE = 1.0F;
-    private static final float LIFT = 0.1F;
+    private static final float CENTRE = 0.5F;
+    private static final float RESTING_LIFT = 0.1F;
     private static final float LIE_FLAT = 90.0F;
     private static final int FIRST_TICKS_HIDDEN = 2;
     private static final double CLOSE_DISTANCE_SQR = 12.25D;
@@ -38,7 +39,7 @@ public class ShurikenRenderer extends EntityRenderer<ShurikenEntity> {
         }
         float size = SCALE * entity.size();
         poses.pushPose();
-        poses.translate(0.0F, LIFT, 0.0F);
+        poses.translate(0.0F, entity.dropped() ? RESTING_LIFT : entity.getBbHeight() * CENTRE, 0.0F);
         poses.mulPose(Axis.YP.rotationDegrees(Mth.rotLerp(partialTick, entity.yRotO, entity.getYRot())));
         poses.mulPose(Axis.XP.rotationDegrees(-Mth.lerp(partialTick, entity.xRotO, entity.getXRot())));
         poses.mulPose(Axis.ZP.rotationDegrees(entity.tilt()));

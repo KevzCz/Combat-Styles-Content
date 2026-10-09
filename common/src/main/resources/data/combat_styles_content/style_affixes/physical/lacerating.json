@@ -11,7 +11,13 @@
     "effects": [
       {
         "effect": "combat_styles_content:bleeding",
-        "duration": 100,
+        "duration": {
+          "scaled": 100,
+          "crit": {
+            "group": "@combat_styles_content:keen",
+            "value": 2
+          }
+        },
         "amplifier": 0,
         "chance": 0.2,
         "stacks": true,

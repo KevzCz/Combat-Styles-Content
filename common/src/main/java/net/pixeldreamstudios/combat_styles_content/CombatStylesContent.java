@@ -29,6 +29,7 @@ import net.pixeldreamstudios.combat_styles_content.entity.ReturningHook;
 import net.pixeldreamstudios.combat_styles_content.entity.SummonQuickenHook;
 import net.pixeldreamstudios.combat_styles_content.entity.ShadowStepHook;
 import net.pixeldreamstudios.combat_styles_content.entity.BackstabHook;
+import net.pixeldreamstudios.combat_styles_content.entity.VelocityDamageHook;
 import net.pixeldreamstudios.combat_styles_content.entity.FocusHook;
 import net.pixeldreamstudios.combat_styles_content.entity.SplinterHook;
 import net.pixeldreamstudios.combat_styles_content.entity.TwinShotHook;
@@ -52,6 +53,7 @@ public final class CombatStylesContent {
     private static final String SUMMON_QUICKEN_HOOK = ":summon_quicken";
     private static final String SHADOW_STEP_HOOK = ":shadow_step";
     private static final String BACKSTAB_HOOK = ":backstab";
+    private static final String VELOCITY_DAMAGE_HOOK = ":velocity_damage";
     private static final String FOCUS_HOOK = ":focus";
     private static final String SPLINTER_HOOK = ":splinter";
     private static final String TWIN_SHOT_HOOK = ":twin_shot";
@@ -76,6 +78,7 @@ public final class CombatStylesContent {
         CustomRegistry.register(MOD_ID + SUMMON_QUICKEN_HOOK, new SummonQuickenHook());
         CustomRegistry.register(MOD_ID + SHADOW_STEP_HOOK, new ShadowStepHook());
         CustomRegistry.register(MOD_ID + BACKSTAB_HOOK, new BackstabHook());
+        CustomRegistry.register(MOD_ID + VELOCITY_DAMAGE_HOOK, new VelocityDamageHook());
         CustomRegistry.register(MOD_ID + FOCUS_HOOK, new FocusHook());
         CustomRegistry.register(MOD_ID + SPLINTER_HOOK, new SplinterHook());
         CustomRegistry.register(MOD_ID + TWIN_SHOT_HOOK, new TwinShotHook());

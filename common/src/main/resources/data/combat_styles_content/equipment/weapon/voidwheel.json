@@ -41,7 +41,12 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 0.6
+                    "per_point": {
+                      "scaled": 0.6,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   }
                 ]
               },
@@ -50,7 +55,29 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
-                    "pierce": 1,
+                    "pierce": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
+                    "trail": "minecraft:reverse_portal",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
                     "spin_speed": 40
                   }
                 }
@@ -85,7 +112,12 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 1
+                    "per_point": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   }
                 ]
               },
@@ -95,25 +127,73 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "combat_styles_content:voidwheel",
-                    "pierce": 1,
-                    "spin_speed": 25
+                    "pierce": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
+                    "trail": "minecraft:reverse_portal",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
+                    "spin_speed": {
+                      "scaled": 25,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 2
+                      }
+                    }
                   }
                 },
                 {
                   "hook": "combat_styles_content:void_well",
                   "options": {
-                    "grow_to": 3,
+                    "grow_to": {
+                      "scaled": 3,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
                     "grow_ticks": 40,
                     "duration_ticks": 100,
-                    "radius": 5,
+                    "radius": {
+                      "scaled": 5,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
                     "pull": 0.12,
                     "tick_every_degrees": 360,
-                    "hurt_radius": 1.5,
+                    "hurt_radius": {
+                      "scaled": 1.5,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
                     "damage_spec": {
                       "scaling": [
                         {
                           "source": "minecraft:generic.attack_damage",
-                          "per_point": 0.25
+                          "per_point": {
+                            "scaled": 0.25,
+                            "crit": {
+                              "group": "@combat_styles_content:sharp_throw"
+                            }
+                          }
                         }
                       ],
                       "type": "combat_styles:void"

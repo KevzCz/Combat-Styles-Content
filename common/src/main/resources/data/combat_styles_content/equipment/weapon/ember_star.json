@@ -17,7 +17,12 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 0.9
+                    "per_point": {
+                      "scaled": 0.9,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   }
                 ]
               },
@@ -27,7 +32,29 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
-                    "pierce": 1,
+                    "pierce": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
+                    "trail": "minecraft:flame",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
                     "spin_speed": 40
                   }
                 },
@@ -36,7 +63,12 @@
                   "options": {
                     "on_hit": true,
                     "on_land": true,
-                    "radius": 2,
+                    "radius": {
+                      "scaled": 2,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
                     "damage_spec": {
                       "scaling": [
                         {
@@ -46,7 +78,13 @@
                       ],
                       "type": "minecraft:in_fire"
                     },
-                    "ignite_seconds": 3,
+                    "ignite_seconds": {
+                      "scaled": 3,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 2
+                      }
+                    },
                     "particle": "minecraft:flame",
                     "particle_count": 24,
                     "sound": "minecraft:entity.blaze.shoot"

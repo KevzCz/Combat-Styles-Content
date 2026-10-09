@@ -397,6 +397,7 @@
     "item.combat_styles_content.nightfall_band":  "Nightfall Band",
     "item.combat_styles_content.nightfall_band.desc":  "At night, the first strike after waiting lands hard.",
     "entity.combat_styles_content.shuriken_shard":  "Shuriken Shard",
+    "entity.combat_styles_content.bone_shard":  "Bone Shard",
     "ability.combat_styles_content.mending_howl.name":  "Mending Howl",
     "ability.combat_styles_content.mending_howl.desc":  "When hurt, the pet howls and heals its owner.",
     "ability.combat_styles_content.warding_pulse.name":  "Warding Pulse",
@@ -423,6 +424,7 @@
     "tooltip.combat_styles_content.summon_quicken":  "%s%% chance on hit: your summons recast %s%% sooner",
     "tooltip.combat_styles_content.shadow_step":  "You step through the shadows to where it lands",
     "tooltip.combat_styles_content.backstab":  "+%s%% against airborne foes or foes facing away",
+    "tooltip.combat_styles_content.velocity_damage":  "+%s%% damage per block/tick of speed when it hits",
     "tooltip.combat_styles_content.focus":  "If %s land on one foe, the last deals +%s%%",
     "tooltip.combat_styles_content.splinter":  "On hit, splinters into %s shards that fly at foes within %s blocks",
     "tooltip.combat_styles_content.twin_shot":  "Fires %s copies of the shot, %s° apart",
@@ -442,5 +444,9 @@
     "death.attack.combat_styles_content.bleed":  "%1$s bled out",
     "death.attack.combat_styles_content.bleed.player":  "%1$s bled out at the hands of %2$s",
     "damage_type.combat_styles_content.bleed":  "Bleed",
+    "death.attack.combat_styles_content.shuriken":  "%1$s was cut down by %2$s's shuriken",
+    "death.attack.combat_styles_content.shuriken.item":  "%1$s was cut down by %2$s's %3$s",
+    "death.attack.combat_styles_content.shuriken.player":  "%1$s was cut down by a shuriken while fighting %2$s",
+    "damage_type.combat_styles_content.shuriken":  "Shuriken",
     "tooltip.combat_styles_content.afflicted":  "+%s%% damage to foes with %s"
 }

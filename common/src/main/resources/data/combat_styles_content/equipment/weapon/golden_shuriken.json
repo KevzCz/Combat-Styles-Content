@@ -2,6 +2,28 @@
   "id": "combat_styles_content:golden_shuriken",
   "active_in": "held",
   "rarity": "uncommon",
+  "crits": {
+    "gilded": {
+      "chance": {
+        "scaled": 0.1,
+        "by": [
+          {
+            "source": "minecraft:generic.luck",
+            "per_point": 0.06
+          }
+        ],
+        "max": 0.5
+      },
+      "value": 1.5,
+      "on_crit": {
+        "sound": {
+          "id": "minecraft:entity.experience_orb.pickup",
+          "volume": 0.6,
+          "pitch": 1.4
+        }
+      }
+    }
+  },
   "effects": {
     "throw": {
       "effect": {
@@ -17,7 +39,12 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 0.85
+                    "per_point": {
+                      "scaled": 0.85,
+                      "crit": {
+                        "group": "@gilded"
+                      }
+                    }
                   }
                 ]
               },
@@ -26,7 +53,29 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
-                    "pierce": 1,
+                    "pierce": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@gilded",
+                        "value": 1,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@gilded"
+                      }
+                    },
+                    "trail": "minecraft:wax_on",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@gilded",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
                     "spin_speed": 50
                   }
                 }

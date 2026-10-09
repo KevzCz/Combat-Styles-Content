@@ -3,6 +3,7 @@ package net.pixeldreamstudios.combat_styles_content.entity;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -10,14 +11,16 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 
+import net.pixeldreamstudios.combat_styles.damage.FiredFrom;
 import net.pixeldreamstudios.combat_styles_content.item.ContentItems;
 
-public class BoneShardEntity extends ThrowableItemProjectile {
+public class BoneShardEntity extends ThrowableItemProjectile implements FiredFrom {
 
     public static final int MAX_BOUNCES = 3;
     private static final double GRAVITY = 0.05D;
@@ -37,6 +40,7 @@ public class BoneShardEntity extends ThrowableItemProjectile {
     private int bounces;
     private float spin;
     private float spinPrevious;
+    private ItemStack firedFrom;
 
     public BoneShardEntity(EntityType<? extends BoneShardEntity> type, Level level) {
         super(type, level);
@@ -45,6 +49,28 @@ public class BoneShardEntity extends ThrowableItemProjectile {
     @Override
     protected Item getDefaultItem() {
         return ContentItems.BONE_SHARD.get();
+    }
+
+    @Override
+    public void combat_styles$setFiredFrom(ItemStack stack) {
+        firedFrom = stack == null ? null : stack.copy();
+    }
+
+    @Override
+    public ItemStack getWeaponItem() {
+        return firedFrom;
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        FiredFrom.save(tag, firedFrom, registryAccess());
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        firedFrom = FiredFrom.read(tag, registryAccess());
     }
 
     @Override

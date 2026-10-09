@@ -2,6 +2,12 @@
   "id": "combat_styles_content:twocolored_ring",
   "active_in": "worn",
   "rarity": "epic",
+  "crits": {
+    "prism": {
+      "chance": 0.2,
+      "value": 1.5
+    }
+  },
   "effects": {
     "twocolored_edge": {
       "trigger": {
@@ -16,10 +22,22 @@
           "mechanics": {
             "offense": {
               "chain": {
-                "max_targets": 2,
+                "max_targets": {
+                  "scaled": 2,
+                  "crit": {
+                    "group": "@prism",
+                    "value": 1,
+                    "mode": "add_value"
+                  }
+                },
                 "range": 5,
                 "falloff": 0.6,
-                "ratio": 0.45
+                "ratio": {
+                  "scaled": 0.45,
+                  "crit": {
+                    "group": "@prism"
+                  }
+                }
               }
             }
           },

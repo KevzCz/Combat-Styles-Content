@@ -17,7 +17,12 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 0.6
+                    "per_point": {
+                      "scaled": 0.6,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   }
                 ]
               },
@@ -32,11 +37,46 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
-                    "pierce": 6,
+                    "pierce": {
+                      "scaled": 6,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 2,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
+                    "trail": "minecraft:item_slime",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
                     "spin_speed": 40,
-                    "bounces": 6,
+                    "bounces": {
+                      "scaled": 6,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 3,
+                        "mode": "add_value"
+                      }
+                    },
                     "bounce_restitution": 0.85,
                     "rehit": true
+                  }
+                },
+                {
+                  "hook": "combat_styles_content:velocity_damage",
+                  "options": {
+                    "per_speed": 0.06
                   }
                 }
               ]

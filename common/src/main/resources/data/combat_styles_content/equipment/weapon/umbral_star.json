@@ -2,6 +2,35 @@
   "id": "combat_styles_content:umbral_star",
   "active_in": "held",
   "rarity": "epic",
+  "crits": {
+    "umbra": {
+      "chance": {
+        "scaled": 0.1,
+        "by": [
+          {
+            "source": "minecraft:generic.luck",
+            "per_point": 0.03
+          }
+        ],
+        "max": 0.5
+      },
+      "value": 1.5,
+      "on_crit": {
+        "self_effects": [
+          {
+            "effect": "minecraft:invisibility",
+            "duration": 20,
+            "amplifier": 0
+          }
+        ],
+        "sound": {
+          "id": "minecraft:entity.phantom.flap",
+          "volume": 0.5,
+          "pitch": 1.4
+        }
+      }
+    }
+  },
   "projectiles": {
     "umbral_star": {
       "entity": "combat_styles_content:shuriken_projectile",
@@ -41,11 +70,46 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
-                    "pierce": 1,
+                    "pierce": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@umbra",
+                        "value": 1,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@umbra"
+                      }
+                    },
+                    "trail": "minecraft:squid_ink",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@umbra",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
                     "spin_speed": 40
                   }
                 }
-              ]
+              ],
+              "damage_spec": {
+                "scaling": [
+                  {
+                    "source": "minecraft:generic.attack_damage",
+                    "per_point": {
+                      "scaled": 0.9,
+                      "crit": {
+                        "group": "@umbra"
+                      }
+                    }
+                  }
+                ]
+              }
             }
           ]
         }

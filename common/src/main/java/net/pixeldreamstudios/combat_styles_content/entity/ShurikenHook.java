@@ -30,6 +30,8 @@ public final class ShurikenHook implements CustomHook {
     public static final String KEY_BOUNCES = "bounces";
     public static final String KEY_BOUNCE_RESTITUTION = "bounce_restitution";
     public static final String KEY_REHIT = "rehit";
+    public static final String KEY_TRAIL = "trail";
+    public static final String KEY_TRAIL_RATE = "trail_rate";
     public static final String HELD_ITEM = "@held";
     private static final int SAMPLE_PIERCE = 2;
     private static final int SINGLE = 1;
@@ -47,7 +49,9 @@ public final class ShurikenHook implements CustomHook {
             OptionField.of(KEY_SIZE, Codec.FLOAT, ShurikenEntity.DEFAULT_SIZE),
             OptionField.of(KEY_BOUNCES, Codec.INT, NO_BOUNCES),
             OptionField.of(KEY_BOUNCE_RESTITUTION, Codec.FLOAT, ShurikenEntity.DEFAULT_RESTITUTION),
-            OptionField.of(KEY_REHIT, Codec.BOOL, false));
+            OptionField.of(KEY_REHIT, Codec.BOOL, false),
+            OptionField.of(KEY_TRAIL, Codec.STRING, ShurikenEntity.NO_TRAIL),
+            OptionField.of(KEY_TRAIL_RATE, Codec.FLOAT, ShurikenEntity.NO_TRAIL_RATE));
 
     @Override
     public Set<String> scopes() {
@@ -76,6 +80,11 @@ public final class ShurikenHook implements CustomHook {
         shuriken.setBounces(HookOptions.intOf(options, KEY_BOUNCES, NO_BOUNCES),
                 HookOptions.floatOf(options, KEY_BOUNCE_RESTITUTION, ShurikenEntity.DEFAULT_RESTITUTION),
                 HookOptions.boolOf(options, KEY_REHIT, false));
+        shuriken.setTrail(HookOptions.stringOf(options, KEY_TRAIL, ShurikenEntity.NO_TRAIL),
+                HookOptions.floatOf(options, KEY_TRAIL_RATE, ShurikenEntity.NO_TRAIL_RATE));
+        if (!ProjectileCopies.isCopy(shuriken)) {
+            shuriken.centerOnSpawnPoint();
+        }
         if (ProjectileCopies.isCopy(shuriken) || context.owner() == null) {
             return;
         }

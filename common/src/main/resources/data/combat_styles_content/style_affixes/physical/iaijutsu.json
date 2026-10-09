@@ -16,7 +16,13 @@
   "on_hit": {
     "damage": {
       "mode": "amplify",
-      "ratio": 0.9
+      "ratio": {
+        "scaled": 0.9,
+        "crit": {
+          "group": "@combat_styles_content:keen",
+          "value": 2
+        }
+      }
     },
     "mechanics": {
       "condition": {

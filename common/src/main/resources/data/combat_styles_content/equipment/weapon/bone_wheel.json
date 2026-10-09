@@ -23,7 +23,12 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 1.1
+                    "per_point": {
+                      "scaled": 1.1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   }
                 ]
               },
@@ -33,6 +38,21 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
+                    "trail": "minecraft:white_ash",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
                     "pierce": 50,
                     "spin_speed": 30
                   }
@@ -41,7 +61,14 @@
                   "hook": "combat_styles_content:bone_shatter",
                   "options": {
                     "shatter_chance": 0.5,
-                    "shatter_count": 4,
+                    "shatter_count": {
+                      "scaled": 4,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 4,
+                        "mode": "add_value"
+                      }
+                    },
                     "shatter_speed": 0.55,
                     "hit_chance": 0.1,
                     "hit_count": 2,
@@ -79,7 +106,12 @@
                   "options": {
                     "on_hit": true,
                     "on_land": false,
-                    "radius": 3,
+                    "radius": {
+                      "scaled": 3,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
                     "damage_spec": {
                       "scaling": [
                         {

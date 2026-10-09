@@ -20,7 +20,13 @@
     },
     "airborne_gust": {
       "trigger": {
-        "airborne": true
+        "airborne": true,
+        "thresholds": [
+          {
+            "source": "minecraft:generic.movement_speed",
+            "at_most": 0.125
+          }
+        ]
       },
       "cooldown": 30,
       "effect": {
@@ -28,7 +34,45 @@
           "slash_wave": {
             "range": 6,
             "radius": 1,
-            "ratio": 0.3,
+            "ratio": {
+              "scaled": 0,
+              "by": [
+                {
+                  "source": "minecraft:generic.movement_speed",
+                  "per_point": 3
+                }
+              ]
+            },
+            "speed": 0.9
+          }
+        }
+      }
+    },
+    "gale": {
+      "trigger": {
+        "airborne": true,
+        "thresholds": [
+          {
+            "source": "minecraft:generic.movement_speed",
+            "at_least": 0.125
+          }
+        ]
+      },
+      "cooldown": 30,
+      "effect": {
+        "on_swing": {
+          "slash_wave": {
+            "range": 9,
+            "radius": 1,
+            "ratio": {
+              "scaled": 0,
+              "by": [
+                {
+                  "source": "minecraft:generic.movement_speed",
+                  "per_point": 3
+                }
+              ]
+            },
             "speed": 0.9
           }
         }

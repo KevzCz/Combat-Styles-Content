@@ -1,6 +1,7 @@
 package net.pixeldreamstudios.combat_styles_content.entity;
 
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -10,7 +11,10 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
@@ -33,10 +37,12 @@ import net.pixeldreamstudios.combat_styles.affix.ProjectileUpkeep;
 import net.pixeldreamstudios.combat_styles.custom.CustomScopes;
 import net.pixeldreamstudios.combat_styles.custom.Customs;
 import net.pixeldreamstudios.combat_styles.damage.DamageHurt;
+import net.pixeldreamstudios.combat_styles.damage.FiredFrom;
+import net.pixeldreamstudios.combat_styles_content.CombatStylesContent;
 import net.pixeldreamstudios.combat_styles_content.enchantment.ContentEnchantments;
 import net.pixeldreamstudios.combat_styles_content.item.ContentItems;
 
-public class ShurikenEntity extends ThrowableItemProjectile {
+public class ShurikenEntity extends ThrowableItemProjectile implements FiredFrom {
 
     private static final EntityDataAccessor<Float> SPIN =
             SynchedEntityData.defineId(ShurikenEntity.class, EntityDataSerializers.FLOAT);
@@ -60,7 +66,22 @@ public class ShurikenEntity extends ThrowableItemProjectile {
             SynchedEntityData.defineId(ShurikenEntity.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Float> ORBIT_START =
             SynchedEntityData.defineId(ShurikenEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<String> TRAIL =
+            SynchedEntityData.defineId(ShurikenEntity.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Float> TRAIL_RATE =
+            SynchedEntityData.defineId(ShurikenEntity.class, EntityDataSerializers.FLOAT);
+    public static final float NO_TRAIL_RATE = 0.0F;
+    public static final String NO_TRAIL = "";
+    private static final float TRAIL_SPREAD = 0.1F;
+    private static final float WHOLE_PARTICLE = 1.0F;
+    private static final float CENTRE = 0.5F;
+    private static final double STILL = 0.0D;
+    private float trailCarry;
+    private String trailId = NO_TRAIL;
+    private ParticleOptions trailParticle;
 
+    public static final ResourceKey<DamageType> SHURIKEN_DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE,
+            CombatStylesContent.id("shuriken"));
     public static final float DEFAULT_SPIN = 40.0F;
     public static final float DEFAULT_SIZE = 1.0F;
     public static final float MIN_SIZE = 0.25F;
@@ -119,6 +140,7 @@ public class ShurikenEntity extends ThrowableItemProjectile {
     private int ignoredId = NO_ENTITY;
     private int ignoredUntil;
     private ItemStack weapon = ItemStack.EMPTY;
+    private ItemStack firedFrom;
     private int ricochetsLeft;
     private float damageScale = FULL_DAMAGE;
     private boolean survivesLanding;
@@ -149,6 +171,8 @@ public class ShurikenEntity extends ThrowableItemProjectile {
         builder.define(ORBIT_SPEED, 0.0F);
         builder.define(ORBIT_HEIGHT, 0.0F);
         builder.define(ORBIT_START, 0.0F);
+        builder.define(TRAIL, NO_TRAIL);
+        builder.define(TRAIL_RATE, NO_TRAIL_RATE);
     }
 
     @Override
@@ -181,6 +205,41 @@ public class ShurikenEntity extends ThrowableItemProjectile {
         return entityData.get(SIZE);
     }
 
+    public void centerOnSpawnPoint() {
+        setPos(getX(), getY() - getBbHeight() * CENTRE, getZ());
+        setOldPosAndRot();
+    }
+
+    public void setTrail(String particle, float rate) {
+        entityData.set(TRAIL, particle == null ? NO_TRAIL : particle);
+        entityData.set(TRAIL_RATE, Math.max(NO_TRAIL_RATE, rate));
+    }
+
+    private void emitTrail() {
+        float rate = entityData.get(TRAIL_RATE);
+        if (rate <= NO_TRAIL_RATE || anchored()) {
+            return;
+        }
+        String id = entityData.get(TRAIL);
+        if (!id.equals(trailId)) {
+            trailId = id;
+            trailParticle = HookOptions.particleOf(id);
+        }
+        if (trailParticle == null) {
+            return;
+        }
+        trailCarry += rate;
+        float spread = TRAIL_SPREAD * size();
+        while (trailCarry >= WHOLE_PARTICLE) {
+            trailCarry -= WHOLE_PARTICLE;
+            level().addParticle(trailParticle,
+                    getX() + (random.nextFloat() - CENTRE) * spread,
+                    getY() + getBbHeight() * CENTRE + (random.nextFloat() - CENTRE) * spread,
+                    getZ() + (random.nextFloat() - CENTRE) * spread,
+                    STILL, STILL, STILL);
+        }
+    }
+
     @Override
     public EntityDimensions getDimensions(Pose pose) {
         return super.getDimensions(pose).scale(size());
@@ -201,6 +260,26 @@ public class ShurikenEntity extends ThrowableItemProjectile {
 
     public ItemStack weapon() {
         return weapon;
+    }
+
+    private DamageSource shurikenSource() {
+        return level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
+                .getHolder(SHURIKEN_DAMAGE)
+                .map(type -> new DamageSource(type, this, getOwner()))
+                .orElseGet(() -> damageSources().thrown(this, getOwner()));
+    }
+
+    @Override
+    public void combat_styles$setFiredFrom(ItemStack stack) {
+        firedFrom = stack == null ? null : stack.copy();
+    }
+
+    @Override
+    public ItemStack getWeaponItem() {
+        if (firedFrom != null) {
+            return firedFrom;
+        }
+        return weapon.isEmpty() ? null : weapon;
     }
 
     public float damageScale() {
@@ -283,6 +362,7 @@ public class ShurikenEntity extends ThrowableItemProjectile {
         tag.putFloat(TAG_SIZE, size());
         tag.putInt(TAG_PIERCE, pierceLeft);
         tag.putBoolean(TAG_ANCHORS, anchorsOnImpact);
+        FiredFrom.save(tag, firedFrom, registryAccess());
     }
 
     @Override
@@ -296,6 +376,7 @@ public class ShurikenEntity extends ThrowableItemProjectile {
         }
         pierceLeft = tag.getInt(TAG_PIERCE);
         anchorsOnImpact = tag.getBoolean(TAG_ANCHORS);
+        firedFrom = FiredFrom.read(tag, registryAccess());
     }
 
     public void orbit(int ticks, float radius, float degreesPerTick, float height, float speed) {
@@ -494,6 +575,7 @@ public class ShurikenEntity extends ThrowableItemProjectile {
         }
         super.tick();
         if (level().isClientSide()) {
+            emitTrail();
             return;
         }
         if (anchored()) {
@@ -524,7 +606,7 @@ public class ShurikenEntity extends ThrowableItemProjectile {
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         Entity target = result.getEntity();
-        DamageSource source = damageSources().thrown(this, getOwner());
+        DamageSource source = shurikenSource();
         target.hurt(source, CARRIED_ELSEWHERE);
         if (!level().isClientSide() && target instanceof LivingEntity living) {
             for (int hit = MIN_HITS; hit < sharpnessHits() && living.isAlive(); hit++) {

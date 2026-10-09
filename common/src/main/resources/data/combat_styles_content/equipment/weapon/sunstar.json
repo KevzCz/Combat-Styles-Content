@@ -23,7 +23,12 @@
                 "scaling": [
                   {
                     "source": "minecraft:generic.attack_damage",
-                    "per_point": 0.9
+                    "per_point": {
+                      "scaled": 0.9,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    }
                   }
                 ]
               },
@@ -33,7 +38,29 @@
                   "hook": "combat_styles_content:shuriken",
                   "options": {
                     "item": "@held",
-                    "pierce": 1,
+                    "pierce": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1,
+                        "mode": "add_value"
+                      }
+                    },
+                    "size": {
+                      "scaled": 1,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw"
+                      }
+                    },
+                    "trail": "minecraft:flame",
+                    "trail_rate": {
+                      "scaled": 0,
+                      "crit": {
+                        "group": "@combat_styles_content:sharp_throw",
+                        "value": 1.5,
+                        "mode": "add_value"
+                      }
+                    },
                     "spin_speed": 40
                   }
                 }
@@ -68,7 +95,12 @@
                   "scaling": [
                     {
                       "source": "minecraft:generic.attack_damage",
-                      "per_point": 0.6
+                      "per_point": {
+                        "scaled": 0.6,
+                        "crit": {
+                          "group": "@combat_styles_content:sharp_throw"
+                        }
+                      }
                     }
                   ]
                 },
@@ -78,21 +110,45 @@
                     "hook": "combat_styles_content:shuriken",
                     "options": {
                       "item": "combat_styles_content:sunstar",
+                      "size": {
+                        "scaled": 1.3,
+                        "crit": {
+                          "group": "@combat_styles_content:sharp_throw"
+                        }
+                      },
+                      "trail": "minecraft:flame",
+                      "trail_rate": {
+                        "scaled": 0,
+                        "crit": {
+                          "group": "@combat_styles_content:sharp_throw",
+                          "value": 1.5,
+                          "mode": "add_value"
+                        }
+                      },
                       "pierce": 0,
-                      "spin_speed": 30,
-                      "size": 1.3
+                      "spin_speed": 30
                     }
                   },
                   {
                     "hook": "combat_styles_content:solar_brand",
                     "options": {
-                      "duration_ticks": 200,
+                      "duration_ticks": {
+                        "scaled": 200,
+                        "crit": {
+                          "group": "@combat_styles_content:sharp_throw"
+                        }
+                      },
                       "pulse_every_ticks": 10,
                       "damage_spec": {
                         "scaling": [
                           {
                             "source": "minecraft:generic.attack_damage",
-                            "per_point": 0.25
+                            "per_point": {
+                              "scaled": 0.25,
+                              "crit": {
+                                "group": "@combat_styles_content:sharp_throw"
+                              }
+                            }
                           }
                         ],
                         "type": "minecraft:in_fire"

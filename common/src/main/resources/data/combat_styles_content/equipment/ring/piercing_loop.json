@@ -31,7 +31,27 @@
           },
           "damage": {
             "mode": "additive",
-            "ratio": 0.1,
+            "ratio": {
+              "scaled": 0.1,
+              "crit": {
+                "chance": 0.25,
+                "value": 3,
+                "on_crit": {
+                  "particles": [
+                    {
+                      "type": "minecraft:enchanted_hit",
+                      "count": 14,
+                      "spread": 0.35
+                    }
+                  ],
+                  "sound": {
+                    "id": "minecraft:item.trident.hit",
+                    "volume": 0.5,
+                    "pitch": 1.5
+                  }
+                }
+              }
+            },
             "ignores_armour": true
           }
         }

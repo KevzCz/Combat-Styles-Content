@@ -79,6 +79,39 @@
           }
         }
       }
+    },
+    "iron_resolve": {
+      "trigger": {
+        "thresholds": [
+          {
+            "source": "minecraft:generic.armor",
+            "at_least": 15
+          }
+        ]
+      },
+      "effect": {
+        "on_hit": {
+          "damage": {
+            "mode": "additive",
+            "ratio": {
+              "scaled": 0.05,
+              "by": [
+                {
+                  "source": "minecraft:generic.armor",
+                  "per_point": 0.01
+                }
+              ]
+            }
+          },
+          "particles": [
+            {
+              "type": "minecraft:wax_off",
+              "count": 4,
+              "spread": 0.3
+            }
+          ]
+        }
+      }
     }
   }
 }

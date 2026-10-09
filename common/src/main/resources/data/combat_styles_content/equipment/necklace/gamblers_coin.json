@@ -2,6 +2,43 @@
   "id": "combat_styles_content:gamblers_coin",
   "active_in": "worn",
   "rarity": "uncommon",
+  "crits": {
+    "fortune": {
+      "chance": {
+        "scaled": 0.15,
+        "by": [
+          {
+            "source": "minecraft:generic.luck",
+            "per_point": 0.05
+          }
+        ],
+        "max": 0.75
+      },
+      "value": {
+        "scaled": 2,
+        "by": [
+          {
+            "source": "minecraft:generic.luck",
+            "per_point": 0.25
+          }
+        ]
+      },
+      "on_crit": {
+        "particles": [
+          {
+            "type": "minecraft:totem_of_undying",
+            "count": 10,
+            "spread": 0.4
+          }
+        ],
+        "sound": {
+          "id": "minecraft:entity.experience_orb.pickup",
+          "volume": 0.6,
+          "pitch": 0.8
+        }
+      }
+    }
+  },
   "groups": {
     "coin_flip": {
       "entries": [
@@ -30,7 +67,16 @@
               "count": 6,
               "spread": 0.3
             }
-          ]
+          ],
+          "damage": {
+            "mode": "additive",
+            "flat": {
+              "scaled": 1,
+              "crit": {
+                "group": "@fortune"
+              }
+            }
+          }
         }
       }
     },
@@ -40,7 +86,12 @@
           "mechanics": {
             "sustain": {
               "heal": {
-                "flat": 1
+                "flat": {
+                  "scaled": 1,
+                  "crit": {
+                    "group": "@fortune"
+                  }
+                }
               }
             }
           },

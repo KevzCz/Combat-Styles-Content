@@ -20,7 +20,28 @@
           ],
           "damage": {
             "mode": "amplify",
-            "ratio": 0.5
+            "ratio": {
+              "scaled": 0.5,
+              "crit": {
+                "chance": 0.3,
+                "value": 2,
+                "on_crit": {
+                  "effects": [
+                    {
+                      "effect": "minecraft:blindness",
+                      "duration": 60,
+                      "amplifier": 0,
+                      "chance": 1
+                    }
+                  ],
+                  "sound": {
+                    "id": "minecraft:entity.phantom.bite",
+                    "volume": 0.6,
+                    "pitch": 1.2
+                  }
+                }
+              }
+            }
           }
         }
       }

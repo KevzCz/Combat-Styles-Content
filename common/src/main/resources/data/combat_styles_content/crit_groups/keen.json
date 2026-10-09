@@ -1,0 +1,27 @@
+{
+  "chance": {
+    "scaled": 0.12,
+    "by": [
+      {
+        "source": "minecraft:generic.luck",
+        "per_point": 0.04
+      }
+    ],
+    "max": 0.6
+  },
+  "value": 1.75,
+  "on_crit": {
+    "particles": [
+      {
+        "type": "minecraft:crit",
+        "count": 12,
+        "spread": 0.4
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.player.attack.crit",
+      "volume": 0.6,
+      "pitch": 1.2
+    }
+  }
+}

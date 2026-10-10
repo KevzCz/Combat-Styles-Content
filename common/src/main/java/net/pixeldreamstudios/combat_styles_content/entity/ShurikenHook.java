@@ -82,9 +82,7 @@ public final class ShurikenHook implements CustomHook {
                 HookOptions.boolOf(options, KEY_REHIT, false));
         shuriken.setTrail(HookOptions.stringOf(options, KEY_TRAIL, ShurikenEntity.NO_TRAIL),
                 HookOptions.floatOf(options, KEY_TRAIL_RATE, ShurikenEntity.NO_TRAIL_RATE));
-        if (!ProjectileCopies.isCopy(shuriken)) {
-            shuriken.centerOnSpawnPoint();
-        }
+        shuriken.centerOnSpawnPoint();
         if (ProjectileCopies.isCopy(shuriken) || context.owner() == null) {
             return;
         }

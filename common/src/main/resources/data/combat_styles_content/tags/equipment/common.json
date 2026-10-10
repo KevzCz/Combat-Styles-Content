@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "combat_styles:style_book_common",
     "combat_styles_content:ashen_band",
     "combat_styles_content:cracked_signet"
   ]

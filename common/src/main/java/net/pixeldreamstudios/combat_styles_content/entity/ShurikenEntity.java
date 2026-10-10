@@ -102,6 +102,7 @@ public class ShurikenEntity extends ThrowableItemProjectile implements FiredFrom
     private static final String TAG_SIZE = "Size";
     private static final String TAG_PIERCE = "Pierce";
     private static final String TAG_ANCHORS = "AnchorsOnImpact";
+    private static final String TAG_CENTERED = "Centered";
     private static final int NO_ENTITY = -1;
     private static final double TARGET_HEIGHT_RATIO = 0.5D;
     private static final int SHARPNESS_LEVELS_PER_HIT = 2;
@@ -152,6 +153,7 @@ public class ShurikenEntity extends ThrowableItemProjectile implements FiredFrom
     private int bouncesLeft;
     private float restitution = DEFAULT_RESTITUTION;
     private boolean rehits;
+    private boolean centered;
 
     public ShurikenEntity(EntityType<? extends ShurikenEntity> type, Level level) {
         super(type, level);
@@ -206,6 +208,10 @@ public class ShurikenEntity extends ThrowableItemProjectile implements FiredFrom
     }
 
     public void centerOnSpawnPoint() {
+        if (centered) {
+            return;
+        }
+        centered = true;
         setPos(getX(), getY() - getBbHeight() * CENTRE, getZ());
         setOldPosAndRot();
     }
@@ -288,7 +294,7 @@ public class ShurikenEntity extends ThrowableItemProjectile implements FiredFrom
 
     private int sharpnessHits() {
         int sharpness = ContentEnchantments.levelOf(level(), ContentEnchantments.SHARPNESS, weapon);
-        return Math.max(MIN_HITS, sharpness / SHARPNESS_LEVELS_PER_HIT);
+        return MIN_HITS + Math.max(0, sharpness) / SHARPNESS_LEVELS_PER_HIT;
     }
 
     private boolean ricochet(Entity struck) {
@@ -362,6 +368,7 @@ public class ShurikenEntity extends ThrowableItemProjectile implements FiredFrom
         tag.putFloat(TAG_SIZE, size());
         tag.putInt(TAG_PIERCE, pierceLeft);
         tag.putBoolean(TAG_ANCHORS, anchorsOnImpact);
+        tag.putBoolean(TAG_CENTERED, centered);
         FiredFrom.save(tag, firedFrom, registryAccess());
     }
 
@@ -376,6 +383,7 @@ public class ShurikenEntity extends ThrowableItemProjectile implements FiredFrom
         }
         pierceLeft = tag.getInt(TAG_PIERCE);
         anchorsOnImpact = tag.getBoolean(TAG_ANCHORS);
+        centered = tag.getBoolean(TAG_CENTERED);
         firedFrom = FiredFrom.read(tag, registryAccess());
     }
 

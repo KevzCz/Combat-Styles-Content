@@ -10,9 +10,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-
 import net.pixeldreamstudios.combat_styles.affix.AffixEffects;
 import net.pixeldreamstudios.combat_styles.affix.ProjectileLaunches;
 import net.pixeldreamstudios.combat_styles.affix.ProjectileUpkeep;
@@ -75,7 +73,7 @@ public final class BoneShatterHook implements CustomHook {
 
     @Override
     public void onLand(CustomContext context, Entity entity) {
-        Player owner = context.owner();
+        LivingEntity owner = context.owner();
         if (owner == null || !(entity.level() instanceof ServerLevel level)
                 || !(entity instanceof ShurikenEntity wheel) || ReturningHook.returning(entity)) {
             return;
@@ -100,7 +98,7 @@ public final class BoneShatterHook implements CustomHook {
 
     @Override
     public void onHit(CustomContext context, Entity source, LivingEntity target) {
-        Player owner = context.owner();
+        LivingEntity owner = context.owner();
         if (ProjectileStrikes.striking() || owner == null || target == null
                 || !(target.level() instanceof ServerLevel level)) {
             return;
@@ -133,7 +131,7 @@ public final class BoneShatterHook implements CustomHook {
         Vec3 next(RandomSource random);
     }
 
-    private static void launch(ServerLevel level, Player owner, Entity origin, Vec3 from, JsonObject options,
+    private static void launch(ServerLevel level, LivingEntity owner, Entity origin, Vec3 from, JsonObject options,
                                int count, Velocity velocity) {
         AffixEffects.Projectile bone = boneOf(options);
         if (bone == null) {

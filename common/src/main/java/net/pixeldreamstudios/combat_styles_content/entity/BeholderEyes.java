@@ -4,18 +4,18 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-
-import net.pixeldreamstudios.combat_styles_content.item.ContentItems;
-import net.pixeldreamstudios.combat_styles.entity.SummonCompanion;
-import net.pixeldreamstudios.combat_styles.entity.SummonRoster;
 import net.pixeldreamstudios.combat_styles.config.AbilityConfig;
 import net.pixeldreamstudios.combat_styles.effect.EffectLookup;
+import net.pixeldreamstudios.combat_styles.entity.SummonCompanion;
+import net.pixeldreamstudios.combat_styles.entity.SummonRoster;
 import net.pixeldreamstudios.combat_styles.equipment.ProfileCondition;
 import net.pixeldreamstudios.combat_styles.equipment.SummonProfile;
 import net.pixeldreamstudios.combat_styles.equipment.SummonProfiles;
 import net.pixeldreamstudios.combat_styles.equipment.WornItems;
+import net.pixeldreamstudios.combat_styles_content.item.ContentItems;
 
 import java.util.List;
 import java.util.Map;
@@ -40,19 +40,19 @@ public final class BeholderEyes {
     private static final ProfileCondition.ConditionContext CONTEXT =
             new ProfileCondition.ConditionContext() {
                 @Override
-                public boolean hasEffect(Player player, String effectId) {
+                public boolean hasEffect(LivingEntity entity, String effectId) {
                     Holder<MobEffect> holder = EffectLookup.of(effectId);
-                    return holder != null && player.hasEffect(holder);
+                    return holder != null && entity.hasEffect(holder);
                 }
 
                 @Override
-                public boolean holding(Player player, String itemId) {
-                    return BeholderEyes.holding(player, itemId);
+                public boolean holding(LivingEntity entity, String itemId) {
+                    return entity instanceof Player player && BeholderEyes.holding(player, itemId);
                 }
 
                 @Override
-                public boolean wearing(Player player, String itemId) {
-                    return BeholderEyes.wearing(player, itemId);
+                public boolean wearing(LivingEntity entity, String itemId) {
+                    return entity instanceof Player player && BeholderEyes.wearing(player, itemId);
                 }
             };
 

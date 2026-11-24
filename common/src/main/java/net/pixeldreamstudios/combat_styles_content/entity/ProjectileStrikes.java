@@ -4,10 +4,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.EnderDragonPart;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-
 import net.pixeldreamstudios.combat_styles.affix.AffixTargets;
 import net.pixeldreamstudios.combat_styles.affix.ProjectileUpkeep;
 import net.pixeldreamstudios.combat_styles.damage.DamageDealer;
@@ -27,7 +25,7 @@ public final class ProjectileStrikes {
         return STRIKING.get();
     }
 
-    public static List<LivingEntity> foesAround(ServerLevel level, Player owner, Vec3 centre,
+    public static List<LivingEntity> foesAround(ServerLevel level, LivingEntity owner, Vec3 centre,
                                                 double radius, Entity excluded) {
         List<LivingEntity> found = new ArrayList<>();
         AABB area = new AABB(centre, centre).inflate(radius);
@@ -51,7 +49,7 @@ public final class ProjectileStrikes {
         return dx * dx + dy * dy + dz * dz;
     }
 
-    public static int strikeArea(ServerLevel level, Entity source, Player owner, DamageSpec spec,
+    public static int strikeArea(ServerLevel level, Entity source, LivingEntity owner, DamageSpec spec,
                                  Vec3 centre, double radius, Entity excluded) {
         if (spec == null || owner == null || STRIKING.get()) {
             return 0;
@@ -59,14 +57,14 @@ public final class ProjectileStrikes {
         return strike(source, owner, spec, foesAround(level, owner, centre, radius, excluded));
     }
 
-    public static boolean strikeOne(Entity source, Player owner, DamageSpec spec, LivingEntity victim) {
+    public static boolean strikeOne(Entity source, LivingEntity owner, DamageSpec spec, LivingEntity victim) {
         if (spec == null || owner == null || victim == null || !victim.isAlive() || STRIKING.get()) {
             return false;
         }
         return strike(source, owner, spec, List.of(victim)) > 0;
     }
 
-    private static int strike(Entity source, Player owner, DamageSpec spec, List<LivingEntity> victims) {
+    private static int strike(Entity source, LivingEntity owner, DamageSpec spec, List<LivingEntity> victims) {
         float triggering = ProjectileUpkeep.triggeringFor(source);
         STRIKING.set(Boolean.TRUE);
         DamageDealer.beginDealing();

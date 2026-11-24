@@ -7,9 +7,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-
 import net.pixeldreamstudios.combat_styles.api.CombatStylesAPI;
 import net.pixeldreamstudios.combat_styles.config.OptionField;
 import net.pixeldreamstudios.combat_styles.custom.CustomContext;
@@ -114,12 +114,12 @@ public final class ShurikenHook implements CustomHook {
         return lines;
     }
 
-    private static ItemStack swinging(Player owner) {
-        AttackHand hand = CombatStylesAPI.swungHand(owner);
+    private static ItemStack swinging(LivingEntity owner) {
+        AttackHand hand = owner instanceof Player player ? CombatStylesAPI.swungHand(player) : null;
         return hand != null && hand.isOffHand() ? owner.getOffhandItem() : owner.getMainHandItem();
     }
 
-    private static ItemStack itemFor(String declared, Player owner) {
+    private static ItemStack itemFor(String declared, LivingEntity owner) {
         if (HELD_ITEM.equals(declared)) {
             return owner == null ? ItemStack.EMPTY : swinging(owner).copyWithCount(SINGLE);
         }

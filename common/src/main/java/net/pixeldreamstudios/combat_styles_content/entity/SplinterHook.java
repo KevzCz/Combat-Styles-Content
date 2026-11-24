@@ -6,15 +6,13 @@ import com.mojang.serialization.JsonOps;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-
 import net.pixeldreamstudios.combat_styles.affix.AffixEffects;
 import net.pixeldreamstudios.combat_styles.affix.ProjectileLaunches;
 import net.pixeldreamstudios.combat_styles.affix.ProjectileUpkeep;
@@ -93,7 +91,7 @@ public final class SplinterHook implements CustomHook {
 
     @Override
     public void onHit(CustomContext context, Entity source, LivingEntity target) {
-        Player owner = context.owner();
+        LivingEntity owner = context.owner();
         if (ProjectileStrikes.striking() || owner == null || target == null
                 || !(target.level() instanceof ServerLevel level)) {
             return;

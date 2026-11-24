@@ -1,8 +1,6 @@
 package net.pixeldreamstudios.combat_styles_content.entity;
 
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-
 import net.pixeldreamstudios.combat_styles.damage.DamageSpec;
 
 import java.util.Map;
@@ -20,13 +18,13 @@ public final class SolarBrands {
     private SolarBrands() {
     }
 
-    public static void brand(Player owner, Brand brand) {
+    public static void brand(LivingEntity owner, Brand brand) {
         if (owner != null && !owner.level().isClientSide() && brand != null) {
             BRANDS.put(owner.getUUID(), brand);
         }
     }
 
-    public static Brand of(Player owner) {
+    public static Brand of(LivingEntity owner) {
         if (owner == null || owner.level().isClientSide()) {
             return null;
         }
@@ -43,7 +41,7 @@ public final class SolarBrands {
         return brand;
     }
 
-    public static void clear(Player owner, LivingEntity target) {
+    public static void clear(LivingEntity owner, LivingEntity target) {
         if (owner == null) {
             return;
         }

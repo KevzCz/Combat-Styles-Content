@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-
 import net.pixeldreamstudios.combat_styles.config.OptionField;
 import net.pixeldreamstudios.combat_styles.custom.CustomContext;
 import net.pixeldreamstudios.combat_styles.custom.CustomHook;
@@ -36,8 +35,7 @@ public final class GazeRitualHook implements CustomHook {
     @Override
     public void onApply(CustomContext context) {
         UseEvent use = EquipmentActivation.currentUse();
-        Player player = context.owner();
-        if (use == null || player == null || !(player.level() instanceof ServerLevel level)) {
+        if (use == null || !(context.owner() instanceof Player player) || !(player.level() instanceof ServerLevel level)) {
             return;
         }
         Item item = use.weapon().getItem();

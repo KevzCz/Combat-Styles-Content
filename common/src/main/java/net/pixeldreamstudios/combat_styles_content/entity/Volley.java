@@ -4,8 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-
+import net.minecraft.world.entity.LivingEntity;
 import net.pixeldreamstudios.combat_styles.affix.ProjectileUpkeep;
 import net.pixeldreamstudios.combat_styles.api.CombatScheduler;
 import net.pixeldreamstudios.combat_styles.custom.CustomScopes;
@@ -22,7 +21,7 @@ public final class Volley {
     private Volley() {
     }
 
-    public static void roll(Player owner, ShurikenEntity shot) {
+    public static void roll(LivingEntity owner, ShurikenEntity shot) {
         if (!(shot.level() instanceof ServerLevel level)) {
             return;
         }

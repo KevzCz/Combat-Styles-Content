@@ -9,9 +9,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-
 import net.pixeldreamstudios.combat_styles.affix.AffixText;
 import net.pixeldreamstudios.combat_styles.config.OptionField;
 import net.pixeldreamstudios.combat_styles.custom.CustomContext;
@@ -119,7 +117,7 @@ public final class BurstHook implements CustomHook {
             return;
         }
         JsonObject options = context.options();
-        Player owner = context.owner();
+        LivingEntity owner = context.owner();
         float radius = HookOptions.floatOf(options, KEY_RADIUS, DEFAULT_RADIUS);
         int ignite = HookOptions.intOf(options, KEY_IGNITE_SECONDS, DEFAULT_IGNITE_SECONDS);
         if (ignite > 0) {

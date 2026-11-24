@@ -4,8 +4,6 @@ import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-
 import net.pixeldreamstudios.combat_styles.config.OptionField;
 import net.pixeldreamstudios.combat_styles.custom.CustomContext;
 import net.pixeldreamstudios.combat_styles.custom.CustomHook;
@@ -54,7 +52,7 @@ public final class FocusHook implements CustomHook {
 
     @Override
     public float modifyDamage(CustomContext context, float amount) {
-        Player owner = context.owner();
+        LivingEntity owner = context.owner();
         LivingEntity target = context.target();
         if (owner == null || target == null) {
             return amount;

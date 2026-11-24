@@ -4,9 +4,9 @@ import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-
 import net.pixeldreamstudios.combat_styles.config.OptionField;
 import net.pixeldreamstudios.combat_styles.custom.CustomContext;
 import net.pixeldreamstudios.combat_styles.custom.CustomHook;
@@ -63,7 +63,7 @@ public final class ReturningHook implements CustomHook {
 
     @Override
     public void onTick(CustomContext context, Entity entity) {
-        Player owner = context.owner();
+        LivingEntity owner = context.owner();
         if (owner == null || entity.level().isClientSide()) {
             return;
         }
@@ -90,7 +90,9 @@ public final class ReturningHook implements CustomHook {
             if (toOrigin) {
                 dropAt(wheel, options);
             } else {
-                CatchRefundHook.caught(owner, entity);
+                if (owner instanceof Player catcher) {
+                    CatchRefundHook.caught(catcher, entity);
+                }
                 entity.discard();
             }
             return;
@@ -127,7 +129,7 @@ public final class ReturningHook implements CustomHook {
         headHome(context.owner(), wheel, options);
     }
 
-    private static void headHome(Player owner, ShurikenEntity wheel, JsonObject options) {
+    private static void headHome(LivingEntity owner, ShurikenEntity wheel, JsonObject options) {
         Vec3 home = toOrigin(options) && wheel.throwPoint() != null
                 ? wheel.throwPoint()
                 : owner == null ? null : owner.getEyePosition();

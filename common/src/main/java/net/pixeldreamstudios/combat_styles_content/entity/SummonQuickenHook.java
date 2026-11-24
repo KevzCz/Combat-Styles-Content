@@ -5,7 +5,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-
+import net.minecraft.world.entity.player.Player;
 import net.pixeldreamstudios.combat_styles.affix.EffectChance;
 import net.pixeldreamstudios.combat_styles.config.OptionField;
 import net.pixeldreamstudios.combat_styles.custom.CustomContext;
@@ -42,12 +42,12 @@ public final class SummonQuickenHook implements CustomHook {
 
     @Override
     public void onHit(CustomContext context, Entity source, LivingEntity target) {
-        if (ProjectileStrikes.striking() || context.owner() == null) {
+        if (ProjectileStrikes.striking() || !(context.owner() instanceof Player owner)) {
             return;
         }
         JsonObject options = context.options();
-        if (EffectChance.rolls(context.owner(), HookOptions.floatOf(options, KEY_CHANCE, DEFAULT_CHANCE))) {
-            AbilityHosts.quicken(context.owner(), HookOptions.floatOf(options, KEY_RATIO, DEFAULT_RATIO));
+        if (EffectChance.rolls(owner, HookOptions.floatOf(options, KEY_CHANCE, DEFAULT_CHANCE))) {
+            AbilityHosts.quicken(owner, HookOptions.floatOf(options, KEY_RATIO, DEFAULT_RATIO));
         }
     }
 
